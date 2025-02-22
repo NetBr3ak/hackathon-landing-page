@@ -1267,9 +1267,12 @@
 
         // Handle video end event for analytics.mp4
         function handleVideoEnd() {
-            if (videoSources[currentVideoIndex] === 'analytics.mp4') {
-                // Analytics finished playing, rotate immediately
-                rotateVideo();
+            const currentVideo = videoSources[currentVideoIndex];
+            if (currentVideo === 'analytics.mp4') {
+                // Analytics finished playing, rotate to next video
+                setTimeout(() => {
+                    rotateVideo();
+                }, 100);
             }
         }
 
@@ -1277,9 +1280,12 @@
         if (heroVideo) {
             preloadNextVideo();
             heroVideo.addEventListener('ended', handleVideoEnd);
-            rotationInterval = setInterval(() => {
-                // Only auto-rotate if not currently playing analytics
-                if (videoSources[currentVideoIndex] !== 'analytics.mp4') {
+
+            // Check if video is looping before rotating
+            setInterval(() => {
+                const currentVideo = videoSources[currentVideoIndex];
+                // Only auto-rotate if current video is looping (not analytics)
+                if (heroVideo.loop && currentVideo !== 'analytics.mp4') {
                     rotateVideo();
                 }
             }, 10000);
