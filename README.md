@@ -21,12 +21,12 @@ FailSafe to zaawansowany system do real-time monitorowania stanu maszyn i system
 
 Projekt realizuje zespół specjalistów:
 
-- **Mateusz Pawlik** - Technical Support Specialist (SalesManago)
-- **Agata Syc** - COO (Aigorithmics)
-- **Franciszek Głąb** - Security & Code | Applied Computer Science Engineer
-- **Dominik Kamiński** - Software Developer (NOVOMATIC Technologies Poland)
-- **Rafał Tomaszewski** - Tester Oprogramowania
-- **Szymon Jędryczko** - Machine Learning & Security Engineer | Adversarial ML & AI Safety | MLOps
+- **Mateusz Pawlik** 
+- **Agata Syc** 
+- **Franciszek Głąb** 
+- **Dominik Kamiński** 
+- **Rafał Tomaszewski** 
+- **Szymon Jędryczko** 
 
 ## 🏗️ Struktura Projektu
 
