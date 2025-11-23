@@ -517,7 +517,7 @@
                 <!-- Dashboard Video -->
                 <div class="relative lg:col-span-3">
                     <div class="screenshot-container rounded-2xl overflow-hidden border border-cyber-green/10"
-                        onclick="openModal('dashboardModal')">
+                        onclick="openModal('errorModal')">
                         <video autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover">
                             <source src="error_handler.mp4" type="video/mp4">
                             Twoja przeglądarka nie obsługuje odtwarzania wideo.
@@ -550,9 +550,9 @@
                         <span class="gradient-text">$72,000 na godzinę</span>
                     </h2>
                     <p class="text-xl text-gray-400 leading-relaxed">
-                        Produkcja wariatorów w ELPLC: 600 szt/h × $120/szt = $72k/h przychodu.
+                        W ELPLC produkują 600 wariatorów na godzinę. Każdy kosztuje $120. To $72k przychodu co godzinę.
                         Każda minuta przestoju to realne straty. ForgeGrid reaguje w 2 minuty zamiast 30,
-                        redystrybuując zadania automatycznie i minimalizując wpływ awarii o 93%.
+                        automatycznie redystrybuuje zadania i zmniejsza wpływ awarii o 93%.
                     </p>
                     <div class="grid sm:grid-cols-2 gap-6 pt-4">
                         <div class="p-6 bg-cyber-dark/40 border border-red-500/20 rounded-xl">
@@ -647,7 +647,7 @@
 
                 <div class="relative lg:col-span-3">
                     <div class="screenshot-container rounded-2xl overflow-hidden border border-cyber-green/10"
-                        onclick="openModal('dashboardModal')">
+                        onclick="openModal('analyticsModal')">
                         <video autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover">
                             <source src="analytics.mp4" type="video/mp4">
                             Twoja przeglądarka nie obsługuje odtwarzania wideo.
@@ -842,7 +842,7 @@
                 </a>
 
                 <!-- Agata Syc -->
-                <a href="https://pl.linkedin.com/in/agata-syc-8ab963a5" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/agata-syc-8ab963a5" target="_blank" rel="noopener noreferrer"
                     class="group block">
                     <div
                         class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
@@ -867,7 +867,7 @@
                 </a>
 
                 <!-- Dominik Kamiński -->
-                <a href="https://pl.linkedin.com/in/dominik-kami%C5%84ski-46b56b224" target="_blank"
+                <a href="https://www.linkedin.com/in/dominik-kamiński-46b56b224" target="_blank"
                     rel="noopener noreferrer" class="group block">
                     <div
                         class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
@@ -893,7 +893,7 @@
                 </a>
 
                 <!-- Franciszek Głąb -->
-                <a href="https://pl.linkedin.com/in/franciszek-g%C5%82%C4%85b" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/franciszek-głąb" target="_blank" rel="noopener noreferrer"
                     class="group block">
                     <div
                         class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
@@ -919,7 +919,7 @@
                 </a>
 
                 <!-- Rafał Tomaszewski -->
-                <a href="https://pl.linkedin.com/in/rafa%C5%82-tomaszewski2" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/rafał-tomaszewski2" target="_blank" rel="noopener noreferrer"
                     class="group block">
                     <div
                         class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
@@ -1177,6 +1177,28 @@
             <span class="modal-close" onclick="closeModal('dashboardModal')">&times;</span>
             <video controls loop class="w-full h-full object-contain rounded-xl">
                 <source src="hero-video.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+            </video>
+        </div>
+    </div>
+
+    <!-- Error Handler Modal -->
+    <div id="errorModal" class="modal" onclick="closeModal('errorModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('errorModal')">&times;</span>
+            <video controls loop class="w-full h-full object-contain rounded-xl">
+                <source src="error_handler.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+            </video>
+        </div>
+    </div>
+
+    <!-- Analytics Modal -->
+    <div id="analyticsModal" class="modal" onclick="closeModal('analyticsModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('analyticsModal')">&times;</span>
+            <video controls loop class="w-full h-full object-contain rounded-xl">
+                <source src="analytics.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>
