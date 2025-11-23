@@ -1,6 +1,6 @@
 # FailSafe - Landing Page
 
-Strona docelowa (landing page) dla projektu **Internal Machine Monitor** - inteligentnego systemu monitorowania i zarządzania maszynami w infrastrukturze IT.
+Strona docelowa (landing page) dla projektu **FailSafe** - inteligentnego systemu monitorowania i zarządzania maszynami w infrastrukturze IT.
 
 ## 📋 O Projekcie
 
