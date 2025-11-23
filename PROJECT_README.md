@@ -1,19 +1,35 @@
-# 🏭 ELPLC Production Hall Simulator
+# 🏭 ForgeGrid - Production Monitoring & Analytics
 
-> **Realistyczny symulator hali produkcyjnej** dla demonstracji systemu FailSafe  
-> Hackathon dla Małopolski 2025 • ELPLC S.A.
+> **System monitoringu produkcji z modułem analitycznym**  
+> Projekt FailSafe • Hackathon dla Małopolski 2025 • ELPLC S.A.
 
 ---
 
-## 🎯 Cel Projektu
+## 🎯 Co Robi ForgeGrid?
 
-Interaktywny **symulator 4 maszyn produkcyjnych** przetwarzających zlecenia w czasie rzeczywistym. System demonstruje:
+**ForgeGrid** to zaawansowany symulator hali produkcyjnej z pełnym modułem raportowania:
 
-- ✅ **Ciągły napływ zleceń** produkcyjnych (wariatory, baterie e-bike, amortyzatory)
-- ✅ **Inteligentny przydział zadań** oparty o heurystykę minimalizacji makespan
-- ✅ **Realistyczne parametry czasowe** z hal ELPLC (wariatory $120/szt, cykl 6 sek)
-- ✅ **Wizualizację w stylu MES/planistycznym** zrozumiałą dla planera produkcji
-- ✅ **Metryki w czasie rzeczywistym** (obciążenie, ETA, throughput, wykorzystanie)
+### 🏭 Production Monitoring
+- ✅ **4 maszyny produkcyjne** - CNC-01, CNC-02, Assembly-Line A, Test-Stand B
+- ✅ **12 typów zadań** - wariatory, baterie e-bike, amortyzatory, testy EOL, kalibracja
+- ✅ **Ciągły napływ zleceń** - nowe zadania co 5-15 sekund symulacyjnych
+- ✅ **Inteligentny przydział** - heurystyka minimalizacji makespan (nie losowość!)
+- ✅ **Symulacja awarii** - breakdown z automatyczną dystrybucją zadań
+- ✅ **Priorytety** - Critical (🔴) / Rush (🟡) / Normal (🟢)
+
+### 📊 Analytics & Reporting
+- ✅ **Real-time KPIs** - throughput, hall load, task counts
+- ✅ **3 interaktywne wykresy** - Hall Load, Task Throughput, Machine Utilization
+- ✅ **Event logging** - 8 typów zdarzeń z timestampami i severity levels
+- ✅ **Alert routing** - notyfikacje dla Technicians/Supervisors/Managers/QC
+- ✅ **Eksport CSV** - pełna historia zdarzeń do analizy
+- ✅ **Time range filtering** - 5m / 15m / 30m / 1h
+
+### 🎨 Professional UI
+- ✅ **Production View** - dashboard w stylu MES z 4 maszynami
+- ✅ **Analytics View** - kompletny moduł raportowania
+- ✅ **Brutalist design** - cyan accents, slate backgrounds, uppercase mono labels
+- ✅ **Real-time updates** - aktualizacja co 0.5 minuty symulacyjnej
 
 ---
 
@@ -52,7 +68,64 @@ Aplikacja uruchomi się pod adresem **http://localhost:5173**
 
 ---
 
-## 📊 Typy Zleceń (Produkty ELPLC)
+## 📊 Jakie Wartości Śledzi System?
+
+### Metryki Globalne (Production View)
+- **Hall Load** - średnie obciążenie wszystkich maszyn (0-100%)
+- **ETA** - szacowany czas zakończenia wszystkich zadań w minutach
+- **Completed** - suma ukończonych zadań od startu symulacji
+- **In Progress** - liczba zadań aktualnie przetwarzanych
+- **Waiting** - zadania czekające w Task Pool na przydział
+- **Throughput** - przepustowość systemu (zadania/godzinę)
+
+### Metryki Maszynowe (dla każdej z 4 maszyn)
+- **Current Task Progress** - postęp aktualnego zadania (0-100%)
+- **Queue ETA** - suma czasów wszystkich zadań w kolejce (minuty)
+- **Utilization** - wykorzystanie maszyny od startu symulacji (%)
+- **Completed Tasks** - liczba ukończonych zadań
+- **Status** - idle / processing / maintenance / breakdown
+
+### Analytics View - KPI Cards
+- **Throughput** - zadania/hr (⚡)
+- **Completed** - suma ukończonych (✓)
+- **In Progress** - aktywne zadania (⚙️)
+- **Waiting** - w kolejce (📋)
+- **Events Logged** - suma wszystkich zdarzeń (📝)
+
+### Analytics View - Wykresy
+1. **Hall Load Trend** (Area Chart)
+   - Oś X: Simulation Time (minuty)
+   - Oś Y: Hall Load (0-100%)
+   - Time Range: 5m / 15m / 30m / 1h
+
+2. **Task Throughput** (Multi-Line Chart)
+   - 3 linie: Completed (zielona) / Active (pomarańczowa) / Waiting (szara)
+   - Oś X: Simulation Time
+   - Oś Y: Task Count
+
+3. **Machine Utilization Distribution** (Bar Chart)
+   - 4 słupki: CNC-01, CNC-02, Assembly-Line A, Test-Stand B
+   - Oś Y: Utilization % (0-100%)
+
+### Event Log - Typy Zdarzeń
+- **task_created** - nowe zadanie wygenerowane
+- **task_assigned** - zadanie przydzielone do maszyny
+- **task_started** - rozpoczęcie przetwarzania
+- **task_completed** - ukończenie zadania
+- **machine_breakdown** - awaria maszyny
+- **machine_repaired** - naprawa maszyny
+- **alert_sent** - wysłanie alertu do operatorów
+- **rebalance_triggered** - redistrybucja zadań
+
+### Notification Recipients (Alert Routing)
+- **Technicians** (🔧) - alerty techniczne, awarie
+- **Supervisors** (👔) - priorytety, delays
+- **Managers** (💼) - raporty wydajności
+- **Quality Control** (🔬) - problemy jakościowe
+
+---
+
+## 📦 Typy Zleceń (Produkty ELPLC)
 
 System zawiera **12 realistycznych typów zadań** inspirowanych produktami ELPLC:
 
