@@ -6,17 +6,6 @@ Strona docelowa (landing page) dla projektu **FailSafe** - inteligentnego system
 
 FailSafe to zaawansowany system do real-time monitorowania stanu maszyn i systemów. Projekt pozwala na śledzenie parametrów systemowych, analizę wydajności i zarządzanie zasobami w nowoczesnej infrastrukturze IT.
 
-## 👥 Zespół
-
-Projekt realizuje zespół specjalistów:
-
-- **Mateusz Pawlik** 
-- **Agata Syc** 
-- **Franciszek Głąb** 
-- **Dominik Kamiński** 
-- **Rafał Tomaszewski** 
-- **Szymon Jędryczko** 
-
 ## 📱 Responsive
 
 Strona jest w pełni responsywna i dostosowuje się do:
