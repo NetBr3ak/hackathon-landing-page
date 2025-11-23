@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForgeGrid</title>
     <meta name="description"
-        content="FailSafe minimalizuje makespan i optymalizuje przydział zadań w czasie rzeczywistym. 93% redukcja strat przy awarii produkcyjnej - automatyzacja vs. ręczne planowanie.">
+        content="ForgeGrid minimalizuje makespan i optymalizuje przydział zadań w czasie rzeczywistym. 93% redukcja strat przy awarii produkcyjnej - automatyzacja vs. ręczne planowanie.">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -290,7 +290,7 @@
                         <span class="gradient-text">pod kontrolą</span>
                     </h2>
                     <p class="text-xl text-gray-400 leading-relaxed">
-                        FailSafe to system zarządzania produkcją, który automatycznie optymalizuje przydział zadań.
+                        ForgeGrid to system zarządzania produkcją, który automatycznie optymalizuje przydział zadań.
                         Dashboard w czasie rzeczywistym pokazuje dokładnie to, co planista musi wiedzieć.
                     </p>
                     <ul class="space-y-4 pt-4">
@@ -303,7 +303,8 @@
                             </svg>
                             <div>
                                 <div class="font-semibold text-white">Automatyczny Przydział</div>
-                                <div class="text-gray-400">Heurystyka minimalizacji makespan - 3 sekundy na nowy plan
+                                <div class="text-gray-400">Zaawansowane algorytmy minimalizacji makespan - 3 sekundy na
+                                    nowy plan
                                 </div>
                             </div>
                         </li>
@@ -415,7 +416,7 @@
                         </div>
                         <div class="p-6 bg-white/5 border border-white/10 rounded-xl">
                             <div class="text-3xl font-bold text-green-400 mb-2">2 minuty</div>
-                            <div class="text-sm text-gray-400">FailSafe - automatyczna reakcja</div>
+                            <div class="text-sm text-gray-400">ForgeGrid - automatyczna reakcja</div>
                         </div>
                     </div>
                     <div
@@ -455,7 +456,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-semibold">Hall Load i Machine Utilization</div>
+                                <div class="font-semibold">Obciążenie Hali i Wykorzystanie Maszyn</div>
                                 <div class="text-sm text-gray-400">Interaktywne wykresy obciążenia hali i maszyn</div>
                             </div>
                         </div>
@@ -469,7 +470,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-semibold">Event Log i Alert Routing</div>
+                                <div class="font-semibold">Dziennik Zdarzeń i Routing Alertów</div>
                                 <div class="text-sm text-gray-400">Śledzenie zdarzeń z notyfikacjami dla QC i Techników
                                 </div>
                             </div>
@@ -492,21 +493,27 @@
                 </div>
 
                 <div class="relative lg:col-span-3">
-                    <div
-                        class="screenshot-placeholder rounded-2xl aspect-video flex items-center justify-center overflow-hidden bg-white/5 border border-white/10">
-                        <div class="absolute inset-0 bg-gradient-to-br from-failsafe-cyan/10 to-failsafe-blue/10"></div>
-                        <div class="relative text-center p-8">
-                            <svg class="w-24 h-24 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                                </path>
-                            </svg>
-                            <p class="text-gray-400 font-mono text-lg font-semibold tracking-wide">ANALYTICS VIEW</p>
-                            <p class="text-gray-500 text-sm mt-2">Wykresy: Hall Load Trend, Throughput, Utilization</p>
-                        </div>
+                    <div class="screenshot-container rounded-2xl overflow-hidden border border-white/10"
+                        onclick="openModal('dashboardModal')">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <source src="analytics.mp4" type="video/mp4">
+                            Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                        </video>
                     </div>
-                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-failsafe-cyan/20 rounded-full blur-3xl"></div>
+                    <div
+                        class="absolute -bottom-6 -right-6 w-32 h-32 bg-failsafe-cyan/20 rounded-full blur-3xl pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-gray-300 pointer-events-none">
+                        <svg class="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Kliknij aby powiększyć
+                    </div>
                 </div>
             </div>
         </div>
@@ -522,7 +529,7 @@
                     <span class="gradient-text">planista produkcji</span>
                 </h2>
                 <p class="text-xl text-gray-400">
-                    FailSafe to nie tylko software – to narzędzie, które oszczędza Twoje pieniądze każdego dnia.
+                    ForgeGrid to nie tylko software – to narzędzie, które oszczędza Twoje pieniądze każdego dnia.
                 </p>
             </div>
 
@@ -555,11 +562,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-failsafe-purple transition-colors">Blyskawiczny
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-failsafe-purple transition-colors">Błyskawiczny
                         zwrot z inwestycji</h3>
                     <p class="text-gray-400">
-                        Nawet 93% redukcja strat przy awarii. Automatyzacja sprawia, ze inwestycja zwraca sie w bardzo
-                        krotkim czasie.
+                        Nawet 93% redukcja strat przy awarii. Automatyzacja sprawia, że inwestycja zwraca się w bardzo
+                        krótkim czasie.
                     </p>
                 </div>
 
@@ -607,7 +614,7 @@
                     <h3 class="text-xl font-bold mb-2 group-hover:text-failsafe-purple transition-colors">Metryki OEE
                     </h3>
                     <p class="text-gray-400">
-                        Obciążenie maszyn, wykorzystanie, throughput - wszystkie KPI w czasie rzeczywistym.
+                        Obciążenie maszyn, wykorzystanie, przepustowość - wszystkie KPI w czasie rzeczywistym.
                     </p>
                 </div>
 
@@ -864,25 +871,25 @@
                             class="flex items-center gap-3 p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
                             <input type="checkbox" name="features" value="monitoring"
                                 class="w-4 h-4 text-failsafe-blue rounded">
-                            <span class="text-sm">Real-time monitoring</span>
+                            <span class="text-sm">Monitoring w czasie rzeczywistym</span>
                         </label>
                         <label
                             class="flex items-center gap-3 p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
                             <input type="checkbox" name="features" value="analityka"
                                 class="w-4 h-4 text-failsafe-blue rounded">
-                            <span class="text-sm">Predykcyjna analityka</span>
+                            <span class="text-sm">Analityka predykcyjna</span>
                         </label>
                         <label
                             class="flex items-center gap-3 p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
                             <input type="checkbox" name="features" value="bezpieczenstwo"
                                 class="w-4 h-4 text-failsafe-blue rounded">
-                            <span class="text-sm">Self-hosted security</span>
+                            <span class="text-sm">Bezpieczeństwo Self-hosted</span>
                         </label>
                         <label
                             class="flex items-center gap-3 p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
                             <input type="checkbox" name="features" value="wydajnosc"
                                 class="w-4 h-4 text-failsafe-blue rounded">
-                            <span class="text-sm">Open-source</span>
+                            <span class="text-sm">Rozwiązanie Open Source</span>
                         </label>
                     </div>
                 </div>
@@ -964,7 +971,7 @@
                 </div>
 
                 <div class="text-sm text-gray-500">
-                    © 2025 FailSafe. Projekt Open Source.
+                    © 2025 ForgeGrid. Projekt Open Source.
                 </div>
             </div>
         </div>
