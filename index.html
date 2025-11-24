@@ -35,36 +35,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Custom Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'forge-black': '#000000',
-                        'forge-dark': '#050505',
-                        'forge-card': 'rgba(10, 10, 10, 0.8)',
-                        'forge-border': '#333333',
-                        'forge-text': '#F0F0F0',
-                        'forge-muted': '#888888',
-                        'forge-accent': '#FFFFFF',
-                        'forge-accent-hover': '#CCCCCC',
-                        'forge-success': '#00FF00',
-                    },
-                    fontFamily: {
-                        'mono': ['IBM Plex Mono', 'monospace'],
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                    letterSpacing: {
-                        'tightest': '-0.05em',
-                        'widest': '0.3em',
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="tailwind-config.js"></script>
 
     <!-- Google Fonts - IBM Plex Mono + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,205 +44,7 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <style>
-        :root {
-            --cursor-x: 50%;
-            --cursor-y: 50%;
-        }
-
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #020408;
-            color: #E2E8F0;
-            overflow-x: hidden;
-        }
-
-        ::selection {
-            background: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-        }
-
-        /* Advanced Grid Background */
-        .grid-bg {
-            background-size: 40px 40px;
-            background-image:
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
-        }
-
-        /* Spotlight Effect */
-        .spotlight-card {
-            position: relative;
-            overflow: hidden;
-            background: rgba(5, 5, 5, 0.6);
-            backdrop-filter: blur(10px);
-        }
-
-        .spotlight-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
-                    rgba(255, 255, 255, 0.04),
-                    transparent 50%);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-            pointer-events: none;
-        }
-
-        .spotlight-card:hover::before {
-            opacity: 1;
-        }
-
-        .spotlight-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
-                    rgba(255, 255, 255, 0.08),
-                    transparent 50%);
-            z-index: 3;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-            pointer-events: none;
-            border-radius: inherit;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            -webkit-mask-composite: xor;
-            padding: 1px;
-        }
-
-        .spotlight-card:hover::after {
-            opacity: 1;
-        }
-
-        /* Minimalist Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #020408;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #1E293B;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #666666;
-        }
-
-        /* Fade-in animations - Optimized for speed */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .screenshot-container {
-            transition: border-color 0.15s ease, box-shadow 0.15s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-            cursor: pointer;
-        }
-
-        .screenshot-container:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(2, 4, 8, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: modalFadeIn 0.15s ease-out;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-            border: 1px solid #1E293B;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .modal-content img,
-        .modal-content video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-
-        .modal-close:hover {
-            opacity: 1;
-            color: #FFFFFF;
-        }
-
-        /* Technical Decorations - Hidden */
-        .tech-corner {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-forge-black text-forge-text antialiased selection:bg-white selection:text-black">
@@ -1150,201 +923,201 @@
         </div>
     </div>
 
-    <!-- JavaScript for Modal -->
-    <script>
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+    <script src="app.js"></script>
+</body>
 
-            // Auto-play video when modal opens
-            const video = modal.querySelector('video');
-            if (video) {
-                video.play();
-            }
-        }
+</html>
+modal.classList.add('active');
+document.body.style.overflow = 'hidden';
 
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+// Auto-play video when modal opens
+const video = modal.querySelector('video');
+if (video) {
+video.play();
+}
+}
 
-            // Pause video when modal closes
-            const video = modal.querySelector('video');
-            if (video) {
-                video.pause();
-            }
-        }
+function closeModal(modalId) {
+const modal = document.getElementById(modalId);
+modal.classList.remove('active');
+document.body.style.overflow = 'auto';
 
-        // Close modal with ESC key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                const activeModal = document.querySelector('.modal.active');
-                if (activeModal) {
-                    activeModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+// Pause video when modal closes
+const video = modal.querySelector('video');
+if (video) {
+video.pause();
+}
+}
 
-                    // Pause video when closing with ESC
-                    const video = activeModal.querySelector('video');
-                    if (video) {
-                        video.pause();
-                    }
-                }
-            }
-        });
+// Close modal with ESC key
+document.addEventListener('keydown', function (event) {
+if (event.key === 'Escape') {
+const activeModal = document.querySelector('.modal.active');
+if (activeModal) {
+activeModal.classList.remove('active');
+document.body.style.overflow = 'auto';
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+// Pause video when closing with ESC
+const video = activeModal.querySelector('video');
+if (video) {
+video.pause();
+}
+}
+}
+});
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+// Intersection Observer for fade-in animations
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
 
-        // Observe all sections for animations
-        document.addEventListener('DOMContentLoaded', () => {
-            // Show page after fonts and critical content loaded
-            document.body.classList.add('loaded');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, observerOptions);
 
-            const animatedElements = document.querySelectorAll('section > div');
-            animatedElements.forEach(el => {
-                el.classList.add('fade-in-up');
-                observer.observe(el);
-            });
+// Observe all sections for animations
+document.addEventListener('DOMContentLoaded', () => {
+// Show page after fonts and critical content loaded
+document.body.classList.add('loaded');
 
-            // Lazy load videos on viewport enter
-            const videos = document.querySelectorAll('video[loading="lazy"]');
-            const videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const video = entry.target;
-                        video.play().catch(() => { });
-                        videoObserver.unobserve(video);
-                    }
-                });
-            });
-            videos.forEach(video => videoObserver.observe(video));
-        });
+const animatedElements = document.querySelectorAll('section > div');
+animatedElements.forEach(el => {
+el.classList.add('fade-in-up');
+observer.observe(el);
+});
 
-        // Spotlight Effect
-        document.addEventListener('mousemove', e => {
-            const cards = document.getElementsByClassName('spotlight-card');
-            for (const card of cards) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+// Lazy load videos on viewport enter
+const videos = document.querySelectorAll('video[loading="lazy"]');
+const videoObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const video = entry.target;
+video.play().catch(() => { });
+videoObserver.unobserve(video);
+}
+});
+});
+videos.forEach(video => videoObserver.observe(video));
+});
 
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            }
-        });
+// Spotlight Effect
+document.addEventListener('mousemove', e => {
+const cards = document.getElementsByClassName('spotlight-card');
+for (const card of cards) {
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
 
-        // Hero Video Rotation System
-        const heroVideo = document.getElementById('heroVideo');
-        const videoSources = ['hero-video.mp4', 'analytics.mp4', 'error_handler.mp4'];
-        let currentVideoIndex = 0;
-        let rotationTimeout = null;
+card.style.setProperty('--mouse-x', `${x}px`);
+card.style.setProperty('--mouse-y', `${y}px`);
+}
+});
 
-        // Preload next video for smooth transitions
-        function preloadNextVideo() {
-            const nextIndex = (currentVideoIndex + 1) % videoSources.length;
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.as = 'video';
-            link.href = videoSources[nextIndex];
-            document.head.appendChild(link);
-        }
+// Hero Video Rotation System
+const heroVideo = document.getElementById('heroVideo');
+const videoSources = ['hero-video.mp4', 'analytics.mp4', 'error_handler.mp4'];
+let currentVideoIndex = 0;
+let rotationTimeout = null;
 
-        function scheduleNextRotation() {
-            const currentVideo = videoSources[currentVideoIndex];
+// Preload next video for smooth transitions
+function preloadNextVideo() {
+const nextIndex = (currentVideoIndex + 1) % videoSources.length;
+const link = document.createElement('link');
+link.rel = 'prefetch';
+link.as = 'video';
+link.href = videoSources[nextIndex];
+document.head.appendChild(link);
+}
 
-            if (currentVideo === 'analytics.mp4') {
-                // For analytics, wait for video to end naturally
-                // Event listener will handle rotation
-                return;
-            } else {
-                // For hero-video and error_handler, rotate after 10 seconds
-                if (rotationTimeout) clearTimeout(rotationTimeout);
-                rotationTimeout = setTimeout(() => {
-                    rotateVideo();
-                }, 10000);
-            }
-        }
+function scheduleNextRotation() {
+const currentVideo = videoSources[currentVideoIndex];
 
-        function rotateVideo() {
-            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-            const nextVideoSrc = videoSources[currentVideoIndex];
-            const isAnalytics = nextVideoSrc === 'analytics.mp4';
+if (currentVideo === 'analytics.mp4') {
+// For analytics, wait for video to end naturally
+// Event listener will handle rotation
+return;
+} else {
+// For hero-video and error_handler, rotate after 10 seconds
+if (rotationTimeout) clearTimeout(rotationTimeout);
+rotationTimeout = setTimeout(() => {
+rotateVideo();
+}, 10000);
+}
+}
 
-            // Fade out
-            heroVideo.style.opacity = '0';
+function rotateVideo() {
+currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+const nextVideoSrc = videoSources[currentVideoIndex];
+const isAnalytics = nextVideoSrc === 'analytics.mp4';
 
-            setTimeout(() => {
-                // Change source
-                const source = heroVideo.querySelector('source');
-                source.src = nextVideoSrc;
+// Fade out
+heroVideo.style.opacity = '0';
 
-                // For analytics.mp4, disable loop to play once completely
-                if (isAnalytics) {
-                    heroVideo.loop = false;
-                    heroVideo.removeAttribute('loop');
-                } else {
-                    heroVideo.loop = true;
-                    heroVideo.setAttribute('loop', '');
-                }
+setTimeout(() => {
+// Change source
+const source = heroVideo.querySelector('source');
+source.src = nextVideoSrc;
 
-                heroVideo.load();
+// For analytics.mp4, disable loop to play once completely
+if (isAnalytics) {
+heroVideo.loop = false;
+heroVideo.removeAttribute('loop');
+} else {
+heroVideo.loop = true;
+heroVideo.setAttribute('loop', '');
+}
 
-                // Play and fade in
-                heroVideo.play().then(() => {
-                    heroVideo.style.opacity = '0.5';
-                    preloadNextVideo();
-                    scheduleNextRotation();
-                }).catch(err => {
-                    console.log('Video playback error:', err);
-                    heroVideo.style.opacity = '0.5';
-                    scheduleNextRotation();
-                });
-            }, 800);
-        }
+heroVideo.load();
 
-        // Handle video end event for analytics.mp4
-        function handleVideoEnd() {
-            const currentVideo = videoSources[currentVideoIndex];
-            if (currentVideo === 'analytics.mp4') {
-                // Analytics finished playing, rotate to error_handler
-                setTimeout(() => {
-                    rotateVideo();
-                }, 100);
-            }
-        }
+// Play and fade in
+heroVideo.play().then(() => {
+heroVideo.style.opacity = '0.5';
+preloadNextVideo();
+scheduleNextRotation();
+}).catch(err => {
+console.log('Video playback error:', err);
+heroVideo.style.opacity = '0.5';
+scheduleNextRotation();
+});
+}, 800);
+}
 
-        // Initialize video rotation system
-        if (heroVideo) {
-            preloadNextVideo();
-            heroVideo.addEventListener('ended', handleVideoEnd);
-            scheduleNextRotation();
+// Handle video end event for analytics.mp4
+function handleVideoEnd() {
+const currentVideo = videoSources[currentVideoIndex];
+if (currentVideo === 'analytics.mp4') {
+// Analytics finished playing, rotate to error_handler
+setTimeout(() => {
+rotateVideo();
+}, 100);
+}
+}
 
-            // Optimize video quality based on connection
-            if ('connection' in navigator) {
-                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-                if (connection && connection.effectiveType) {
-                    // For slow connections, reduce video loading priority
-                    if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-                        heroVideo.preload = 'metadata';
-                    }
-                }
-            }
-        }
+// Initialize video rotation system
+if (heroVideo) {
+preloadNextVideo();
+heroVideo.addEventListener('ended', handleVideoEnd);
+scheduleNextRotation();
+
+// Optimize video quality based on connection
+if ('connection' in navigator) {
+const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+if (connection && connection.effectiveType) {
+// For slow connections, reduce video loading priority
+if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+heroVideo.preload = 'metadata';
+}
+}
+}
+}
 
 
-    </script>
+</script>
 
 </body>
 
