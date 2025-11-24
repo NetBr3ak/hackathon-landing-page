@@ -115,7 +115,7 @@ function preloadNextVideo() {
 function scheduleNextRotation() {
 	const currentVideo = videoSources[currentVideoIndex];
 
-	if (currentVideo === 'analytics.mp4') {
+	if (currentVideo.includes('analytics.mp4')) {
 		// For analytics, wait for video to end naturally
 		// Event listener will handle rotation
 		return;
@@ -131,7 +131,7 @@ function scheduleNextRotation() {
 function rotateVideo() {
 	currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
 	const nextVideoSrc = videoSources[currentVideoIndex];
-	const isAnalytics = nextVideoSrc === 'analytics.mp4';
+	const isAnalytics = nextVideoSrc.includes('analytics.mp4');
 
 	// Fade out
 	heroVideo.style.opacity = '0';
@@ -168,7 +168,7 @@ function rotateVideo() {
 // Handle video end event for analytics.mp4
 function handleVideoEnd() {
 	const currentVideo = videoSources[currentVideoIndex];
-	if (currentVideo === 'analytics.mp4') {
+	if (currentVideo.includes('analytics.mp4')) {
 		// Analytics finished playing, rotate to error_handler
 		setTimeout(() => {
 			rotateVideo();

@@ -190,8 +190,3 @@ body {
 	opacity: 1;
 	color: #FFFFFF;
 }
-
-/* Technical Decorations - Hidden */
-.tech-corner {
-	display: none;
-}
