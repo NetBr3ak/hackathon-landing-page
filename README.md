@@ -1,10 +1,22 @@
-# ForgeGrid - Landing Page
+# ForgeGrid — Autonomous Production Intelligence
 
-Strona docelowa (landing page) dla projektu **ForgeGrid** - inteligentnego systemu monitorowania i zarządzania maszynami w infrastrukturze IT.
+Cyber-themed landing page for **ForgeGrid** — an intelligent production management and machine monitoring system with Palantir-inspired design.
 
-## 📋 O Projekcie
+## 🎨 Design Features
 
-ForgeGrid to zaawansowany system do real-time monitorowania stanu maszyn i systemów. Projekt pozwala na śledzenie parametrów systemowych, analizę wydajności i zarządzanie zasobami w nowoczesnej infrastrukturze IT.
+- **Palantir-Inspired Aesthetic**: Dark cyber theme with green/amber/blue accents
+- **JetBrains Mono**: Terminal-style typography for technical authenticity
+- **Particles.js**: Interactive background particles with hover effects
+- **Scan Line Effect**: Animated scan lines for cyberpunk atmosphere
+- **Optimized Performance**: Preloaded assets, GPU-accelerated animations
+- **Responsive**: Fully optimized for desktop, tablet, and mobile
+
+## ⚡ Tech Stack
+
+- **HTML5 + Tailwind CSS**: Ultra-fast styling with custom cyber palette
+- **Particles.js**: Interactive canvas particles
+- **JetBrains Mono + Inter**: Professional monospace and sans-serif fonts
+- **Pure JavaScript**: No framework bloat, optimized performance
 
 ## 🔗 Linki
 
