@@ -94,13 +94,10 @@ document.addEventListener('mousemove', e => {
 
 // Hero Video Rotation System
 const heroVideo = document.getElementById('heroVideo');
-// Detect if we're in /en/ subfolder and adjust paths accordingly
-const isEnVersion = window.location.pathname.includes('/en/');
-const pathPrefix = isEnVersion ? '../' : '';
 const videoSources = [
-	pathPrefix + 'hero-video.mp4',
-	pathPrefix + 'analytics.mp4',
-	pathPrefix + 'error_handler.mp4'
+	'assets/videos/hero-video.mp4',
+	'assets/videos/analytics.mp4',
+	'assets/videos/error_handler.mp4'
 ];
 let currentVideoIndex = 0;
 let rotationTimeout = null;

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForgeGrid: Inteligentny System Monitoringu Produkcji</title>
+    <title>ForgeGrid: Intelligent Production Monitoring System</title>
     <meta name="description"
-        content="System monitoringu produkcji reagujący na awarie w 3 sekundy. 93% redukcja strat finansowych, automatyczny przydział zadań, monitoring czasu rzeczywistego 4 maszyn. Zwrot z inwestycji $4M rocznie.">
+        content="Production monitoring system responding to failures in 3 seconds. 93% financial loss reduction, automatic task assignment, real-time monitoring of 4 machines. $4M annual ROI.">
 
     <!-- Language Alternates for SEO -->
     <link rel="alternate" hreflang="pl" href="https://netbr3ak.github.io/hackathon-landing-page/" />
@@ -21,15 +21,15 @@
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ForgeGrid: Inteligentny System Monitoringu Produkcji">
-    <meta property="og:description" content="Awaria maszyny? Nowy plan w 3 sekundy. Redukcja strat o 93%.">
-    <meta property="og:url" content="https://netbr3ak.github.io/hackathon-landing-page/">
+    <meta property="og:title" content="ForgeGrid: Intelligent Production Monitoring System">
+    <meta property="og:description" content="Machine failure? New plan in 3 seconds. 93% loss reduction.">
+    <meta property="og:url" content="https://netbr3ak.github.io/hackathon-landing-page/en/">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="hero-video.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="error_handler.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="analytics.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/videos/hero-video.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/videos/error_handler.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/videos/analytics.mp4" as="video" type="video/mp4">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -68,21 +68,21 @@
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#platform"
-                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Platforma</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Platform</a>
                     <a href="#capabilities"
-                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Możliwości</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Capabilities</a>
                     <a href="#team"
-                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Zespół</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Team</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="en.html"
+                    <a href="pl.html"
                         class="px-3 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-mono uppercase tracking-widest transition-all duration-150 flex items-center gap-2"
-                        aria-label="Switch to English version">
+                        aria-label="Switch to Polish version">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                         </svg>
-                        <span>EN</span>
+                        <span>PL</span>
                     </a>
                     <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                         rel="noopener noreferrer"
@@ -105,7 +105,7 @@
                     class="absolute inset-0 w-full h-full object-cover opacity-50"
                     style="transition: opacity 0.8s ease-in-out;">
                     <source src="assets/videos/hero-video.mp4" type="video/mp4">
-                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                    Your browser doesn't support video playback.
                 </video>
 
                 <div class="absolute inset-0 bg-gradient-to-b from-forge-black/70 via-forge-black/30 to-forge-black/80">
@@ -118,24 +118,24 @@
                     <div
                         class="inline-flex items-center gap-3 px-4 py-1.5 rounded-sm bg-white/5 border border-white/10 backdrop-blur-md mb-8">
                         <div class="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
-                        <span class="text-[10px] font-mono text-gray-400 tracking-[0.2em] uppercase">Status_Systemu:
-                            Operacyjny // v2.4.0</span>
+                        <span class="text-[10px] font-mono text-gray-400 tracking-[0.2em] uppercase">System_Status:
+                            Operational // v2.4.0</span>
                     </div>
 
                     <!-- Main Headline -->
                     <h1
                         class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none font-sans tracking-tighter">
-                        <span class="text-white block mb-2">AUTONOMICZNA</span>
+                        <span class="text-white block mb-2">AUTONOMOUS</span>
                         <span
-                            class="text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500">INTELIGENCJA</span>
+                            class="text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500">INTELLIGENCE</span>
                     </h1>
 
                     <!-- Subheadline -->
                     <p
                         class="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-4 font-light tracking-wide">
-                        Przemysłowy system operacyjny nowej generacji.
+                        Next-generation industrial operating system.
                         <br class="hidden md:block" />
-                        <span class="text-white">Reakcja: &lt;3000ms.</span> Eliminacja błędów poznawczych.
+                        <span class="text-white">Response: &lt;3000ms.</span> Cognitive error elimination.
                     </p>
 
                     <!-- CTA Buttons -->
@@ -144,7 +144,7 @@
                             rel="noopener noreferrer"
                             class="group relative px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150 w-full sm:w-auto overflow-hidden border border-white">
                             <span class="relative z-10 flex items-center gap-3">
-                                [ INICJUJ_DEMO ]
+                                [ INITIATE_DEMO ]
                             </span>
                         </a>
                     </div>
@@ -154,23 +154,23 @@
                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-white/10 pt-px mt-24 max-w-6xl mx-auto border border-white/10">
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">93%</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Redukcja Strat
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Loss Reduction
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">3000<span
                                     class="text-lg text-gray-500">ms</span></div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Czas Reakcji
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Response Time
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
-                            <div class="text-4xl font-light text-white font-mono mb-2">ŻYWO</div>
+                            <div class="text-4xl font-light text-white font-mono mb-2">LIVE</div>
                             <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Monitoring
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">0</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Interwencji
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Interventions
                             </div>
                         </div>
                     </div>
@@ -194,17 +194,16 @@
                     <div class="space-y-8 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-white/10 rounded-sm">
                             <span
-                                class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">INTELIGENTNE_PLANOWANIE</span>
+                                class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">INTELLIGENT_PLANNING</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tighter text-white">
-                            Kontrola
+                            Real-time
                             <br />
-                            <span class="text-gray-500">w czasie rzeczywistym</span>
+                            <span class="text-gray-500">Control</span>
                         </h2>
                         <p class="text-lg text-gray-400 leading-relaxed font-light">
-                            Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii.
-                            Metryki na żywo: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji
-                            ręcznej.
+                            Monitoring 4 machines. Tracking 12 task types. Instant failure detection.
+                            Live metrics: machine load, task queues, hall throughput. Zero manual intervention.
                         </p>
                         <ul class="space-y-8 pt-8 border-t border-white/5">
                             <li class="flex items-start gap-6 group">
@@ -213,10 +212,10 @@
                                 </div>
                                 <div>
                                     <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Algorytm Makespan</div>
+                                        Makespan Algorithm</div>
                                     <div class="text-gray-500 text-sm leading-relaxed">
-                                        Optymalizacja harmonogramu w
-                                        czasie &lt;3000ms po wykryciu anomalii.
+                                        Schedule optimization in
+                                        &lt;3000ms after anomaly detection.
                                     </div>
                                 </div>
                             </li>
@@ -226,10 +225,10 @@
                                 </div>
                                 <div>
                                     <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Automatyczny Przydział</div>
+                                        Automatic Assignment</div>
                                     <div class="text-gray-500 text-sm leading-relaxed">
-                                        Algorytm przydziela zadania operatorom z uwzględnieniem priorytetów i
-                                        obciążenia.</div>
+                                        Algorithm assigns tasks to operators considering priorities and
+                                        workload.</div>
                                 </div>
                             </li>
                             <li class="flex items-start gap-6 group">
@@ -238,10 +237,10 @@
                                 </div>
                                 <div>
                                     <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Monitoring Parametrów</div>
+                                        Parameter Monitoring</div>
                                     <div class="text-gray-500 text-sm leading-relaxed">
-                                        Śledzenie na żywo: temperatura, ciśnienie, RPM, wibracje. Predykcja awarii przed
-                                        wystąpieniem.</div>
+                                        Live tracking: temperature, pressure, RPM, vibrations. Failure prediction before
+                                        occurrence.</div>
                                 </div>
                             </li>
                         </ul>
@@ -255,12 +254,12 @@
                                 aria-label="Platform demonstration video"
                                 class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
                                 <source src="assets/videos/hero-video.mp4" type="video/mp4">
-                                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                                Your browser doesn't support video playback.
                             </video>
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1.5 border border-white/10 rounded-sm text-[10px] text-gray-300 pointer-events-none font-mono uppercase tracking-widest">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM IN
                         </div>
                     </div>
                 </div>
@@ -280,50 +279,50 @@
                                 aria-label="Error handler demonstration video"
                                 class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="assets/videos/error_handler.mp4" type="video/mp4">
-                                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                                Your browser doesn't support video playback.
                             </video>
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM IN
                         </div>
                     </div>
 
                     <div class="space-y-6 order-1 lg:order-2 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
                             <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
-                                RZECZYWISTY_WPŁYW</span>
+                                REAL_IMPACT</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
-                            Koszt przestoju
+                            Downtime cost
                             <br />
-                            <span class="text-forge-muted">$72k na godzinę</span>
+                            <span class="text-forge-muted">$72k per hour</span>
                         </h2>
                         <p class="text-xl text-forge-muted leading-relaxed font-light">
-                            ELPLC: 600 jednostek/godz @ $120. $72k przychodu/godz na szali.
-                            Planowanie ręczne: 30 min. ForgeGrid: 2 min. Auto redystrybucja. 93% redukcja strat.
+                            ELPLC: 600 units/hr @ $120. $72k revenue/hr at stake.
+                            Manual planning: 30 min. ForgeGrid: 2 min. Auto redistribution. 93% loss reduction.
                         </p>
                         <div class="grid sm:grid-cols-2 gap-6 pt-4">
                             <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
                                 <div class="text-3xl font-bold text-white mb-2 font-mono">30 MIN</div>
-                                <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">PLANOWANIE
-                                    RĘCZNE
+                                <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">MANUAL
+                                    PLANNING
                                 </div>
                             </div>
                             <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
                                 <div class="text-3xl font-bold text-white mb-2 font-mono">2 MIN</div>
                                 <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">FORGEGRID
-                                    AUTO-REAKCJA
+                                    AUTO-RESPONSE
                                 </div>
                             </div>
                         </div>
                         <div class="p-6 bg-forge-card border border-forge-border rounded-sm mt-4">
                             <div class="text-2xl font-bold text-white mb-1 font-mono">$33,600
-                                OSZCZĘDNOŚCI</div>
-                            <div class="text-sm text-forge-muted">na każdej awarii. Zwrot z inwestycji $4M/rok
-                                przy 10
-                                incydentach/miesiąc
-                                (dane rzeczywiste ELPLC)</div>
+                                SAVINGS</div>
+                            <div class="text-sm text-forge-muted">per failure. $4M/year ROI
+                                at 10
+                                incidents/month
+                                (actual ELPLC data)</div>
                         </div>
                     </div>
                 </div>
@@ -336,16 +335,16 @@
                     <div class="space-y-6 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
                             <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
-                                MODUŁ_ANALITYCZNY</span>
+                                ANALYTICS_MODULE</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
-                            Dashboard
+                            Analytics
                             <br />
-                            <span class="text-forge-muted">analityczny</span>
+                            <span class="text-forge-muted">Dashboard</span>
                         </h2>
                         <p class="text-xl text-forge-muted leading-relaxed font-light">
-                            Raportowanie z filtrem czasowym. Monitoring skali, analiza przepustowości,
-                            trendy awaryjności na interaktywnych wykresach.
+                            Time-filtered reporting. Scale monitoring, throughput analysis,
+                            failure trends on interactive charts.
                         </p>
                         <div class="space-y-4 pt-4">
                             <div
@@ -359,9 +358,10 @@
                                 </div>
                                 <div>
                                     <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">3
-                                        Interaktywne Wykresy</div>
-                                    <div class="text-sm text-forge-muted">Trend Obciążenia Hali, Przepustowość Zadań,
-                                        Wykorzystanie Maszyn. Wszystko aktualizowane na żywo</div>
+                                        Interactive Charts</div>
+                                    <div class="text-sm text-forge-muted">Hall Load
+                                        Trend, Task Throughput, Machine
+                                        Utilization. Everything updated live</div>
                                 </div>
                             </div>
                             <div
@@ -375,10 +375,11 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">Routing
-                                        Alertów i Dziennik Zdarzeń</div>
-                                    <div class="text-sm text-forge-muted">8 typów zdarzeń, 4 grupy odbiorców (Technicy,
-                                        Nadzorcy, Menedżerowie, QC)</div>
+                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">Alert
+                                        Routing & Event Log</div>
+                                    <div class="text-sm text-forge-muted">8 event types, 4 recipient groups
+                                        (Technicians,
+                                        Supervisors, Managers, QC)</div>
                                 </div>
                             </div>
                             <div
@@ -391,10 +392,10 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">Eksport
-                                        i Archiwizacja</div>
-                                    <div class="text-sm text-forge-muted">Pełna historia zdarzeń w formacie CSV. Analiza
-                                        offline, audyty i raporty zgodności</div>
+                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">Export
+                                        & Archiving</div>
+                                    <div class="text-sm text-forge-muted">Complete event history in CSV format. Offline
+                                        analysis, audits and compliance reports</div>
                                 </div>
                             </div>
                         </div>
@@ -407,12 +408,12 @@
                                 aria-label="Analytics module demonstration video"
                                 class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="assets/videos/analytics.mp4" type="video/mp4">
-                                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                                Your browser doesn't support video playback.
                             </video>
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM IN
                         </div>
                     </div>
                 </div>
@@ -425,15 +426,15 @@
                 <div class="text-center max-w-3xl mx-auto mb-24">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
                         <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">MOŻLIWOŚCI_SYSTEMU</span>
+                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">SYSTEM_CAPABILITIES</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
-                        Architektura
+                        Distributed
                         <br />
-                        <span class="text-gray-500">Rozproszona</span>
+                        <span class="text-gray-500">Architecture</span>
                     </h2>
                     <p class="text-lg text-gray-400 font-light tracking-wide">
-                        Infrastruktura zaprojektowana dla industrial-grade reliability i skalowalności.
+                        Infrastructure designed for industrial-grade reliability and scalability.
                     </p>
                 </div>
 
@@ -452,9 +453,9 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Latencja &lt;3000ms</h3>
+                            Latency &lt;3000ms</h3>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Natychmiastowa rekonfiguracja planu produkcji. Zero opóźnień decyzyjnych.
+                            Instant production plan reconfiguration. Zero decision delays.
                         </p>
                     </div>
 
@@ -473,9 +474,9 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Optymalizacja Zwrotu</h3>
+                            ROI Optimization</h3>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Minimalizacja strat finansowych. Symulacja scenariuszy awaryjnych.
+                            Financial loss minimization. Failure scenario simulation.
                         </p>
                     </div>
 
@@ -493,10 +494,10 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Telemetria na Żywo
+                            Live Telemetry
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Agregacja danych z czujników IoT. Wizualizacja obciążenia w czasie rzeczywistym.
+                            IoT sensor data aggregation. Real-time load visualization.
                         </p>
                     </div>
 
@@ -513,10 +514,10 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Algorytm Makespan
+                            Makespan Algorithm
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Matematyczna optymalizacja kolejkowania zadań. Redukcja czasu przestoju.
+                            Mathematical task queue optimization. Downtime reduction.
                         </p>
                     </div>
 
@@ -532,10 +533,10 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Architektura Rozproszona
+                            Distributed Architecture
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Edge computing. Cloud-native. Mikrousługi dla maksymalnej skalowalności.
+                            Edge computing. Cloud-native. Microservices for maximum scalability.
                         </p>
                     </div>
 
@@ -552,10 +553,10 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Warstwa Bezpieczeństwa
+                            Security Layer
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Szyfrowanie end-to-end. Kontrola dostępu oparta na rolach. Dziennik audytu każdej operacji.
+                            End-to-end encryption. Role-based access control. Audit log of every operation.
                         </p>
                     </div>
                 </div>
@@ -567,15 +568,14 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">GŁÓWNY_ZESPÓŁ</span>
+                        <span class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">CORE_TEAM</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
-                        Zespół
-                        <br /><span class="text-gray-500">Inżynierski</span>
+                        Engineering
+                        <br /><span class="text-gray-500">Team</span>
                     </h2>
                     <p class="text-lg text-gray-400 font-light tracking-wide">
-                        Eksperci w dziedzinie systemów przemysłowych, AI i architektury rozproszonej.
+                        Experts in industrial systems, AI and distributed architecture.
                     </p>
                 </div>
 
@@ -595,7 +595,7 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Szymon Jędryczko
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Inżynier Machine Learning</p>
+                                <p class="text-xs text-gray-500 mb-6 font-mono">Machine Learning Engineer</p>
                                 <span
                                     class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
@@ -618,7 +618,7 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Agata Syc
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Dyrektor Operacyjny</p>
+                                <p class="text-xs text-gray-500 mb-6 font-mono">Chief Operating Officer</p>
                                 <span
                                     class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
@@ -642,7 +642,7 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Dominik Kamiński
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Programista</p>
+                                <p class="text-xs text-gray-500 mb-6 font-mono">Software Developer</p>
                                 <span
                                     class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
@@ -665,7 +665,7 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Franciszek Głąb
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Inżynier Bezpieczeństwa</p>
+                                <p class="text-xs text-gray-500 mb-6 font-mono">Security Engineer</p>
                                 <span
                                     class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
@@ -688,7 +688,7 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Rafał Tomaszewski
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Inżynier Jakości</p>
+                                <p class="text-xs text-gray-500 mb-6 font-mono">QA Engineer</p>
                                 <span
                                     class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
@@ -712,7 +712,7 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Mateusz Pawlik
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Wsparcie Techniczne</p>
+                                <p class="text-xs text-gray-500 mb-6 font-mono">Technical Support</p>
                                 <span
                                     class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
@@ -729,15 +729,14 @@
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">SKONTAKTUJ_SIĘ</span>
+                        <span class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">GET_IN_TOUCH</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
-                        Inicjuj
-                        <br /><span class="text-gray-500">Kontakt</span>
+                        Initiate
+                        <br /><span class="text-gray-500">Contact</span>
                     </h2>
                     <p class="text-lg text-gray-400 font-light tracking-wide">
-                        Zainteresowany wdrożeniem? Skontaktuj się z naszym zespołem technicznym.
+                        Interested in deployment? Contact our technical team.
                     </p>
                 </div>
 
@@ -745,90 +744,91 @@
                     action="https://formspree.io/f/xkgezdja" method="POST" aria-label="Feedback form">
                     <!-- Form Question 1 -->
                     <div class="space-y-4">
-                        <label class="block text-xs font-bold text-white uppercase tracking-[0.1em] font-mono">Czy
-                            pomysł projektu Ci się podoba?</label>
+                        <label class="block text-xs font-bold text-white uppercase tracking-[0.1em] font-mono">Do
+                            you like the project idea?</label>
                         <div class="space-y-2">
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="idea_rating" value="zdecydowanie_tak" required
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Zdecydowanie
-                                    tak</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Definitely
+                                    yes</span>
                             </label>
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="idea_rating" value="tak"
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Tak</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Yes</span>
                             </label>
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="idea_rating" value="neutralnie"
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Neutralnie</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Neutral</span>
                             </label>
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="idea_rating" value="nie"
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Nie</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">No</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Form Question 2 -->
                     <div class="space-y-4">
-                        <label class="block text-xs font-bold text-white uppercase tracking-[0.1em] font-mono">Jak
-                            oceniasz prezentację produktu?</label>
+                        <label class="block text-xs font-bold text-white uppercase tracking-[0.1em] font-mono">How
+                            do you rate the product presentation?</label>
                         <div class="space-y-2">
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="commercial_potential" value="duzy" required
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Duży
-                                    potencjał</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">High
+                                    potential</span>
                             </label>
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="commercial_potential" value="sredni"
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Średni
-                                    potencjał</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Medium
+                                    potential</span>
                             </label>
                             <label
                                 class="flex items-center gap-3 p-4 bg-forge-black border border-white/10 rounded-sm cursor-pointer hover:border-white/30 transition-colors group">
                                 <input type="radio" name="commercial_potential" value="maly"
                                     class="w-4 h-4 text-white accent-white bg-transparent border-white/30 focus:ring-0 focus:ring-offset-0">
                                 <span
-                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Mały
-                                    potencjał</span>
+                                    class="text-sm text-gray-400 group-hover:text-white transition-colors font-mono">Low
+                                    potential</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Additional Comments -->
                     <div class="space-y-4">
-                        <label class="block text-xs font-bold text-white uppercase tracking-[0.1em] font-mono">Dodatkowe
-                            komentarze (opcjonalne)</label>
+                        <label
+                            class="block text-xs font-bold text-white uppercase tracking-[0.1em] font-mono">Additional
+                            comments (optional)</label>
                         <textarea name="comments" rows="4"
                             class="w-full px-4 py-3 bg-forge-black border border-white/10 rounded-sm focus:outline-none focus:border-white/30 text-white placeholder-gray-600 resize-none font-mono text-sm"
-                            placeholder="System log: Wprowadź dane..."></textarea>
+                            placeholder="System log: Enter data..."></textarea>
                     </div>
 
                     <!-- Submit Button -->
                     <button type="submit"
                         class="w-full py-4 bg-white text-black border border-white hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150">
-                        [ WYŚLIJ_FEEDBACK ]
+                        [ SEND_FEEDBACK ]
                     </button>
 
                     <p class="text-center text-[10px] text-gray-500 font-mono uppercase tracking-wider">
-                        Formularz jest całkowicie anonimowy. Nie zbieramy danych osobowych.
+                        Form is completely anonymous. We do not collect personal data.
                     </p>
                 </form>
             </div>
@@ -858,16 +858,16 @@
                     <a href="https://github.com/NetBr3ak/internal-machine-monitor" target="_blank"
                         rel="noopener noreferrer"
                         class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]"
-                        aria-label="Zobacz kod źródłowy na GitHub">
+                        aria-label="View source code on GitHub">
                         GitHub
                     </a>
                     <a href="#platform"
                         class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
-                        Platforma
+                        Platform
                     </a>
                     <a href="#contact"
                         class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
-                        Kontakt
+                        Contact
                     </a>
                 </div>
 
@@ -877,10 +877,10 @@
                         © 2025 ForgeGrid Systems
                     </div>
                     <div class="text-[9px] text-gray-700 font-mono tracking-wider">
-                        Autonomiczna Inteligencja dla Operacji Przemysłowych
+                        Autonomous Intelligence for Industrial Operations
                     </div>
                     <div class="text-[9px] text-gray-700 font-mono tracking-wider">
-                        Strona zaprojektowana i wykonana przez Zespół ForgeGrid
+                        Landing page designed & developed by ForgeGrid Team
                     </div>
                 </div>
             </div>
@@ -893,8 +893,8 @@
             <span class="modal-close" onclick="closeModal('dashboardModal')">&times;</span>
             <video controls loop aria-label="Full screen platform video"
                 class="w-full h-full object-contain rounded-xl">
-                <source src="hero-video.mp4" type="video/mp4">
-                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+                Your browser doesn't support video playback.
             </video>
         </div>
     </div>
@@ -905,8 +905,8 @@
             <span class="modal-close" onclick="closeModal('errorModal')">&times;</span>
             <video controls loop aria-label="Full screen error handler video"
                 class="w-full h-full object-contain rounded-xl">
-                <source src="error_handler.mp4" type="video/mp4">
-                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                <source src="assets/videos/error_handler.mp4" type="video/mp4">
+                Your browser doesn't support video playback.
             </video>
         </div>
     </div>
@@ -917,8 +917,8 @@
             <span class="modal-close" onclick="closeModal('analyticsModal')">&times;</span>
             <video controls loop aria-label="Full screen analytics video"
                 class="w-full h-full object-contain rounded-xl">
-                <source src="analytics.mp4" type="video/mp4">
-                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                <source src="assets/videos/analytics.mp4" type="video/mp4">
+                Your browser doesn't support video playback.
             </video>
         </div>
     </div>
@@ -927,6 +927,7 @@
 </body>
 
 </html>
+const modal = document.getElementById(modalId);
 modal.classList.add('active');
 document.body.style.overflow = 'hidden';
 
@@ -1020,7 +1021,7 @@ card.style.setProperty('--mouse-y', `${y}px`);
 
 // Hero Video Rotation System
 const heroVideo = document.getElementById('heroVideo');
-const videoSources = ['hero-video.mp4', 'analytics.mp4', 'error_handler.mp4'];
+const videoSources = ['assets/videos/hero-video.mp4', 'assets/videos/analytics.mp4', 'assets/videos/error_handler.mp4'];
 let currentVideoIndex = 0;
 let rotationTimeout = null;
 
@@ -1115,8 +1116,6 @@ heroVideo.preload = 'metadata';
 }
 }
 }
-
-
 </script>
 
 </body>
