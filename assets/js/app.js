@@ -14,6 +14,8 @@
 				analytics: 'analytics.mp4',
 				errorHandler: 'error_handler.mp4'
 			},
+			// Add smooth opacity transition to heroVideo
+			elements.heroVideo.style.transition = 'opacity ' + CONFIG.video.fadeDuration + 'ms ease-in-out';
 			rotationInterval: 10000,
 			fadeDuration: 800
 		},
@@ -249,21 +251,9 @@
 			const nextSrc = getVideoPath(nextKey);
 			const isAnalytics = nextKey === 'analytics';
 
-			// Fade out animation
-			let fadeOutStart = null;
-			const startOpacity = parseFloat(elements.heroVideo.style.opacity) || 0.5;
-			function fadeOutStep(ts) {
-				if (!fadeOutStart) fadeOutStart = ts;
-				const progress = Math.min((ts - fadeOutStart) / CONFIG.video.fadeDuration, 1);
-				elements.heroVideo.style.opacity = String(startOpacity * (1 - progress));
-				if (progress < 1) {
-					requestAnimationFrame(fadeOutStep);
-				} else {
-					changeVideo();
-				}
-			}
+			elements.heroVideo.style.opacity = '0';
 
-			function changeVideo() {
+			setTimeout(() => {
 				const source = elements.heroVideo.querySelector('source');
 				if (!source) return;
 
@@ -276,29 +266,18 @@
 				}
 
 				elements.heroVideo.load();
-				elements.heroVideo.oncanplay = function () {
-					fadeIn();
-					VideoManager.preloadNext();
-					VideoManager.scheduleRotation();
-				};
-				elements.heroVideo.play().catch(() => { });
-			}
-
-			// Fade in animation
-			function fadeIn() {
-				let fadeInStart = null;
-				function fadeInStep(ts) {
-					if (!fadeInStart) fadeInStart = ts;
-					const progress = Math.min((ts - fadeInStart) / CONFIG.video.fadeDuration, 1);
-					elements.heroVideo.style.opacity = String(0.5 * progress);
-					if (progress < 1) {
-						requestAnimationFrame(fadeInStep);
-					}
-				}
-				requestAnimationFrame(fadeInStep);
-			}
-
-			requestAnimationFrame(fadeOutStep);
+				elements.heroVideo.play()
+					.then(() => {
+						elements.heroVideo.style.opacity = '0.5';
+						this.preloadNext();
+						this.scheduleRotation();
+					})
+					.catch(err => {
+						console.warn('Video rotation failed:', err);
+						elements.heroVideo.style.opacity = '0.5';
+						this.scheduleRotation(); // Try next rotation anyway
+					});
+			}, CONFIG.video.fadeDuration);
 		},
 
 		handleEnd: function () {
