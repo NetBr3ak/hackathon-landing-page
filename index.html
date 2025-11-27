@@ -37,16 +37,16 @@
                 extend: {
                     colors: {
                         'cyber-dark': '#0a0e1a',
-                        'cyber-darker': '#050810',
-                        'cyber-green': '#00ff9f',
-                        'cyber-amber': '#ffb84d',
-                        'cyber-blue': '#00d4ff',
-                        'cyber-purple': '#a855f7',
-                        'cyber-slate': '#1e293b',
+                        'cyber-darker': '#000000',
+                        'cyber-green': '#00ff41',
+                        'cyber-amber': '#ff6b00',
+                        'cyber-blue': '#0affff',
+                        'cyber-purple': '#b026ff',
+                        'cyber-slate': '#1a1a1a',
                     },
                     fontFamily: {
-                        'mono': ['JetBrains Mono', 'Consolas', 'monospace'],
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
+                        'sans': ['Space Grotesk', 'system-ui', 'sans-serif'],
                     },
                     animation: {
                         'glow-pulse': 'glowPulse 2s ease-in-out infinite',
@@ -57,11 +57,11 @@
         }
     </script>
 
-    <!-- Google Fonts - JetBrains Mono + Inter -->
+    <!-- Google Fonts - IBM Plex Mono + Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -72,12 +72,13 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             background: #050810;
             opacity: 0;
             transition: opacity 0.3s ease-in;
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
+            letter-spacing: -0.01em;
         }
 
         body.loaded {
@@ -85,22 +86,23 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #00ff9f 0%, #00d4ff 50%, #a855f7 100%);
+            background: linear-gradient(90deg, #00ff41 0%, #0affff 50%, #b026ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: glowPulse 3s ease-in-out infinite;
+            font-weight: 700;
         }
 
         @keyframes glowPulse {
 
             0%,
             100% {
-                filter: drop-shadow(0 0 8px rgba(0, 255, 159, 0.6));
+                filter: drop-shadow(0 0 4px rgba(0, 255, 65, 0.4));
             }
 
             50% {
-                filter: drop-shadow(0 0 20px rgba(0, 255, 159, 0.9));
+                filter: drop-shadow(0 0 12px rgba(0, 255, 65, 0.6));
             }
         }
 
