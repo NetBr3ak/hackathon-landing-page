@@ -27,158 +27,89 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Particles.js for Cyber Effect -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
     <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'cyber-dark': '#0a0e1a',
-                        'cyber-darker': '#0d1117',
-                        'cyber-green': '#3fb950',
-                        'cyber-amber': '#f0883e',
-                        'cyber-blue': '#58a6ff',
-                        'cyber-purple': '#8b5cf6',
-                        'cyber-slate': '#161b22',
+                        'forge-black': '#050505',
+                        'forge-dark': '#0A0A0A',
+                        'forge-card': '#111111',
+                        'forge-border': '#262626',
+                        'forge-text': '#EDEDED',
+                        'forge-muted': '#888888',
+                        'forge-accent': '#FFFFFF',
                     },
                     fontFamily: {
-                        'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
-                        'sans': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                        'mono': ['IBM Plex Mono', 'monospace'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
                     },
-                    animation: {
-                        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
-                        'scan': 'scan 8s linear infinite',
-                    },
+                    letterSpacing: {
+                        'tightest': '-0.05em',
+                        'widest': '0.15em',
+                    }
                 }
             }
         }
     </script>
 
-    <!-- Google Fonts - IBM Plex Mono + Space Grotesk -->
+    <!-- Google Fonts - IBM Plex Mono + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <style>
         * {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #0d1117;
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-            -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-            letter-spacing: -0.02em;
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: #EDEDED;
         }
 
-        body.loaded {
-            opacity: 1;
+        ::selection {
+            background: #FFFFFF;
+            color: #000000;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #3fb950 0%, #58a6ff 50%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-
-        @keyframes glowPulse {
-
-            0%,
-            100% {
-                filter: drop-shadow(0 0 2px rgba(63, 185, 80, 0.3));
-            }
-
-            50% {
-                filter: drop-shadow(0 0 6px rgba(63, 185, 80, 0.5));
-            }
-        }
-
-        @keyframes scan {
-            0% {
-                transform: translateY(-100%);
-            }
-
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .scan-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff9f, transparent);
-            animation: scan 8s linear infinite;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .glow-green {
-            box-shadow: 0 0 30px rgba(0, 255, 159, 0.4), 0 0 60px rgba(0, 255, 159, 0.2);
-        }
-
-        .glow-amber {
-            box-shadow: 0 0 30px rgba(255, 184, 77, 0.4), 0 0 60px rgba(255, 184, 77, 0.2);
-        }
-
-        .hero-gradient {
-            background: radial-gradient(ellipse at top, rgba(0, 255, 159, 0.08) 0%, transparent 50%);
-        }
-
-        .hero-text-shadow {
-            text-shadow: 0 0 20px rgba(0, 255, 159, 0.5), 0 4px 30px rgba(0, 0, 0, 0.9);
-        }
-
-        .grid-pattern {
+        .grid-bg {
+            background-size: 60px 60px;
             background-image:
-                linear-gradient(rgba(0, 255, 159, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 159, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            position: relative;
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
 
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+        /* Minimalist Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
 
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
+        ::-webkit-scrollbar-track {
+            background: #050505;
         }
 
-        .floating {
-            animation: float 6s ease-in-out infinite;
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 3px;
         }
 
-        /* Fade-in animations on scroll */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+
+        /* Fade-in animations */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         .fade-in-up.visible {
@@ -186,50 +117,13 @@
             transform: translateY(0);
         }
 
-        /* Optimize scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .scan-line {
-                display: none;
-                /* Reduce mobile battery drain */
-            }
-
-            #particles-js {
-                display: none;
-                /* Disable particles on mobile for performance */
-            }
-        }
-
-        .screenshot-placeholder {
-            background: linear-gradient(135deg, #1e293b 0%, #0a0e1a 100%);
-            border: 1px solid rgba(0, 255, 159, 0.2);
-        }
-
         .screenshot-container {
-            cursor: zoom-in;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
         }
 
         .screenshot-container:hover {
-            transform: scale(1.02) translateZ(0);
-            box-shadow: 0 20px 60px rgba(0, 255, 159, 0.3), 0 0 80px rgba(0, 255, 159, 0.1);
-        }
-
-        .screenshot-container img,
-        .screenshot-container video {
-            transition: all 0.3s ease;
+            border-color: #666;
         }
 
         /* Modal styles */
@@ -241,22 +135,19 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(5, 8, 16, 0.97);
-            backdrop-filter: blur(20px) saturate(180%);
+            background-color: rgba(0, 0, 0, 0.95);
         }
 
         .modal.active {
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 90%;
+            max-height: 90%;
             position: relative;
-            animation: zoomIn 0.3s ease;
         }
 
         .modal-content img,
@@ -264,8 +155,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
         }
 
         .modal-close {
@@ -273,83 +163,49 @@
             top: -40px;
             right: 0;
             color: white;
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 24px;
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
+            opacity: 0.7;
+            transition: opacity 0.2s;
         }
 
         .modal-close:hover {
-            background: rgba(0, 255, 159, 0.3);
-            transform: rotate(90deg);
-            box-shadow: 0 0 20px rgba(0, 255, 159, 0.5);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+            opacity: 1;
         }
     </style>
 </head>
 
-<body class="bg-cyber-darker text-gray-100 antialiased">
-
-    <!-- Scan Line Effect -->
-    <div class="scan-line"></div>
+<body class="bg-forge-black text-forge-text antialiased selection:bg-white selection:text-black">
 
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation"
-        class="fixed w-full top-0 z-50 bg-cyber-darker/90 backdrop-blur-xl border-b border-cyber-green/10">
+        class="fixed w-full top-0 z-50 bg-forge-black/80 backdrop-blur-md border-b border-forge-border">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
                     <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         aria-label="ForgeGrid logo">
                         <title>ForgeGrid Logo</title>
-                        <rect x="3" y="3" width="8" height="8" rx="2" fill="#00ff9f" />
-                        <rect x="13" y="3" width="8" height="8" rx="2" fill="#00d4ff" />
-                        <rect x="3" y="13" width="8" height="8" rx="2" fill="#ffb84d" />
-                        <rect x="13" y="13" width="8" height="8" rx="2" fill="#00ff9f" fill-opacity="0.3" />
+                        <rect x="3" y="3" width="8" height="8" rx="1" fill="#FFFFFF" />
+                        <rect x="13" y="3" width="8" height="8" rx="1" fill="#666666" />
+                        <rect x="3" y="13" width="8" height="8" rx="1" fill="#666666" />
+                        <rect x="13" y="13" width="8" height="8" rx="1" fill="#333333" />
                     </svg>
-                    <span class="text-xl font-bold font-mono tracking-tight">FORGE<span
-                            class="text-cyber-green">GRID</span></span>
+                    <span class="text-xl font-bold font-sans tracking-tight text-white">FORGE<span
+                            class="text-forge-muted">GRID</span></span>
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#platform"
-                        class="text-gray-400 hover:text-cyber-green transition-all duration-300 text-sm font-medium font-mono uppercase tracking-wider">Platforma</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-300 text-xs font-medium font-sans uppercase tracking-widest">Platforma</a>
                     <a href="#capabilities"
-                        class="text-gray-400 hover:text-cyber-green transition-all duration-300 text-sm font-medium font-mono uppercase tracking-wider">Możliwości</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-300 text-xs font-medium font-sans uppercase tracking-widest">Możliwości</a>
                     <a href="#team"
-                        class="text-gray-400 hover:text-cyber-green transition-all duration-300 text-sm font-medium font-mono uppercase tracking-wider">Zespół</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-300 text-xs font-medium font-sans uppercase tracking-widest">Zespół</a>
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                         rel="noopener noreferrer"
-                        class="px-4 sm:px-6 py-2.5 bg-cyber-green/10 hover:bg-cyber-green/20 border border-cyber-green/50 hover:border-cyber-green text-cyber-green rounded-lg text-xs sm:text-sm font-bold font-mono uppercase tracking-wider transition-all duration-300 glow-green min-h-[44px] flex items-center"
+                        class="px-4 sm:px-6 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-sans uppercase tracking-widest transition-all duration-300 min-h-[40px] flex items-center"
                         aria-label="Open live demo in new tab">
                         DEMO_LIVE
                     </a>
@@ -360,37 +216,34 @@
 
     <!-- Hero Section -->
     <main>
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-pattern">
-            <!-- Particles Background -->
-            <div id="particles-js"></div>
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
 
             <div class="absolute inset-0 w-full h-full overflow-hidden">
                 <video autoplay loop muted playsinline loading="lazy"
                     aria-label="Hero background video showing ForgeGrid dashboard"
-                    class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale">
                     <source src="hero-video.mp4" type="video/mp4">
                     Your browser doesn't support video playback.
                 </video>
 
-                <div
-                    class="absolute inset-0 bg-gradient-to-b from-cyber-darker/70 via-cyber-darker/60 to-cyber-darker/70">
+                <div class="absolute inset-0 bg-gradient-to-b from-forge-black via-forge-black/80 to-forge-black">
                 </div>
             </div>
-            <div class="hero-gradient absolute inset-0 opacity-60"></div>
 
             <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 text-center z-10">
                 <div class="space-y-8">
                     <!-- Main Headline -->
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight font-mono">
-                        <span class="text-cyber-green">PRODUKCJA STAŁA</span>
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-sans tracking-tight">
+                        <span class="text-white">PRODUKCJA STAŁA</span>
                         <br />
-                        <span class="gradient-text text-2xl sm:text-3xl md:text-4xl lg:text-6xl">REPLANNING: 3
+                        <span class="text-forge-muted text-3xl sm:text-4xl md:text-5xl lg:text-6xl">REPLANNING: 3
                             SEK</span>
                     </h1>
 
                     <!-- Subheadline -->
                     <p
-                        class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed hero-text-shadow px-4">
+                        class="text-base sm:text-lg md:text-xl lg:text-2xl text-forge-muted max-w-3xl mx-auto leading-relaxed px-4 font-light">
                         Automated production monitoring. Real-time failure response.
                         <br class="hidden md:block" />
                         93% cost reduction. 4 machines. 12 task types. $33.6k saved per incident.
@@ -400,7 +253,7 @@
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                         <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                             rel="noopener noreferrer"
-                            class="px-10 py-5 bg-cyber-green text-cyber-darker hover:bg-cyber-green/90 rounded-lg font-bold text-lg font-mono uppercase tracking-wider transition-all duration-300 glow-green w-full sm:w-auto transform hover:scale-105"
+                            class="px-10 py-4 bg-white text-black hover:bg-gray-200 rounded-sm font-bold text-lg font-sans uppercase tracking-widest transition-all duration-300 w-full sm:w-auto"
                             aria-label="Test ForgeGrid system - opens in new tab">
                             ▶ TEST 2-MIN
                         </a>
@@ -410,26 +263,27 @@
                     <div
                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-12 sm:pt-16 md:pt-20 max-w-5xl mx-auto px-4">
                         <div
-                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-lg bg-cyber-dark/50 backdrop-blur-md border border-cyber-green/20 hover:border-cyber-green/50 transition-all duration-300 group">
-                            <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-cyber-green font-mono">93%</div>
-                            <div class="text-xs text-gray-400 uppercase tracking-widest font-mono">LOSS_REDUCTION</div>
-                        </div>
-                        <div
-                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-lg bg-cyber-dark/50 backdrop-blur-md border border-cyber-blue/20 hover:border-cyber-blue/50 transition-all duration-300 group">
-                            <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-cyber-blue font-mono">3SEC</div>
-                            <div class="text-xs text-gray-400 uppercase tracking-widest font-mono">REPLAN_TIME</div>
-                        </div>
-                        <div
-                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-lg bg-cyber-dark/50 backdrop-blur-md border border-cyber-amber/20 hover:border-cyber-amber/50 transition-all duration-300 group">
-                            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-cyber-amber font-mono">REALTIME
+                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-sm bg-forge-card border border-forge-border hover:border-white/30 transition-all duration-300 group">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-mono">93%</div>
+                            <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">LOSS_REDUCTION
                             </div>
-                            <div class="text-xs text-gray-400 uppercase tracking-widest font-mono">AUTOMATION</div>
                         </div>
                         <div
-                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-lg bg-cyber-dark/50 backdrop-blur-md border border-cyber-purple/20 hover:border-cyber-purple/50 transition-all duration-300 group">
-                            <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-cyber-purple font-mono">ZERO
+                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-sm bg-forge-card border border-forge-border hover:border-white/30 transition-all duration-300 group">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-mono">3SEC</div>
+                            <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">REPLAN_TIME</div>
+                        </div>
+                        <div
+                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-sm bg-forge-card border border-forge-border hover:border-white/30 transition-all duration-300 group">
+                            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-mono">REALTIME
                             </div>
-                            <div class="text-xs text-gray-400 uppercase tracking-widest font-mono">MANUAL_WORK</div>
+                            <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">AUTOMATION</div>
+                        </div>
+                        <div
+                            class="space-y-2 sm:space-y-3 p-4 sm:p-6 rounded-sm bg-forge-card border border-forge-border hover:border-white/30 transition-all duration-300 group">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-mono">ZERO
+                            </div>
+                            <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">MANUAL_WORK</div>
                         </div>
                     </div>
                 </div>
@@ -437,8 +291,8 @@
 
             <!-- Scroll Indicator -->
             <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
-                <svg class="w-6 h-6 text-cyber-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                         d="M19 14l-7 7m0 0l-7-7m7 7V3">
                     </path>
                 </svg>
@@ -446,62 +300,54 @@
         </section>
 
         <!-- Platform Overview -->
-        <section id="platform" class="relative py-16 sm:py-24 md:py-32 bg-cyber-dark">
+        <section id="platform" class="relative py-16 sm:py-24 md:py-32 bg-forge-dark border-t border-forge-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-5 gap-16 items-center">
                     <div class="space-y-6 lg:col-span-2">
-                        <div class="inline-block px-4 py-2 bg-cyber-green/10 border border-cyber-green/30 rounded">
+                        <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
                             <span
-                                class="text-xs text-cyber-green font-bold font-mono tracking-widest">INTELLIGENT_PLANNING</span>
+                                class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">INTELLIGENT_PLANNING</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+                        <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
                             Kontrola produkcji
                             <br />
-                            <span class="gradient-text">w czasie rzeczywistym</span>
+                            <span class="text-forge-muted">w czasie rzeczywistym</span>
                         </h2>
-                        <p class="text-xl text-gray-400 leading-relaxed">
+                        <p class="text-xl text-forge-muted leading-relaxed font-light">
                             Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii.
                             Metryki live: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji
                             ręcznej.
                         </p>
-                        <ul class="space-y-4 pt-4">
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-cyber-green shrink-0 mt-1" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd" />
-                                </svg>
+                        <ul class="space-y-6 pt-4">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-white rounded-full shrink-0"></div>
                                 <div>
-                                    <div class="font-semibold text-white">Inteligentny Przydział Zadań</div>
-                                    <div class="text-gray-400">Algorytm minimalizacji makespan przeplanowuje produkcję w
+                                    <div class="font-bold text-white font-sans uppercase tracking-wide text-sm mb-1">
+                                        Inteligentny Przydział Zadań</div>
+                                    <div class="text-forge-muted text-sm">Algorytm minimalizacji makespan przeplanowuje
+                                        produkcję w
                                         3 sekundy po wykryciu awarii
                                     </div>
                                 </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-cyber-green shrink-0 mt-1" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd" />
-                                </svg>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-white rounded-full shrink-0"></div>
                                 <div>
-                                    <div class="font-semibold text-white">Live Data: 4 Machines, 12 Tasks</div>
-                                    <div class="text-gray-400">Real-time status updates. Continuous metric tracking.
+                                    <div class="font-bold text-white font-sans uppercase tracking-wide text-sm mb-1">
+                                        Live Data: 4 Machines, 12 Tasks</div>
+                                    <div class="text-forge-muted text-sm">Real-time status updates. Continuous metric
+                                        tracking.
                                         Sub-second response time.</div>
                                 </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-cyber-green shrink-0 mt-1" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd" />
-                                </svg>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-white rounded-full shrink-0"></div>
                                 <div>
-                                    <div class="font-semibold text-white">Udokumentowany ROI</div>
-                                    <div class="text-gray-400">93% redukcja strat przy awarii: $36k → $2.4k na incydent
+                                    <div class="font-bold text-white font-sans uppercase tracking-wide text-sm mb-1">
+                                        Udokumentowany ROI</div>
+                                    <div class="text-forge-muted text-sm">93% redukcja strat przy awarii: $36k → $2.4k
+                                        na
+                                        incydent
                                         (dane rzeczywiste z ELPLC)</div>
                                 </div>
                             </li>
@@ -510,27 +356,18 @@
 
                     <!-- Dashboard Video -->
                     <div class="relative lg:col-span-3">
-                        <div class="screenshot-container rounded-2xl overflow-hidden border border-cyber-green/10"
+                        <div class="screenshot-container rounded-sm overflow-hidden border border-forge-border bg-forge-card"
                             onclick="openModal('dashboardModal')">
                             <video autoplay loop muted playsinline loading="lazy"
-                                aria-label="Platform demonstration video" class="w-full h-full object-cover">
+                                aria-label="Platform demonstration video"
+                                class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="hero-video.mp4" type="video/mp4">
                                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
                             </video>
                         </div>
                         <div
-                            class="absolute -bottom-6 -right-6 w-32 h-32 bg-cyber-green/20 rounded-full blur-3xl pointer-events-none">
-                        </div>
-                        <div
-                            class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-gray-300 pointer-events-none">
-                            <svg class="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Kliknij aby powiększyć
+                            class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
+                            [ + ] POWIĘKSZ
                         </div>
                     </div>
                 </div>
@@ -538,67 +375,59 @@
         </section>
 
         <!-- Predictive Intelligence -->
-        <section class="relative py-32 bg-cyber-darker overflow-hidden">
+        <section class="relative py-32 bg-forge-black overflow-hidden border-t border-forge-border">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="grid lg:grid-cols-5 gap-16 items-center">
 
                     <!-- Dashboard Video -->
                     <div class="relative lg:col-span-3">
-                        <div class="screenshot-container rounded-2xl overflow-hidden border border-cyber-green/10"
+                        <div class="screenshot-container rounded-sm overflow-hidden border border-forge-border bg-forge-card"
                             onclick="openModal('errorModal')">
                             <video autoplay loop muted playsinline loading="lazy"
-                                aria-label="Error handler demonstration video" class="w-full h-full object-cover">
+                                aria-label="Error handler demonstration video"
+                                class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="error_handler.mp4" type="video/mp4">
                                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
                             </video>
                         </div>
                         <div
-                            class="absolute -bottom-6 -right-6 w-32 h-32 bg-cyber-green/20 rounded-full blur-3xl pointer-events-none">
-                        </div>
-                        <div
-                            class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-gray-300 pointer-events-none">
-                            <svg class="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Kliknij aby powiększyć
+                            class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
+                            [ + ] POWIĘKSZ
                         </div>
                     </div>
 
                     <div class="space-y-6 order-1 lg:order-2 lg:col-span-2">
-                        <div
-                            class="inline-block px-4 py-2 bg-cyber-purple/10 border border-cyber-purple/30 rounded backdrop-blur-sm">
-                            <span class="text-xs text-cyber-purple font-bold font-mono tracking-widest">■
+                        <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
+                            <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
                                 REAL_IMPACT</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+                        <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
                             Koszt przestoju
                             <br />
-                            <span class="gradient-text">$72k na godzinę</span>
+                            <span class="text-forge-muted">$72k na godzinę</span>
                         </h2>
-                        <p class="text-xl text-gray-400 leading-relaxed">
+                        <p class="text-xl text-forge-muted leading-relaxed font-light">
                             ELPLC: 600 jednostek/godz @ $120. $72k przychodu/godz na szali.
                             Planowanie ręczne: 30 min. ForgeGrid: 2 min. Auto redystrybucja. 93% redukcja strat.
                         </p>
                         <div class="grid sm:grid-cols-2 gap-6 pt-4">
-                            <div class="p-6 bg-cyber-dark/40 border border-red-500/20 rounded-xl">
-                                <div class="text-3xl font-bold text-red-400 mb-2 font-mono">30 MIN</div>
-                                <div class="text-sm text-gray-400 uppercase tracking-wide">PLANOWANIE RĘCZNE
+                            <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
+                                <div class="text-3xl font-bold text-white mb-2 font-mono">30 MIN</div>
+                                <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">PLANOWANIE
+                                    RĘCZNE
                                 </div>
                             </div>
-                            <div class="p-6 bg-cyber-dark/40 border border-cyber-green/30 rounded-xl">
-                                <div class="text-3xl font-bold text-cyber-green mb-2 font-mono">2 MIN</div>
-                                <div class="text-sm text-gray-400 uppercase tracking-wide">FORGEGRID AUTO-REAKCJA
+                            <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
+                                <div class="text-3xl font-bold text-white mb-2 font-mono">2 MIN</div>
+                                <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">FORGEGRID
+                                    AUTO-REAKCJA
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="p-6 bg-gradient-to-r from-cyber-green/10 to-cyber-blue/10 border border-cyber-green/30 rounded-xl mt-4">
-                            <div class="text-2xl font-bold text-cyber-green mb-1 font-mono">$33,600 OSZCZĘDNOŚCI</div>
-                            <div class="text-sm text-gray-400">na każdej awarii. ROI $4M/rok przy 10 incydentach/miesiąc
+                        <div class="p-6 bg-forge-card border border-forge-border rounded-sm mt-4">
+                            <div class="text-2xl font-bold text-white mb-1 font-mono">$33,600 OSZCZĘDNOŚCI</div>
+                            <div class="text-sm text-forge-muted">na każdej awarii. ROI $4M/rok przy 10
+                                incydentach/miesiąc
                                 (dane rzeczywiste ELPLC)</div>
                         </div>
                     </div>
@@ -606,68 +435,70 @@
             </div>
         </section>
 
-        <section class="relative py-32 bg-cyber-dark">
+        <section class="relative py-32 bg-forge-dark border-t border-forge-border">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="grid lg:grid-cols-5 gap-16 items-center">
                     <div class="space-y-6 lg:col-span-2">
-                        <div
-                            class="inline-block px-4 py-2 bg-cyber-blue/10 border border-cyber-blue/30 rounded backdrop-blur-sm">
-                            <span class="text-xs text-cyber-blue font-bold font-mono tracking-widest">■
+                        <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
+                            <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
                                 ANALYTICS_MODULE</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+                        <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
                             Dashboard
                             <br />
-                            <span class="gradient-text">analityczny</span>
+                            <span class="text-forge-muted">analityczny</span>
                         </h2>
-                        <p class="text-xl text-gray-400 leading-relaxed">
+                        <p class="text-xl text-forge-muted leading-relaxed font-light">
                             Raportowanie z filtrem czasowym. Monitoring skali, analiza przepustowości,
                             trendy awaryjności na interaktywnych wykresach.
                         </p>
                         <div class="space-y-4 pt-4">
                             <div
-                                class="flex items-center gap-4 p-4 bg-cyber-dark/40 border border-cyber-green/10 rounded-lg">
+                                class="flex items-center gap-4 p-4 bg-forge-card border border-forge-border rounded-sm">
                                 <div
-                                    class="w-12 h-12 bg-gradient-to-br from-cyber-blue to-cyber-green rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">3 Interaktywne Wykresy</div>
-                                    <div class="text-sm text-gray-400">Hall Load Trend, Task Throughput, Machine
+                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">3
+                                        Interaktywne Wykresy</div>
+                                    <div class="text-sm text-forge-muted">Hall Load Trend, Task Throughput, Machine
                                         Utilization. Wszystko aktualizowane na żywo</div>
                                 </div>
                             </div>
                             <div
-                                class="flex items-center gap-4 p-4 bg-cyber-dark/40 border border-cyber-green/10 rounded-lg">
+                                class="flex items-center gap-4 p-4 bg-forge-card border border-forge-border rounded-sm">
                                 <div
-                                    class="w-12 h-12 bg-gradient-to-br from-cyber-purple to-cyber-blue rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
                                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">Routing Alertów i Event Log</div>
-                                    <div class="text-sm text-gray-400">8 typów zdarzeń, 4 grupy odbiorców (Technicy,
+                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">Routing
+                                        Alertów i Event Log</div>
+                                    <div class="text-sm text-forge-muted">8 typów zdarzeń, 4 grupy odbiorców (Technicy,
                                         Supervisors, Managers, QC)</div>
                                 </div>
                             </div>
                             <div
-                                class="flex items-center gap-4 p-4 bg-cyber-dark/40 border border-cyber-green/10 rounded-lg">
+                                class="flex items-center gap-4 p-4 bg-forge-card border border-forge-border rounded-sm">
                                 <div
-                                    class="w-12 h-12 bg-gradient-to-br from-cyber-green to-cyber-purple rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    class="w-10 h-10 bg-white/10 rounded-sm flex items-center justify-center text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
                                         <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">Eksport i Archiwizacja</div>
-                                    <div class="text-sm text-gray-400">Pełna historia zdarzeń w formacie CSV. Analiza
+                                    <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">Eksport
+                                        i Archiwizacja</div>
+                                    <div class="text-sm text-forge-muted">Pełna historia zdarzeń w formacie CSV. Analiza
                                         offline, audyty i raporty compliance</div>
                                 </div>
                             </div>
@@ -675,27 +506,18 @@
                     </div>
 
                     <div class="relative lg:col-span-3">
-                        <div class="screenshot-container rounded-2xl overflow-hidden border border-cyber-green/10"
+                        <div class="screenshot-container rounded-sm overflow-hidden border border-forge-border bg-forge-card"
                             onclick="openModal('analyticsModal')">
                             <video autoplay loop muted playsinline loading="lazy"
-                                aria-label="Analytics module demonstration video" class="w-full h-full object-cover">
+                                aria-label="Analytics module demonstration video"
+                                class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="analytics.mp4" type="video/mp4">
                                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
                             </video>
                         </div>
                         <div
-                            class="absolute -bottom-6 -right-6 w-32 h-32 bg-cyber-blue/20 rounded-full blur-3xl pointer-events-none">
-                        </div>
-                        <div
-                            class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-gray-300 pointer-events-none">
-                            <svg class="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Kliknij aby powiększyć
+                            class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
+                            [ + ] POWIĘKSZ
                         </div>
                     </div>
                 </div>
@@ -703,20 +525,19 @@
         </section>
 
         <!-- Capabilities Grid -->
-        <section id="capabilities" class="relative py-16 sm:py-24 md:py-32 bg-cyber-darker">
+        <section id="capabilities" class="relative py-16 sm:py-24 md:py-32 bg-forge-black border-t border-forge-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <div
-                        class="inline-block px-4 py-2 bg-cyber-amber/10 border border-cyber-amber/30 rounded backdrop-blur-sm mb-6">
-                        <span class="text-xs text-cyber-amber font-bold font-mono tracking-widest">■
+                    <div class="inline-block px-3 py-1 border border-forge-border rounded-sm mb-6">
+                        <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
                             CORE_CAPABILITIES</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-sans tracking-tight">
                         Możliwości
                         <br />
-                        <span class="gradient-text">systemu</span>
+                        <span class="text-forge-muted">systemu</span>
                     </h2>
-                    <p class="text-xl text-gray-400">
+                    <p class="text-xl text-forge-muted font-light">
                         Kontrola produkcji. Redukcja kosztów. Reakcja w czasie rzeczywistym. Testowane w ELPLC.
                     </p>
                 </div>
@@ -724,27 +545,27 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Capability Cards -->
                     <div
-                        class="p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-xl hover:bg-cyber-green/5 transition-all group">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyber-green to-cyber-purple rounded-lg mb-4 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        class="p-8 bg-forge-card border border-forge-border rounded-sm hover:border-white/30 transition-all group">
+                        <div class="w-10 h-10 bg-white/10 rounded-sm mb-4 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber-green transition-colors">Reakcja w 3
+                        <h3
+                            class="text-xl font-bold mb-2 text-white group-hover:text-white transition-colors font-sans">
+                            Reakcja w 3
                             sekundy</h3>
-                        <p class="text-gray-400">
+                        <p class="text-forge-muted text-sm">
                             Natychmiastowa reorganizacja planu. Zero przestoju w planowaniu. Automatyczna egzekucja.
                         </p>
                     </div>
 
                     <div
-                        class="p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-xl hover:bg-cyber-green/5 transition-all group">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyber-purple to-cyber-blue rounded-lg mb-4 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        class="p-8 bg-forge-card border border-forge-border rounded-sm hover:border-white/30 transition-all group">
+                        <div class="w-10 h-10 bg-white/10 rounded-sm mb-4 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path
                                     d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
                                 <path fill-rule="evenodd"
@@ -752,80 +573,86 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber-purple transition-colors">$4M Annual
+                        <h3
+                            class="text-xl font-bold mb-2 text-white group-hover:text-white transition-colors font-sans">
+                            $4M Annual
                             ROI</h3>
-                        <p class="text-gray-400">
+                        <p class="text-forge-muted text-sm">
                             93% loss reduction. $33.6k saved/incident. 10 failures/month scenario.
                         </p>
                     </div>
 
                     <div
-                        class="p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-xl hover:bg-cyber-green/5 transition-all group">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyber-blue to-cyber-green rounded-lg mb-4 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        class="p-8 bg-forge-card border border-forge-border rounded-sm hover:border-white/30 transition-all group">
+                        <div class="w-10 h-10 bg-white/10 rounded-sm mb-4 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                                 <path fill-rule="evenodd"
                                     d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber-blue transition-colors">Dashboard live
+                        <h3
+                            class="text-xl font-bold mb-2 text-white group-hover:text-white transition-colors font-sans">
+                            Dashboard live
                         </h3>
-                        <p class="text-gray-400">
+                        <p class="text-forge-muted text-sm">
                             4 maszyny. 12 typów zadań. Śledzenie ETA. Monitoring obciążenia. Aktualizacje real-time.
                         </p>
                     </div>
 
                     <div
-                        class="p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-xl hover:bg-cyber-green/5 transition-all group">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyber-green to-cyber-blue rounded-lg mb-4 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        class="p-8 bg-forge-card border border-forge-border rounded-sm hover:border-white/30 transition-all group">
+                        <div class="w-10 h-10 bg-white/10 rounded-sm mb-4 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber-green transition-colors">Makespan
+                        <h3
+                            class="text-xl font-bold mb-2 text-white group-hover:text-white transition-colors font-sans">
+                            Makespan
                             Algorithm
                         </h3>
-                        <p class="text-gray-400">
+                        <p class="text-forge-muted text-sm">
                             Koniec z ręcznym przydzielaniem. System optymalizuje makespan dla każdego zlecenia
                             automatycznie.
                         </p>
                     </div>
 
                     <div
-                        class="p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-xl hover:bg-cyber-green/5 transition-all group">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyber-purple to-cyber-green rounded-lg mb-4 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        class="p-8 bg-forge-card border border-forge-border rounded-sm hover:border-white/30 transition-all group">
+                        <div class="w-10 h-10 bg-white/10 rounded-sm mb-4 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path
                                     d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber-purple transition-colors">Metryki OEE
+                        <h3
+                            class="text-xl font-bold mb-2 text-white group-hover:text-white transition-colors font-sans">
+                            Metryki OEE
                         </h3>
-                        <p class="text-gray-400">
+                        <p class="text-forge-muted text-sm">
                             Obciążenie maszyn, wykorzystanie i przepustowość. Wszystkie kluczowe wskaźniki w czasie
                             rzeczywistym.
                         </p>
                     </div>
 
                     <div
-                        class="p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-xl hover:bg-cyber-green/5 transition-all group">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyber-blue to-cyber-purple rounded-lg mb-4 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        class="p-8 bg-forge-card border border-forge-border rounded-sm hover:border-white/30 transition-all group">
+                        <div class="w-10 h-10 bg-white/10 rounded-sm mb-4 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber-blue transition-colors">Zero Paniki
+                        <h3
+                            class="text-xl font-bold mb-2 text-white group-hover:text-white transition-colors font-sans">
+                            Zero Paniki
                         </h3>
-                        <p class="text-gray-400">
+                        <p class="text-forge-muted text-sm">
                             Gdy maszyna padnie - system sam przeorganizuje plan. Planista dostaje gotowe rozwiązanie.
                         </p>
                     </div>
@@ -834,15 +661,15 @@
         </section>
 
         <!-- Team Section -->
-        <section id="team" class="relative py-16 sm:py-24 md:py-32 bg-cyber-darker">
+        <section id="team" class="relative py-16 sm:py-24 md:py-32 bg-forge-black border-t border-forge-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <div
-                        class="inline-block px-4 py-2 bg-cyber-purple/10 border border-cyber-purple/30 rounded backdrop-blur-sm mb-6">
-                        <span class="text-xs text-cyber-purple font-bold font-mono tracking-widest">■ ZESPÓŁ</span>
+                    <div class="inline-block px-3 py-1 border border-forge-border rounded-sm mb-6">
+                        <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
+                            ZESPÓŁ</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-3 font-mono">Twórcy ForgeGrid</h2>
-                    <p class="text-gray-400 text-sm mt-2">Zespół inżynierów i specjalistów AI</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 font-sans tracking-tight">Twórcy ForgeGrid</h2>
+                    <p class="text-forge-muted text-sm mt-2 font-light">Zespół inżynierów i specjalistów AI</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
@@ -850,20 +677,21 @@
                     <a href="https://www.linkedin.com/in/szymon-jedryczko/" target="_blank" rel="noopener noreferrer"
                         class="group block">
                         <div
-                            class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
+                            class="relative bg-forge-card border border-forge-border rounded-sm p-6 hover:border-white/30 transition-all text-center cursor-pointer">
                             <div class="mb-4">
                                 <div
-                                    class="w-32 h-32 mx-auto bg-white/10 rounded-lg overflow-hidden border border-white/20 group-hover:border-cyber-green/50 transition-colors">
+                                    class="w-32 h-32 mx-auto bg-white/5 rounded-sm overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors grayscale group-hover:grayscale-0">
                                     <img src="qrcodes/szymon_jedryczko.png" alt="Szymon Jędryczko"
                                         class="w-full h-full object-cover" loading="lazy" decoding="async" width="128"
                                         height="128">
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-sm mb-1 group-hover:text-cyber-green transition-colors">Szymon
+                            <h3 class="font-bold text-sm mb-1 text-white transition-colors font-sans">Szymon
                                 Jędryczko</h3>
-                            <p class="text-xs text-gray-500 mb-3 min-h-[32px]">Machine Learning Engineer • Team Lead</p>
+                            <p class="text-xs text-forge-muted mb-3 min-h-[32px]">Machine Learning Engineer • Team Lead
+                            </p>
                             <span
-                                class="inline-flex items-center gap-1 text-xs text-cyber-green group-hover:text-cyber-blue transition-colors">
+                                class="inline-flex items-center gap-1 text-xs text-white group-hover:text-forge-muted transition-colors uppercase tracking-wider font-bold">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -877,20 +705,20 @@
                     <a href="https://www.linkedin.com/in/agata-syc-8ab963a5" target="_blank" rel="noopener noreferrer"
                         class="group block">
                         <div
-                            class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
+                            class="relative bg-forge-card border border-forge-border rounded-sm p-6 hover:border-white/30 transition-all text-center cursor-pointer">
                             <div class="mb-4">
                                 <div
-                                    class="w-32 h-32 mx-auto bg-white/10 rounded-lg overflow-hidden border border-white/20 group-hover:border-cyber-green/50 transition-colors">
+                                    class="w-32 h-32 mx-auto bg-white/5 rounded-sm overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors grayscale group-hover:grayscale-0">
                                     <img src="qrcodes/agata_syc.png" alt="Agata Syc" class="w-full h-full object-cover"
                                         loading="lazy" decoding="async" width="128" height="128">
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-sm mb-1 group-hover:text-cyber-green transition-colors">Agata
+                            <h3 class="font-bold text-sm mb-1 text-white transition-colors font-sans">Agata
                                 Syc
                             </h3>
-                            <p class="text-xs text-gray-500 mb-3 min-h-[32px]">Chief Operating Officer • Strategy</p>
+                            <p class="text-xs text-forge-muted mb-3 min-h-[32px]">Chief Operating Officer • Strategy</p>
                             <span
-                                class="inline-flex items-center gap-1 text-xs text-cyber-green group-hover:text-cyber-blue transition-colors">
+                                class="inline-flex items-center gap-1 text-xs text-white group-hover:text-forge-muted transition-colors uppercase tracking-wider font-bold">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -904,21 +732,21 @@
                     <a href="https://www.linkedin.com/in/dominik-kamiński-46b56b224" target="_blank"
                         rel="noopener noreferrer" class="group block">
                         <div
-                            class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
+                            class="relative bg-forge-card border border-forge-border rounded-sm p-6 hover:border-white/30 transition-all text-center cursor-pointer">
                             <div class="mb-4">
                                 <div
-                                    class="w-32 h-32 mx-auto bg-white/10 rounded-lg overflow-hidden border border-white/20 group-hover:border-cyber-green/50 transition-colors">
+                                    class="w-32 h-32 mx-auto bg-white/5 rounded-sm overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors grayscale group-hover:grayscale-0">
                                     <img src="qrcodes/dominik_kaminski.png" alt="Dominik Kamiński"
                                         class="w-full h-full object-cover" loading="lazy" decoding="async" width="128"
                                         height="128">
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-sm mb-1 group-hover:text-cyber-green transition-colors">
+                            <h3 class="font-bold text-sm mb-1 text-white transition-colors font-sans">
                                 Dominik
                                 Kamiński</h3>
-                            <p class="text-xs text-gray-500 mb-3 min-h-[32px]">Software Developer • Full-Stack</p>
+                            <p class="text-xs text-forge-muted mb-3 min-h-[32px]">Software Developer • Full-Stack</p>
                             <span
-                                class="inline-flex items-center gap-1 text-xs text-cyber-green group-hover:text-cyber-blue transition-colors">
+                                class="inline-flex items-center gap-1 text-xs text-white group-hover:text-forge-muted transition-colors uppercase tracking-wider font-bold">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -932,21 +760,21 @@
                     <a href="https://www.linkedin.com/in/franciszek-głąb" target="_blank" rel="noopener noreferrer"
                         class="group block">
                         <div
-                            class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
+                            class="relative bg-forge-card border border-forge-border rounded-sm p-6 hover:border-white/30 transition-all text-center cursor-pointer">
                             <div class="mb-4">
                                 <div
-                                    class="w-32 h-32 mx-auto bg-white/10 rounded-lg overflow-hidden border border-white/20 group-hover:border-cyber-green/50 transition-colors">
+                                    class="w-32 h-32 mx-auto bg-white/5 rounded-sm overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors grayscale group-hover:grayscale-0">
                                     <img src="qrcodes/franciszek_glab.png" alt="Franciszek Głąb"
                                         class="w-full h-full object-cover" loading="lazy" decoding="async" width="128"
                                         height="128">
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-sm mb-1 group-hover:text-cyber-green transition-colors">
+                            <h3 class="font-bold text-sm mb-1 text-white transition-colors font-sans">
                                 Franciszek
                                 Głąb</h3>
-                            <p class="text-xs text-gray-500 mb-3 min-h-[32px]">Security Engineer • Cybersecurity</p>
+                            <p class="text-xs text-forge-muted mb-3 min-h-[32px]">Security Engineer • Cybersecurity</p>
                             <span
-                                class="inline-flex items-center gap-1 text-xs text-cyber-green group-hover:text-cyber-blue transition-colors">
+                                class="inline-flex items-center gap-1 text-xs text-white group-hover:text-forge-muted transition-colors uppercase tracking-wider font-bold">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -960,20 +788,20 @@
                     <a href="https://www.linkedin.com/in/rafał-tomaszewski2" target="_blank" rel="noopener noreferrer"
                         class="group block">
                         <div
-                            class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
+                            class="relative bg-forge-card border border-forge-border rounded-sm p-6 hover:border-white/30 transition-all text-center cursor-pointer">
                             <div class="mb-4">
                                 <div
-                                    class="w-32 h-32 mx-auto bg-white/10 rounded-lg overflow-hidden border border-white/20 group-hover:border-cyber-green/50 transition-colors">
+                                    class="w-32 h-32 mx-auto bg-white/5 rounded-sm overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors grayscale group-hover:grayscale-0">
                                     <img src="qrcodes/rafal_tomaszewski.png" alt="Rafał Tomaszewski"
                                         class="w-full h-full object-cover" loading="lazy" decoding="async" width="128"
                                         height="128">
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-sm mb-1 group-hover:text-cyber-green transition-colors">Rafał
+                            <h3 class="font-bold text-sm mb-1 text-white transition-colors font-sans">Rafał
                                 Tomaszewski</h3>
-                            <p class="text-xs text-gray-500 mb-3 min-h-[32px]">QA Engineer • Test Automation</p>
+                            <p class="text-xs text-forge-muted mb-3 min-h-[32px]">QA Engineer • Test Automation</p>
                             <span
-                                class="inline-flex items-center gap-1 text-xs text-cyber-green group-hover:text-cyber-blue transition-colors">
+                                class="inline-flex items-center gap-1 text-xs text-white group-hover:text-forge-muted transition-colors uppercase tracking-wider font-bold">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -987,22 +815,22 @@
                     <a href="https://www.linkedin.com/in/mateusz-pawlik-08527b283" target="_blank"
                         rel="noopener noreferrer" class="group block">
                         <div
-                            class="relative bg-cyber-dark/40 border border-cyber-green/10 rounded-xl p-6 hover:bg-cyber-green/5 hover:border-cyber-green/30 transition-all text-center cursor-pointer">
+                            class="relative bg-forge-card border border-forge-border rounded-sm p-6 hover:border-white/30 transition-all text-center cursor-pointer">
                             <div class="mb-4">
                                 <div
-                                    class="w-32 h-32 mx-auto bg-white/10 rounded-lg overflow-hidden border border-white/20 group-hover:border-cyber-green/50 transition-colors">
+                                    class="w-32 h-32 mx-auto bg-white/5 rounded-sm overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors grayscale group-hover:grayscale-0">
                                     <img src="qrcodes/mateusz_pawlik.png" alt="Mateusz Pawlik"
                                         class="w-full h-full object-cover" loading="lazy" decoding="async" width="128"
                                         height="128">
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-sm mb-1 group-hover:text-cyber-green transition-colors">
+                            <h3 class="font-bold text-sm mb-1 text-white transition-colors font-sans">
                                 Mateusz
                                 Pawlik</h3>
-                            <p class="text-xs text-gray-500 mb-3 min-h-[32px]">Technical Support Specialist • Client
+                            <p class="text-xs text-forge-muted mb-3 min-h-[32px]">Technical Support Specialist • Client
                                 Success</p>
                             <span
-                                class="inline-flex items-center gap-1 text-xs text-cyber-green group-hover:text-cyber-blue transition-colors">
+                                class="inline-flex items-center gap-1 text-xs text-white group-hover:text-forge-muted transition-colors uppercase tracking-wider font-bold">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -1016,165 +844,174 @@
         </section>
 
         <!-- Contact/Feedback Section -->
-        <section id="contact" class="relative py-16 sm:py-24 md:py-32 bg-cyber-dark">
+        <section id="contact" class="relative py-16 sm:py-24 md:py-32 bg-forge-black border-t border-forge-border">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <div
-                        class="inline-block px-4 py-2 bg-cyber-green/10 border border-cyber-green/30 rounded backdrop-blur-sm mb-6">
-                        <span class="text-xs text-cyber-green font-bold font-mono tracking-widest">■
+                    <div class="inline-block px-3 py-1 border border-forge-border rounded-sm mb-6">
+                        <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
                             FEEDBACK_FORM</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-sans tracking-tight">
                         Pomóż nam się
                         <br />
-                        <span class="gradient-text">rozwijać</span>
+                        <span class="text-forge-muted">rozwijać</span>
                     </h2>
-                    <p class="text-xl text-gray-400">
+                    <p class="text-xl text-forge-muted font-light">
                         Twoja anonimowa opinia pomoże nam zbudować lepszy produkt
                     </p>
                 </div>
 
-                <form class="space-y-8 p-8 bg-cyber-dark/40 border border-cyber-green/10 rounded-2xl"
+                <form class="space-y-8 p-8 bg-forge-card border border-forge-border rounded-sm"
                     action="https://formspree.io/f/xkgezdja" method="POST" aria-label="Feedback form">
                     <!-- Form Question 1 -->
                     <div class="space-y-3">
-                        <label class="block text-sm font-semibold">Czy pomysł projektu Ci się podoba?</label>
+                        <label class="block text-sm font-bold text-white uppercase tracking-wide">Czy pomysł projektu Ci
+                            się podoba?</label>
                         <div class="space-y-2">
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="idea_rating" value="zdecydowanie_tak" required
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Zdecydowanie tak</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Zdecydowanie tak</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
-                                <input type="radio" name="idea_rating" value="tak" class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Tak</span>
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
+                                <input type="radio" name="idea_rating" value="tak"
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Tak</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="idea_rating" value="neutralnie"
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Neutralnie</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Neutralnie</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
-                                <input type="radio" name="idea_rating" value="nie" class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Nie</span>
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
+                                <input type="radio" name="idea_rating" value="nie"
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Nie</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Form Question 2 -->
                     <div class="space-y-3">
-                        <label class="block text-sm font-semibold">Jak oceniasz prezentację produktu?</label>
+                        <label class="block text-sm font-bold text-white uppercase tracking-wide">Jak oceniasz
+                            prezentację produktu?</label>
                         <div class="space-y-2">
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="ui_rating" value="bardzo_dobry" required
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Bardzo dobra</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Bardzo dobra</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
-                                <input type="radio" name="ui_rating" value="dobry" class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Dobra</span>
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
+                                <input type="radio" name="ui_rating" value="dobry"
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Dobra</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="ui_rating" value="przecietny"
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Przeciętna</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Przeciętna</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
-                                <input type="radio" name="ui_rating" value="zly" class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Słaba</span>
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
+                                <input type="radio" name="ui_rating" value="zly"
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Słaba</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Form Question 3 -->
                     <div class="space-y-3">
-                        <label class="block text-sm font-semibold">Jakie cechy projektu uważasz za
+                        <label class="block text-sm font-bold text-white uppercase tracking-wide">Jakie cechy projektu
+                            uważasz za
                             najważniejsze?</label>
                         <div class="space-y-2">
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="checkbox" name="features" value="monitoring"
-                                    class="w-4 h-4 text-cyber-green rounded">
-                                <span class="text-sm">Monitoring w czasie rzeczywistym</span>
+                                    class="w-4 h-4 text-white accent-white rounded-sm">
+                                <span class="text-sm text-forge-muted">Monitoring w czasie rzeczywistym</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="checkbox" name="features" value="analityka"
-                                    class="w-4 h-4 text-cyber-green rounded">
-                                <span class="text-sm">Analityka predykcyjna</span>
+                                    class="w-4 h-4 text-white accent-white rounded-sm">
+                                <span class="text-sm text-forge-muted">Analityka predykcyjna</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="checkbox" name="features" value="bezpieczenstwo"
-                                    class="w-4 h-4 text-cyber-green rounded">
-                                <span class="text-sm">Bezpieczeństwo danych (Self-hosted)</span>
+                                    class="w-4 h-4 text-white accent-white rounded-sm">
+                                <span class="text-sm text-forge-muted">Bezpieczeństwo danych (Self-hosted)</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="checkbox" name="features" value="wydajnosc"
-                                    class="w-4 h-4 text-cyber-green rounded">
-                                <span class="text-sm">Rozwiązanie Open Source</span>
+                                    class="w-4 h-4 text-white accent-white rounded-sm">
+                                <span class="text-sm text-forge-muted">Rozwiązanie Open Source</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Form Question 4 -->
                     <div class="space-y-3">
-                        <label class="block text-sm font-semibold">Co by Cię przekonało do wdrożenia ForgeGrid w
+                        <label class="block text-sm font-bold text-white uppercase tracking-wide">Co by Cię przekonało
+                            do wdrożenia ForgeGrid w
                             produkcji?</label>
                         <textarea name="improvements" rows="4"
-                            class="w-full px-4 py-3 bg-cyber-dark/40 border border-cyber-green/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyber-green text-white placeholder-gray-500 resize-none"
+                            class="w-full px-4 py-3 bg-white border border-forge-border rounded-sm focus:outline-none focus:border-forge-black text-forge-black placeholder-gray-500 resize-none font-sans text-sm"
                             placeholder="Np. case study z Twojej branży, demo z Twoimi danymi, analiza ROI..."></textarea>
                     </div>
 
                     <!-- Form Question 5 -->
                     <div class="space-y-3">
-                        <label class="block text-sm font-semibold">Widzisz potencjał komercyjny?</label>
+                        <label class="block text-sm font-bold text-white uppercase tracking-wide">Widzisz potencjał
+                            komercyjny?</label>
                         <div class="space-y-2">
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="commercial_potential" value="duzy" required
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Duży potencjał</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Duży potencjał</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="commercial_potential" value="sredni"
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Średni potencjał</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Średni potencjał</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 p-3 bg-cyber-dark/40 rounded-lg cursor-pointer hover:bg-cyber-green/5 transition-colors">
+                                class="flex items-center gap-3 p-3 bg-forge-black border border-forge-border rounded-sm cursor-pointer hover:border-white/30 transition-colors">
                                 <input type="radio" name="commercial_potential" value="maly"
-                                    class="w-4 h-4 text-cyber-green">
-                                <span class="text-sm">Mały potencjał</span>
+                                    class="w-4 h-4 text-white accent-white">
+                                <span class="text-sm text-forge-muted">Mały potencjał</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Additional Comments -->
                     <div class="space-y-3">
-                        <label class="block text-sm font-semibold">Dodatkowe komentarze (opcjonalne)</label>
+                        <label class="block text-sm font-bold text-white uppercase tracking-wide">Dodatkowe komentarze
+                            (opcjonalne)</label>
                         <textarea name="comments" rows="3"
-                            class="w-full px-4 py-3 bg-cyber-dark/40 border border-cyber-green/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyber-green text-white placeholder-gray-500 resize-none"
+                            class="w-full px-4 py-3 bg-white border border-forge-border rounded-sm focus:outline-none focus:border-forge-black text-forge-black placeholder-gray-500 resize-none font-sans text-sm"
                             placeholder="Cokolwiek jeszcze chciałbyś nam powiedzieć..."></textarea>
                     </div>
 
                     <!-- Submit Button -->
                     <button type="submit"
-                        class="w-full py-4 bg-gradient-to-r from-cyber-green to-cyber-blue hover:from-cyber-green/80 hover:to-cyber-blue/80 text-cyber-darker rounded-lg font-bold text-lg font-mono uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02] glow-green">
+                        class="w-full py-4 bg-forge-black text-white border border-forge-border hover:bg-forge-dark rounded-sm font-bold text-lg font-sans uppercase tracking-widest transition-all duration-300">
                         ▶ SUBMIT_FEEDBACK
                     </button>
 
-                    <p class="text-center text-sm text-gray-500">
+                    <p class="text-center text-xs text-forge-muted">
                         Formularz jest całkowicie anonimowy. Nie zbieramy danych osobowych.
                     </p>
                 </form>
@@ -1183,39 +1020,40 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo" class="relative py-12 bg-cyber-darker border-t border-white/5">
+    <footer role="contentinfo" class="relative py-12 bg-forge-black border-t border-forge-border">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-3">
                     <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         aria-label="ForgeGrid logo">
                         <title>ForgeGrid Logo</title>
-                        <rect x="3" y="3" width="8" height="8" rx="2" fill="#00ff9f" />
-                        <rect x="13" y="3" width="8" height="8" rx="2" fill="#00d4ff" />
-                        <rect x="3" y="13" width="8" height="8" rx="2" fill="#ffb84d" />
-                        <rect x="13" y="13" width="8" height="8" rx="2" fill="#00ff9f" fill-opacity="0.3" />
+                        <rect x="3" y="3" width="8" height="8" rx="1" fill="#FFFFFF" />
+                        <rect x="13" y="3" width="8" height="8" rx="1" fill="#666666" />
+                        <rect x="3" y="13" width="8" height="8" rx="1" fill="#666666" />
+                        <rect x="13" y="13" width="8" height="8" rx="1" fill="#333333" />
                     </svg>
-                    <span class="font-bold font-mono">FORGE<span class="text-cyber-green">GRID</span></span>
+                    <span class="font-bold font-sans tracking-tight text-white">FORGE<span
+                            class="text-forge-muted">GRID</span></span>
                 </div>
 
                 <div class="flex items-center gap-8">
                     <a href="https://github.com/NetBr3ak/internal-machine-monitor" target="_blank"
                         rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-cyber-green transition-all duration-300 text-sm font-mono uppercase tracking-wider"
+                        class="text-forge-muted hover:text-white transition-all duration-300 text-xs font-bold font-sans uppercase tracking-widest"
                         aria-label="View source code on GitHub">
                         GitHub
                     </a>
                     <a href="#platform"
-                        class="text-gray-400 hover:text-cyber-green transition-all duration-300 text-sm font-mono uppercase tracking-wider">
+                        class="text-forge-muted hover:text-white transition-all duration-300 text-xs font-bold font-sans uppercase tracking-widest">
                         Platform
                     </a>
                     <a href="#contact"
-                        class="text-gray-400 hover:text-cyber-green transition-all duration-300 text-sm font-mono uppercase tracking-wider">
+                        class="text-forge-muted hover:text-white transition-all duration-300 text-xs font-bold font-sans uppercase tracking-widest">
                         Contact
                     </a>
                 </div>
 
-                <div class="text-xs text-gray-500 font-mono uppercase tracking-wider">
+                <div class="text-xs text-forge-muted font-sans uppercase tracking-widest">
                     © 2025 FORGEGRID_v1.0 // OPEN_SOURCE
                 </div>
             </div>
@@ -1300,27 +1138,6 @@
                 }
             }
         });
-
-        // Particles.js Configuration - Optimized
-        if (window.innerWidth > 768) {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 60, density: { enable: true, value_area: 1000 } },
-                    color: { value: '#00ff9f' },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.3, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
-                    size: { value: 2.5, random: true, anim: { enable: true, speed: 2, size_min: 0.1 } },
-                    line_linked: { enable: true, distance: 140, color: '#00ff9f', opacity: 0.15, width: 1 },
-                    move: { enable: true, speed: 0.8, direction: 'none', random: true, out_mode: 'out' }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
-                    modes: { grab: { distance: 120, line_linked: { opacity: 0.4 } }, push: { particles_nb: 3 } }
-                },
-                retina_detect: true
-            });
-        }
 
         // Intersection Observer for fade-in animations
         const observerOptions = {

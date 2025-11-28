@@ -13,7 +13,7 @@
 
 ## 🎨 Design System
 
-### Palantir-Inspired Cyber Theme
+### Industrial Cyber Theme
 - **Color Palette**:
   - `#00ff9f` — cyber-green (primary)
   - `#00d4ff` — cyber-blue (accent)
