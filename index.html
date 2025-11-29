@@ -23,6 +23,8 @@
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="hero-video.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="error_handler.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="analytics.mp4" as="video" type="video/mp4">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -311,9 +313,10 @@
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
 
             <div class="absolute inset-0 w-full h-full overflow-hidden">
-                <video autoplay loop muted playsinline loading="lazy"
+                <video id="heroVideo" autoplay loop muted playsinline preload="auto"
                     aria-label="Hero background video showing ForgeGrid dashboard"
-                    class="absolute inset-0 w-full h-full object-cover opacity-50">
+                    class="absolute inset-0 w-full h-full object-cover opacity-50"
+                    style="transition: opacity 0.8s ease-in-out;">
                     <source src="hero-video.mp4" type="video/mp4">
                     Your browser doesn't support video playback.
                 </video>
@@ -458,7 +461,7 @@
                     <div class="relative lg:col-span-3">
                         <div class="screenshot-container rounded-sm overflow-hidden border border-white/10 bg-black"
                             onclick="openModal('dashboardModal')">
-                            <video autoplay loop muted playsinline loading="lazy"
+                            <video autoplay loop muted playsinline preload="metadata"
                                 aria-label="Platform demonstration video"
                                 class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500 grayscale hover:grayscale-0">
                                 <source src="hero-video.mp4" type="video/mp4">
@@ -483,7 +486,7 @@
                     <div class="relative lg:col-span-3">
                         <div class="screenshot-container rounded-sm overflow-hidden border border-forge-border bg-forge-card"
                             onclick="openModal('errorModal')">
-                            <video autoplay loop muted playsinline loading="lazy"
+                            <video autoplay loop muted playsinline preload="metadata"
                                 aria-label="Error handler demonstration video"
                                 class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="error_handler.mp4" type="video/mp4">
@@ -608,7 +611,7 @@
                     <div class="relative lg:col-span-3">
                         <div class="screenshot-container rounded-sm overflow-hidden border border-forge-border bg-forge-card"
                             onclick="openModal('analyticsModal')">
-                            <video autoplay loop muted playsinline loading="lazy"
+                            <video autoplay loop muted playsinline preload="metadata"
                                 aria-label="Analytics module demonstration video"
                                 class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="analytics.mp4" type="video/mp4">
@@ -1210,6 +1213,62 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             }
         });
+
+        // Hero Video Rotation System
+        const heroVideo = document.getElementById('heroVideo');
+        const videoSources = ['hero-video.mp4', 'error_handler.mp4', 'analytics.mp4'];
+        let currentVideoIndex = 0;
+
+        // Preload next video for smooth transitions
+        function preloadNextVideo() {
+            const nextIndex = (currentVideoIndex + 1) % videoSources.length;
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.as = 'video';
+            link.href = videoSources[nextIndex];
+            document.head.appendChild(link);
+        }
+
+        function rotateVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+            const nextVideoSrc = videoSources[currentVideoIndex];
+
+            // Fade out
+            heroVideo.style.opacity = '0';
+
+            setTimeout(() => {
+                // Change source
+                const source = heroVideo.querySelector('source');
+                source.src = nextVideoSrc;
+                heroVideo.load();
+
+                // Play and fade in
+                heroVideo.play().then(() => {
+                    heroVideo.style.opacity = '0.5';
+                    preloadNextVideo();
+                }).catch(err => {
+                    console.log('Video playback error:', err);
+                    heroVideo.style.opacity = '0.5';
+                });
+            }, 800);
+        }
+
+        // Rotate video every 10 seconds
+        if (heroVideo) {
+            preloadNextVideo();
+            setInterval(rotateVideo, 10000);
+
+            // Optimize video quality based on connection
+            if ('connection' in navigator) {
+                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                if (connection && connection.effectiveType) {
+                    // For slow connections, reduce video loading priority
+                    if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                        heroVideo.preload = 'metadata';
+                    }
+                }
+            }
+        }
     </script>
 
 </body>
