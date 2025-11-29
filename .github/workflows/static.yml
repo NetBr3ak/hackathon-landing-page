@@ -24,15 +24,41 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p _site
+          # Copy all files except git, github, and dev files
+          rsync -av --exclude='.git' \
+                    --exclude='.github' \
+                    --exclude='.gitignore' \
+                    --exclude='.gitattributes' \
+                    --exclude='README.md' \
+                    --exclude='CODE_OF_CONDUCT.md' \
+                    --exclude='CONTRIBUTING.md' \
+                    --exclude='SECURITY.md' \
+                    --exclude='LICENSE' \
+                    --exclude='_site' \
+                    . _site/
+          # Verify essential files exist
+          for file in index.html 404.html; do
+            if [ ! -f "_site/$file" ]; then
+              echo "Error: Required file $file is missing"
+              exit 1
+            fi
+          done
+          echo "Deployment directory prepared successfully"
+          ls -la _site/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
-          
+          path: '_site'
+          retention-days: 7
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
