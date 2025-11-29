@@ -85,7 +85,7 @@
         }
 
         ::selection {
-            background: #3B82F6;
+            background: rgba(255, 255, 255, 0.2);
             color: #FFFFFF;
         }
 
@@ -114,12 +114,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-                    rgba(255, 255, 255, 0.03),
-                    transparent 40%);
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(255, 255, 255, 0.04),
+                    transparent 50%);
             z-index: 1;
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.2s ease;
             pointer-events: none;
         }
 
@@ -134,12 +134,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
-                    rgba(255, 255, 255, 0.1),
-                    transparent 40%);
+            background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(255, 255, 255, 0.08),
+                    transparent 50%);
             z-index: 3;
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.2s ease;
             pointer-events: none;
             border-radius: inherit;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -168,14 +168,14 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #3B82F6;
+            background: #666666;
         }
 
-        /* Fade-in animations */
+        /* Fade-in animations - Optimized for speed */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(10px);
+            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .fade-in-up.visible {
@@ -184,15 +184,15 @@
         }
 
         .screenshot-container {
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.05);
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+            cursor: pointer;
         }
 
         .screenshot-container:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
-            transform: scale(1.01);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
         /* Modal styles */
@@ -212,13 +212,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: modalFadeIn 0.3s ease-out;
+            animation: modalFadeIn 0.15s ease-out;
         }
 
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: scale(0.95);
+                transform: scale(0.98);
             }
 
             to {
@@ -257,7 +257,7 @@
 
         .modal-close:hover {
             opacity: 1;
-            color: #3B82F6;
+            color: #FFFFFF;
         }
 
         /* Technical Decorations - Hidden */
@@ -288,16 +288,16 @@
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#platform"
-                        class="text-forge-muted hover:text-white transition-colors duration-300 text-xs font-medium font-sans uppercase tracking-widest">Platforma</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Platforma</a>
                     <a href="#capabilities"
-                        class="text-forge-muted hover:text-white transition-colors duration-300 text-xs font-medium font-sans uppercase tracking-widest">Możliwości</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Możliwości</a>
                     <a href="#team"
-                        class="text-forge-muted hover:text-white transition-colors duration-300 text-xs font-medium font-sans uppercase tracking-widest">Zespół</a>
+                        class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Zespół</a>
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                         rel="noopener noreferrer"
-                        class="px-4 sm:px-6 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-sans uppercase tracking-widest transition-all duration-300 min-h-[40px] flex items-center"
+                        class="px-4 sm:px-6 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-sans uppercase tracking-widest transition-all duration-150 min-h-[40px] flex items-center"
                         aria-label="Open live demo in new tab">
                         DEMO_LIVE
                     </a>
@@ -352,7 +352,7 @@
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12">
                         <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                             rel="noopener noreferrer"
-                            class="group relative px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-all duration-300 w-full sm:w-auto overflow-hidden border border-white">
+                            class="group relative px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150 w-full sm:w-auto overflow-hidden border border-white">
                             <span class="relative z-10 flex items-center gap-3">
                                 [ INICJUJ_DEMO ]
                             </span>
@@ -362,23 +362,23 @@
                     <!-- Stats -->
                     <div
                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-white/10 pt-px mt-24 max-w-6xl mx-auto border border-white/10">
-                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-500">
+                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">93%</div>
                             <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Redukcja Strat
                             </div>
                         </div>
-                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-500">
+                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">3000<span
                                     class="text-lg text-gray-500">ms</span></div>
                             <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Czas Reakcji
                             </div>
                         </div>
-                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-500">
+                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">LIVE</div>
                             <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Monitoring
                             </div>
                         </div>
-                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-500">
+                        <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">0</div>
                             <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Interwencji
                             </div>
@@ -1027,7 +1027,7 @@
 
                     <!-- Submit Button -->
                     <button type="submit"
-                        class="w-full py-4 bg-white text-black border border-white hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-all duration-300">
+                        class="w-full py-4 bg-white text-black border border-white hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150">
                         [ WYŚLIJ_FEEDBACK ]
                     </button>
 
@@ -1059,16 +1059,16 @@
                 <div class="flex items-center gap-12">
                     <a href="https://github.com/NetBr3ak/internal-machine-monitor" target="_blank"
                         rel="noopener noreferrer"
-                        class="text-gray-500 hover:text-white transition-all duration-300 text-[10px] font-bold font-mono uppercase tracking-[0.2em]"
+                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]"
                         aria-label="View source code on GitHub">
                         GitHub
                     </a>
                     <a href="#platform"
-                        class="text-gray-500 hover:text-white transition-all duration-300 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
+                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
                         Platform
                     </a>
                     <a href="#contact"
-                        class="text-gray-500 hover:text-white transition-all duration-300 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
+                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
                         Contact
                     </a>
                 </div>
