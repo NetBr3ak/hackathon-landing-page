@@ -289,18 +289,27 @@
                             class="text-forge-muted">GRID</span></span>
                 </div>
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#platform"
+                    <a href="#platform" data-i18n="nav_platform"
                         class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Platforma</a>
-                    <a href="#capabilities"
+                    <a href="#capabilities" data-i18n="nav_capabilities"
                         class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Możliwości</a>
-                    <a href="#team"
+                    <a href="#team" data-i18n="nav_team"
                         class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Zespół</a>
                 </div>
                 <div class="flex items-center gap-4">
+                    <button id="langToggle"
+                        class="px-3 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-mono uppercase tracking-widest transition-all duration-150 flex items-center gap-2"
+                        aria-label="Toggle language">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                        <span id="langText">EN</span>
+                    </button>
                     <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                         rel="noopener noreferrer"
                         class="px-4 sm:px-6 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-sans uppercase tracking-widest transition-all duration-150 min-h-[40px] flex items-center"
-                        aria-label="Open live demo in new tab">
+                        aria-label="Open live demo in new tab" data-i18n="nav_demo">
                         DEMO_LIVE
                     </a>
                 </div>
@@ -338,13 +347,13 @@
                     <!-- Main Headline -->
                     <h1
                         class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none font-sans tracking-tighter">
-                        <span class="text-white block mb-2">AUTONOMOUS</span>
-                        <span
+                        <span class="text-white block mb-2" data-i18n="hero_title1">AUTONOMOUS</span>
+                        <span data-i18n="hero_title2"
                             class="text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500">INTELLIGENCE</span>
                     </h1>
 
                     <!-- Subheadline -->
-                    <p
+                    <p data-i18n="hero_subtitle"
                         class="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-4 font-light tracking-wide">
                         Przemysłowy system operacyjny nowej generacji.
                         <br class="hidden md:block" />
@@ -356,7 +365,7 @@
                         <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
                             rel="noopener noreferrer"
                             class="group relative px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150 w-full sm:w-auto overflow-hidden border border-white">
-                            <span class="relative z-10 flex items-center gap-3">
+                            <span class="relative z-10 flex items-center gap-3" data-i18n="hero_cta">
                                 [ INICJUJ_DEMO ]
                             </span>
                         </a>
@@ -367,23 +376,27 @@
                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-white/10 pt-px mt-24 max-w-6xl mx-auto border border-white/10">
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">93%</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Redukcja Strat
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans"
+                                data-i18n="stats_1">Redukcja Strat
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">3000<span
                                     class="text-lg text-gray-500">ms</span></div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Czas Reakcji
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans"
+                                data-i18n="stats_2">Czas Reakcji
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">LIVE</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Monitoring
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans"
+                                data-i18n="stats_3">Monitoring
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">0</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Interwencji
+                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans"
+                                data-i18n="stats_4">Interwencji
                             </div>
                         </div>
                     </div>
@@ -406,15 +419,16 @@
                 <div class="grid lg:grid-cols-5 gap-24 items-center">
                     <div class="space-y-8 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-white/10 rounded-sm">
-                            <span
+                            <span data-i18n="platform_tag"
                                 class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">INTELLIGENT_PLANNING</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tighter text-white">
+                        <h2 data-i18n="platform_title"
+                            class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tighter text-white">
                             Kontrola
                             <br />
                             <span class="text-gray-500">w czasie rzeczywistym</span>
                         </h2>
-                        <p class="text-lg text-gray-400 leading-relaxed font-light">
+                        <p data-i18n="platform_desc" class="text-lg text-gray-400 leading-relaxed font-light">
                             Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii.
                             Metryki live: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji
                             ręcznej.
@@ -425,9 +439,11 @@
                                     class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
+                                    <div data-i18n="platform_feat1_title"
+                                        class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
                                         Algorytm Makespan</div>
-                                    <div class="text-gray-500 text-sm leading-relaxed">Optymalizacja harmonogramu w
+                                    <div data-i18n="platform_feat1_desc" class="text-gray-500 text-sm leading-relaxed">
+                                        Optymalizacja harmonogramu w
                                         czasie &lt;3000ms po wykryciu anomalii.
                                     </div>
                                 </div>
@@ -437,10 +453,12 @@
                                     class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Live Telemetry</div>
-                                    <div class="text-gray-500 text-sm leading-relaxed">Ciągły strumień danych z 4
-                                        jednostek produkcyjnych. Odświeżanie sub-sekundowe.</div>
+                                    <div data-i18n="platform_feat2_title"
+                                        class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
+                                        Automatyczny Przydział</div>
+                                    <div data-i18n="platform_feat2_desc" class="text-gray-500 text-sm leading-relaxed">
+                                        Algorytm przydziela zadania operatorom z uwzględnieniem priorytetów i
+                                        obciążenia.</div>
                                 </div>
                             </li>
                             <li class="flex items-start gap-6 group">
@@ -448,10 +466,12 @@
                                     class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Udokumentowany ROI</div>
-                                    <div class="text-gray-500 text-sm leading-relaxed">Redukcja kosztów awarii o 93%.
-                                        Z $36k do $2.4k na incydent.</div>
+                                    <div data-i18n="platform_feat3_title"
+                                        class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
+                                        Monitoring Parametrów</div>
+                                    <div data-i18n="platform_feat3_desc" class="text-gray-500 text-sm leading-relaxed">
+                                        Live tracking: temperatura, ciśnienie, RPM, wibracje. Predykcja awarii przed
+                                        wystąpieniem.</div>
                                 </div>
                             </li>
                         </ul>
@@ -632,16 +652,17 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-24">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span
+                        <span data-i18n="capabilities_tag"
                             class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">SYSTEM_CAPABILITIES</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
+                    <h2 data-i18n="capabilities_title"
+                        class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
                         Architektura
                         <br />
-                        <span class="text-gray-500">Systemu</span>
+                        <span class="text-gray-500">Rozproszona</span>
                     </h2>
-                    <p class="text-lg text-gray-400 font-light tracking-wide">
-                        Zaprojektowany dla środowisk mission-critical.
+                    <p data-i18n="capabilities_desc" class="text-lg text-gray-400 font-light tracking-wide">
+                        Infrastruktura zaprojektowana dla industrial-grade reliability i skalowalności.
                     </p>
                 </div>
 
@@ -775,14 +796,16 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">CORE_TEAM</span>
+                        <span data-i18n="team_tag"
+                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">CORE_TEAM</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
-                        Twórcy
-                        <span class="text-gray-500">Systemu</span>
+                    <h2 data-i18n="team_title"
+                        class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
+                        Zespół
+                        <br /><span class="text-gray-500">Inżynierski</span>
                     </h2>
-                    <p class="text-lg text-gray-400 font-light tracking-wide">
-                        Inżynierowie odpowiedzialni za architekturę ForgeGrid.
+                    <p data-i18n="team_desc" class="text-lg text-gray-400 font-light tracking-wide">
+                        Eksperci w dziedzinie systemów przemysłowych, AI i architektury rozproszonej.
                     </p>
                 </div>
 
@@ -936,15 +959,16 @@
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">FEEDBACK_LOOP</span>
+                        <span data-i18n="contact_tag"
+                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">GET_IN_TOUCH</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
-                        Pomóż nam się
-                        <span class="text-gray-500">rozwijać</span>
+                    <h2 data-i18n="contact_title"
+                        class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
+                        Inicjuj
+                        <br /><span class="text-gray-500">Kontakt</span>
                     </h2>
-                    <p class="text-lg text-gray-400 font-light tracking-wide">
-                        Twoja anonimowa opinia pomoże nam zbudować lepszy produkt.
+                    <p data-i18n="contact_desc" class="text-lg text-gray-400 font-light tracking-wide">
+                        Zainteresowany wdrożeniem? Skontaktuj się z naszym zespołem technicznym.
                     </p>
                 </div>
 
@@ -1076,8 +1100,8 @@
                     </a>
                 </div>
 
-                <div class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">
-                    © 2025 FORGEGRID_v1.0 // OPEN_SOURCE
+                <div data-i18n="footer_text" class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">
+                    © 2025 ForgeGrid Systems. Autonomous Intelligence for Industrial Operations.
                 </div>
             </div>
         </div>
@@ -1310,6 +1334,150 @@
                     }
                 }
             }
+        }
+
+        // Internationalization System
+        const translations = {
+            pl: {
+                nav_platform: 'Platforma',
+                nav_capabilities: 'Możliwości',
+                nav_team: 'Zespół',
+                nav_demo: 'DEMO_LIVE',
+                hero_title1: 'AUTONOMOUS',
+                hero_title2: 'INTELLIGENCE',
+                hero_subtitle: 'Przemysłowy system operacyjny nowej generacji.<br class="hidden md:block" /><span class="text-white">Reakcja: &lt;3000ms.</span> Eliminacja błędów poznawczych.',
+                hero_cta: '[ INICJUJ_DEMO ]',
+                stats_1: 'Redukcja Strat',
+                stats_2: 'Czas Reakcji',
+                stats_3: 'Monitoring',
+                stats_4: 'Interwencji',
+                platform_tag: 'INTELLIGENT_PLANNING',
+                platform_title: 'Kontrola<br /><span class="text-gray-500">w czasie rzeczywistym</span>',
+                platform_desc: 'Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii. Metryki live: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji ręcznej.',
+                platform_feat1_title: 'Algorytm Makespan',
+                platform_feat1_desc: 'Optymalizacja harmonogramu w czasie <3000ms po wykryciu anomalii.',
+                platform_feat2_title: 'Automatyczny Przydział',
+                platform_feat2_desc: 'Algorytm przydziela zadania operatorom z uwzględnieniem priorytetów i obciążenia.',
+                platform_feat3_title: 'Monitoring Parametrów',
+                platform_feat3_desc: 'Live tracking: temperatura, ciśnienie, RPM, wibracje. Predykcja awarii przed wystąpieniem.',
+                predictive_title: 'Inteligencja<br /><span class="text-gray-500">Predyktywna</span>',
+                predictive_desc: 'System wykrywa awarie z 3-sekundową precyzją i automatycznie reorganizuje produkcję. Eliminacja przestojów. Zintegrowany error handler i system notyfikacji dla operatorów.',
+                analytics_title: 'Analityka<br /><span class="text-gray-500">w czasie rzeczywistym</span>',
+                analytics_desc: 'Dashboard z metrykami produkcji. Wizualizacja obciążenia maszyn, statusów zadań, predykcji awaryjności. Export raportów do PDF. Integracja z ERP/MES.',
+                capabilities_tag: 'SYSTEM_CAPABILITIES',
+                capabilities_title: 'Architektura<br /><span class="text-gray-500">Rozproszona</span>',
+                capabilities_desc: 'Infrastruktura zaprojektowana dla industrial-grade reliability i skalowalności.',
+                cap1_title: 'Real-time Engine',
+                cap1_desc: 'Processing 200+ danych/sekundę z dokładnością millisecond-level. Latencja <50ms.',
+                cap2_title: 'AI Orchestration',
+                cap2_desc: 'Algorytm Makespan + heurystyki genetic algorithms dla optymalnego planowania.',
+                cap3_title: 'Edge Computing',
+                cap3_desc: 'Przetwarzanie na brzegu sieci. Autonomiczne działanie nawet bez łączności.',
+                cap4_title: 'Fault Tolerance',
+                cap4_desc: 'Automatyczne failover. Backup systemów. Zero single point of failure.',
+                cap5_title: 'Security Layer',
+                cap5_desc: 'Szyfrowanie end-to-end. Role-based access control. Audit logs każdej akcji.',
+                cap6_title: 'API Integration',
+                cap6_desc: 'RESTful API. WebSocket streams. Integracja z SAP, Oracle, custom ERP.',
+                team_tag: 'CORE_TEAM',
+                team_title: 'Zespół<br /><span class="text-gray-500">Inżynierski</span>',
+                team_desc: 'Eksperci w dziedzinie systemów przemysłowych, AI i architektury rozproszonej.',
+                contact_tag: 'GET_IN_TOUCH',
+                contact_title: 'Inicjuj<br /><span class="text-gray-500">Kontakt</span>',
+                contact_desc: 'Zainteresowany wdrożeniem? Skontaktuj się z naszym zespołem technicznym.',
+                contact_name: 'Identyfikator',
+                contact_email: 'E-mail',
+                contact_message: 'Wiadomość',
+                contact_submit: '[ TRANSMITUJ ]',
+                footer_text: '© 2025 ForgeGrid Systems. Autonomous Intelligence for Industrial Operations.'
+            },
+            en: {
+                nav_platform: 'Platform',
+                nav_capabilities: 'Capabilities',
+                nav_team: 'Team',
+                nav_demo: 'DEMO_LIVE',
+                hero_title1: 'AUTONOMOUS',
+                hero_title2: 'INTELLIGENCE',
+                hero_subtitle: 'Next-generation industrial operating system.<br class="hidden md:block" /><span class="text-white">Response: &lt;3000ms.</span> Cognitive error elimination.',
+                hero_cta: '[ INITIATE_DEMO ]',
+                stats_1: 'Loss Reduction',
+                stats_2: 'Response Time',
+                stats_3: 'Monitoring',
+                stats_4: 'Interventions',
+                platform_tag: 'INTELLIGENT_PLANNING',
+                platform_title: 'Real-time<br /><span class="text-gray-500">Control</span>',
+                platform_desc: 'Monitoring 4 machines. Tracking 12 task types. Instant failure detection. Live metrics: machine load, task queues, hall throughput. Zero manual intervention.',
+                platform_feat1_title: 'Makespan Algorithm',
+                platform_feat1_desc: 'Schedule optimization in <3000ms after anomaly detection.',
+                platform_feat2_title: 'Automatic Assignment',
+                platform_feat2_desc: 'Algorithm assigns tasks to operators considering priorities and workload.',
+                platform_feat3_title: 'Parameter Monitoring',
+                platform_feat3_desc: 'Live tracking: temperature, pressure, RPM, vibrations. Failure prediction before occurrence.',
+                predictive_title: 'Predictive<br /><span class="text-gray-500">Intelligence</span>',
+                predictive_desc: 'System detects failures with 3-second precision and automatically reorganizes production. Downtime elimination. Integrated error handler and notification system for operators.',
+                analytics_title: 'Real-time<br /><span class="text-gray-500">Analytics</span>',
+                analytics_desc: 'Production metrics dashboard. Visualization of machine load, task statuses, failure predictions. PDF report export. ERP/MES integration.',
+                capabilities_tag: 'SYSTEM_CAPABILITIES',
+                capabilities_title: 'Distributed<br /><span class="text-gray-500">Architecture</span>',
+                capabilities_desc: 'Infrastructure designed for industrial-grade reliability and scalability.',
+                cap1_title: 'Real-time Engine',
+                cap1_desc: 'Processing 200+ data points/second with millisecond-level accuracy. Latency <50ms.',
+                cap2_title: 'AI Orchestration',
+                cap2_desc: 'Makespan algorithm + genetic algorithm heuristics for optimal planning.',
+                cap3_title: 'Edge Computing',
+                cap3_desc: 'Edge network processing. Autonomous operation even without connectivity.',
+                cap4_title: 'Fault Tolerance',
+                cap4_desc: 'Automatic failover. System backups. Zero single point of failure.',
+                cap5_title: 'Security Layer',
+                cap5_desc: 'End-to-end encryption. Role-based access control. Audit logs of every action.',
+                cap6_title: 'API Integration',
+                cap6_desc: 'RESTful API. WebSocket streams. Integration with SAP, Oracle, custom ERP.',
+                team_tag: 'CORE_TEAM',
+                team_title: 'Engineering<br /><span class="text-gray-500">Team</span>',
+                team_desc: 'Experts in industrial systems, AI and distributed architecture.',
+                contact_tag: 'GET_IN_TOUCH',
+                contact_title: 'Initiate<br /><span class="text-gray-500">Contact</span>',
+                contact_desc: 'Interested in deployment? Contact our technical team.',
+                contact_name: 'Identifier',
+                contact_email: 'E-mail',
+                contact_message: 'Message',
+                contact_submit: '[ TRANSMIT ]',
+                footer_text: '© 2025 ForgeGrid Systems. Autonomous Intelligence for Industrial Operations.'
+            }
+        };
+
+        let currentLang = 'pl';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferredLang', lang);
+
+            // Update language toggle button
+            document.getElementById('langText').textContent = lang === 'pl' ? 'EN' : 'PL';
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        // Language toggle button handler
+        document.getElementById('langToggle').addEventListener('click', () => {
+            setLanguage(currentLang === 'pl' ? 'en' : 'pl');
+        });
+
+        // Initialize language from localStorage or default to PL
+        const savedLang = localStorage.getItem('preferredLang') || 'pl';
+        if (savedLang === 'en') {
+            setLanguage('en');
         }
     </script>
 
