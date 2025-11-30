@@ -486,7 +486,7 @@
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1.5 border border-white/10 rounded-sm text-[10px] text-gray-300 pointer-events-none font-mono uppercase tracking-widest">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM IN
                         </div>
                     </div>
                 </div>
@@ -506,12 +506,12 @@
                                 aria-label="Error handler demonstration video"
                                 class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="../error_handler.mp4" type="video/mp4">
-                                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                                Your browser doesn't support video playback.
                             </video>
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM IN
                         </div>
                     </div>
 
@@ -521,19 +521,19 @@
                                 REAL_IMPACT</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
-                            Koszt przestoju
+                            Downtime cost
                             <br />
-                            <span class="text-forge-muted">$72k na godzinę</span>
+                            <span class="text-forge-muted">$72k per hour</span>
                         </h2>
                         <p class="text-xl text-forge-muted leading-relaxed font-light">
-                            ELPLC: 600 jednostek/godz @ $120. $72k przychodu/godz na szali.
-                            Planowanie ręczne: 30 min. ForgeGrid: 2 min. Auto redystrybucja. 93% redukcja strat.
+                            ELPLC: 600 units/hr @ $120. $72k revenue/hr at stake.
+                            Manual planning: 30 min. ForgeGrid: 2 min. Auto redistribution. 93% loss reduction.
                         </p>
                         <div class="grid sm:grid-cols-2 gap-6 pt-4">
                             <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
                                 <div class="text-3xl font-bold text-white mb-2 font-mono">30 MIN</div>
-                                <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">PLANOWANIE
-                                    RĘCZNE
+                                <div class="text-xs text-forge-muted uppercase tracking-widest font-sans">MANUAL
+                                    PLANNING
                                 </div>
                             </div>
                             <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
@@ -634,12 +634,12 @@
                                 aria-label="Analytics module demonstration video"
                                 class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
                                 <source src="../analytics.mp4" type="video/mp4">
-                                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                                Your browser doesn't support video playback.
                             </video>
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM IN
                         </div>
                     </div>
                 </div>
@@ -1112,7 +1112,7 @@
             <video controls loop aria-label="Full screen platform video"
                 class="w-full h-full object-contain rounded-xl">
                 <source src="../hero-video.mp4" type="video/mp4">
-                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                Your browser doesn't support video playback.
             </video>
         </div>
     </div>
@@ -1124,7 +1124,7 @@
             <video controls loop aria-label="Full screen error handler video"
                 class="w-full h-full object-contain rounded-xl">
                 <source src="../error_handler.mp4" type="video/mp4">
-                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                Your browser doesn't support video playback.
             </video>
         </div>
     </div>
@@ -1136,7 +1136,7 @@
             <video controls loop aria-label="Full screen analytics video"
                 class="w-full h-full object-contain rounded-xl">
                 <source src="../analytics.mp4" type="video/mp4">
-                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                Your browser doesn't support video playback.
             </video>
         </div>
     </div>
@@ -1333,200 +1333,6 @@
                 }
             }
         }
-
-        // English version - no i18n system needed
-        /*
-            pl: {
-                nav_platform: 'Platforma',
-                nav_capabilities: 'Możliwości',
-                nav_team: 'Zespół',
-                nav_demo: 'DEMO_LIVE',
-                system_status: 'System_Status: Operational // v2.4.0',
-                hero_title1: 'AUTONOMICZNA',
-                hero_title2: 'INTELIGENCJA',
-                hero_subtitle: 'Przemysłowy system operacyjny nowej generacji.<br class="hidden md:block" /><span class="text-white">Reakcja: &lt;3000ms.</span> Eliminacja błędów poznawczych.',
-                hero_cta: '[ INICJUJ_DEMO ]',
-                stats_1: 'Redukcja Strat',
-                stats_2: 'Czas Reakcji',
-                stats_3: 'Monitoring',
-                stats_4: 'Interwencji',
-                platform_tag: 'INTELLIGENT_PLANNING',
-                platform_title: 'Kontrola<br /><span class="text-gray-500">w czasie rzeczywistym</span>',
-                platform_desc: 'Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii. Metryki live: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji ręcznej.',
-                platform_feat1_title: 'Algorytm Makespan',
-                platform_feat1_desc: 'Optymalizacja harmonogramu w czasie <3000ms po wykryciu anomalii.',
-                platform_feat2_title: 'Automatyczny Przydział',
-                platform_feat2_desc: 'Algorytm przydziela zadania operatorom z uwzględnieniem priorytetów i obciążenia.',
-                platform_feat3_title: 'Monitoring Parametrów',
-                platform_feat3_desc: 'Live tracking: temperatura, ciśnienie, RPM, wibracje. Predykcja awarii przed wystąpieniem.',
-                impact_tag: '■ REAL_IMPACT',
-                impact_title: 'Koszt przestoju<br /><span class="text-forge-muted">$72k na godzinę</span>',
-                impact_desc: 'ELPLC: 600 jednostek/godz @ $120. $72k przychodu/godz na szali. Planowanie ręczne: 30 min. ForgeGrid: 2 min. Auto redystrybucja. 93% redukcja strat.',
-                impact_manual: 'PLANOWANIE RĘCZNE',
-                impact_auto: 'FORGEGRID AUTO-REAKCJA',
-                impact_savings: '$33,600 OSZCZĘDNOŚCI',
-                impact_roi: 'na każdej awarii. ROI $4M/rok przy 10 incydentach/miesiąc (dane rzeczywiste ELPLC)',
-                analytics_tag: '■ ANALYTICS_MODULE',
-                analytics_section_title: 'Dashboard<br /><span class="text-forge-muted">analityczny</span>',
-                analytics_section_desc: 'Raportowanie z filtrem czasowym. Monitoring skali, analiza przepustowości, trendy awaryjności na interaktywnych wykresach.',
-                analytics_charts_title: '3 Interaktywne Wykresy',
-                analytics_charts_desc: 'Hall Load Trend, Task Throughput, Machine Utilization. Wszystko aktualizowane na żywo',
-                predictive_title: 'Inteligencja<br /><span class="text-gray-500">Predyktywna</span>',
-                predictive_desc: 'System wykrywa awarie z 3-sekundową precyzją i automatycznie reorganizuje produkcję. Eliminacja przestojów. Zintegrowany error handler i system notyfikacji dla operatorów.',
-                analytics_title: 'Analityka<br /><span class="text-gray-500">w czasie rzeczywistym</span>',
-                analytics_desc: 'Dashboard z metrykami produkcji. Wizualizacja obciążenia maszyn, statusów zadań, predykcji awaryjności. Export raportów do PDF. Integracja z ERP/MES.',
-                capabilities_tag: 'SYSTEM_CAPABILITIES',
-                capabilities_title: 'Architektura<br /><span class="text-gray-500">Rozproszona</span>',
-                capabilities_desc: 'Infrastruktura zaprojektowana dla industrial-grade reliability i skalowalności.',
-                capcard1_title: 'Latencja <3000ms',
-                capcard1_desc: 'Natychmiastowa rekonfiguracja planu produkcji. Zero opóźnień decyzyjnych.',
-                capcard2_title: 'Optymalizacja ROI',
-                capcard2_desc: 'Minimalizacja strat finansowych. Symulacja scenariuszy awaryjnych.',
-                capcard3_title: 'Telemetria Live',
-                capcard3_desc: 'Agregacja danych z sensorów IoT. Wizualizacja obciążenia w czasie rzeczywistym.',
-                capcard4_title: 'Algorytm Makespan',
-                capcard4_desc: 'Matematyczna optymalizacja kolejkowania zadań. Redukcja czasu przestoju.',
-                capcard5_title: 'Architektura Rozproszona',
-                capcard5_desc: 'Edge computing. Cloud-native. Mikrousługi dla maksymalnej skalowalności.',
-                capcard6_title: 'Warstwa Bezpieczeństwa',
-                capcard6_desc: 'Szyfrowanie end-to-end. Kontrola dostępu oparta na rolach. Audit log każdej operacji.',
-                team_tag: 'CORE_TEAM',
-                team_title: 'Zespół<br /><span class="text-gray-500">Inżynierski</span>',
-                team_desc: 'Eksperci w dziedzinie systemów przemysłowych, AI i architektury rozproszonej.',
-                contact_tag: 'GET_IN_TOUCH',
-                contact_title: 'Inicjuj<br /><span class="text-gray-500">Kontakt</span>',
-                contact_desc: 'Zainteresowany wdrożeniem? Skontaktuj się z naszym zespołem technicznym.',
-                contact_name: 'Identyfikator',
-                contact_email: 'E-mail',
-                contact_message: 'Wiadomość',
-                contact_submit: '[ TRANSMITUJ ]',
-                form_q1: 'Czy pomysł projektu Ci się podoba?',
-                form_q1_opt1: 'Zdecydowanie tak',
-                form_q1_opt2: 'Tak',
-                form_q1_opt3: 'Neutralnie',
-                form_q1_opt4: 'Nie',
-                form_q2: 'Jak oceniasz prezentację produktu?',
-                form_q2_opt1: 'Duży potencjał',
-                form_q2_opt2: 'Średni potencjał',
-                form_q2_opt3: 'Mały potencjał',
-                form_comments_label: 'Dodatkowe komentarze (opcjonalne)',
-                form_comments_placeholder: 'System log: Wprowadź dane...',
-                form_submit: '[ WYŚLIJ_FEEDBACK ]',
-                form_privacy: 'Formularz jest całkowicie anonimowy. Nie zbieramy danych osobowych.',
-                footer_text: '© 2025 ForgeGrid Systems. Autonomous Intelligence for Industrial Operations.'
-            },
-            en: {
-                nav_platform: 'Platform',
-                nav_capabilities: 'Capabilities',
-                nav_team: 'Team',
-                nav_demo: 'DEMO_LIVE',
-                system_status: 'System_Status: Operational // v2.4.0',
-                hero_title1: 'AUTONOMOUS',
-                hero_title2: 'INTELLIGENCE',
-                hero_subtitle: 'Next-generation industrial operating system.<br class="hidden md:block" /><span class="text-white">Response: &lt;3000ms.</span> Cognitive error elimination.',
-                hero_cta: '[ INITIATE_DEMO ]',
-                stats_1: 'Loss Reduction',
-                stats_2: 'Response Time',
-                stats_3: 'Monitoring',
-                stats_4: 'Interventions',
-                platform_tag: 'INTELLIGENT_PLANNING',
-                platform_title: 'Real-time<br /><span class="text-gray-500">Control</span>',
-                platform_desc: 'Monitoring 4 machines. Tracking 12 task types. Instant failure detection. Live metrics: machine load, task queues, hall throughput. Zero manual intervention.',
-                platform_feat1_title: 'Makespan Algorithm',
-                platform_feat1_desc: 'Schedule optimization in <3000ms after anomaly detection.',
-                platform_feat2_title: 'Automatic Assignment',
-                platform_feat2_desc: 'Algorithm assigns tasks to operators considering priorities and workload.',
-                platform_feat3_title: 'Parameter Monitoring',
-                platform_feat3_desc: 'Live tracking: temperature, pressure, RPM, vibrations. Failure prediction before occurrence.',
-                impact_tag: '■ REAL_IMPACT',
-                impact_title: 'Downtime cost<br /><span class="text-forge-muted">$72k per hour</span>',
-                impact_desc: 'ELPLC: 600 units/hr @ $120. $72k revenue/hr at stake. Manual planning: 30 min. ForgeGrid: 2 min. Auto redistribution. 93% loss reduction.',
-                impact_manual: 'MANUAL PLANNING',
-                impact_auto: 'FORGEGRID AUTO-RESPONSE',
-                impact_savings: '$33,600 SAVINGS',
-                impact_roi: 'per failure. $4M/year ROI at 10 incidents/month (actual ELPLC data)',
-                analytics_tag: '■ ANALYTICS_MODULE',
-                analytics_section_title: 'Analytics<br /><span class="text-forge-muted">Dashboard</span>',
-                analytics_section_desc: 'Time-filtered reporting. Scale monitoring, throughput analysis, failure trends on interactive charts.',
-                analytics_charts_title: '3 Interactive Charts',
-                analytics_charts_desc: 'Hall Load Trend, Task Throughput, Machine Utilization. Everything updated live',
-                predictive_title: 'Predictive<br /><span class="text-gray-500">Intelligence</span>',
-                predictive_desc: 'System detects failures with 3-second precision and automatically reorganizes production. Downtime elimination. Integrated error handler and notification system for operators.',
-                analytics_title: 'Real-time<br /><span class="text-gray-500">Analytics</span>',
-                analytics_desc: 'Production metrics dashboard. Visualization of machine load, task statuses, failure predictions. PDF report export. ERP/MES integration.',
-                capabilities_tag: 'SYSTEM_CAPABILITIES',
-                capabilities_title: 'Distributed<br /><span class="text-gray-500">Architecture</span>',
-                capabilities_desc: 'Infrastructure designed for industrial-grade reliability and scalability.',
-                capcard1_title: 'Latency <3000ms',
-                capcard1_desc: 'Instant production plan reconfiguration. Zero decision delays.',
-                capcard2_title: 'ROI Optimization',
-                capcard2_desc: 'Financial loss minimization. Failure scenario simulation.',
-                capcard3_title: 'Live Telemetry',
-                capcard3_desc: 'IoT sensor data aggregation. Real-time load visualization.',
-                capcard4_title: 'Makespan Algorithm',
-                capcard4_desc: 'Mathematical task queue optimization. Downtime reduction.',
-                capcard5_title: 'Distributed Architecture',
-                capcard5_desc: 'Edge computing. Cloud-native. Microservices for maximum scalability.',
-                capcard6_title: 'Security Layer',
-                capcard6_desc: 'End-to-end encryption. Role-based access control. Audit log of every operation.',
-                team_tag: 'CORE_TEAM',
-                team_title: 'Engineering<br /><span class="text-gray-500">Team</span>',
-                team_desc: 'Experts in industrial systems, AI and distributed architecture.',
-                contact_tag: 'GET_IN_TOUCH',
-                contact_title: 'Initiate<br /><span class="text-gray-500">Contact</span>',
-                contact_desc: 'Interested in deployment? Contact our technical team.',
-                contact_name: 'Identifier',
-                contact_email: 'E-mail',
-                contact_message: 'Message',
-                contact_submit: '[ TRANSMIT ]',
-                form_q1: 'Do you like the project idea?',
-                form_q1_opt1: 'Definitely yes',
-                form_q1_opt2: 'Yes',
-                form_q1_opt3: 'Neutral',
-                form_q1_opt4: 'No',
-                form_q2: 'How do you rate the product presentation?',
-                form_q2_opt1: 'High potential',
-                form_q2_opt2: 'Medium potential',
-                form_q2_opt3: 'Low potential',
-                form_comments_label: 'Additional comments (optional)',
-                form_comments_placeholder: 'System log: Enter data...',
-                form_submit: '[ SEND_FEEDBACK ]',
-                form_privacy: 'Form is completely anonymous. We do not collect personal data.',
-                footer_text: '© 2025 ForgeGrid Systems. Autonomous Intelligence for Industrial Operations.'
-            }
-        };
-
-        let currentLang = 'pl';
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            localStorage.setItem('preferredLang', lang);
-
-            // Update language toggle button
-            document.getElementById('langText').textContent = lang === 'pl' ? 'EN' : 'PL';
-
-            // Update all elements with data-i18n attribute
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = translations[lang][key];
-                    } else {
-                        element.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-
-            // Update elements with data-i18n-placeholder attribute
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    element.placeholder = translations[lang][key];
-                }
-            });
-        }
-        */
     </script>
 
 </body>
