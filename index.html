@@ -28,8 +28,6 @@
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="assets/videos/hero-video.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="assets/videos/error_handler.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="assets/videos/analytics.mp4" as="video" type="video/mp4">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -867,9 +865,9 @@
     <div id="dashboardModal" class="modal" onclick="closeModal('dashboardModal')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="modal-close" onclick="closeModal('dashboardModal')">&times;</span>
-            <video controls loop aria-label="Full screen platform video"
-                class="w-full h-full object-contain rounded-xl">
-                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+            <video controls loop aria-label="Full screen platform video" class="w-full h-full object-contain rounded-xl"
+                data-video-src="assets/videos/hero-video.mp4">
+                <source data-src="assets/videos/hero-video.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>
@@ -880,8 +878,8 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="modal-close" onclick="closeModal('errorModal')">&times;</span>
             <video controls loop aria-label="Full screen error handler video"
-                class="w-full h-full object-contain rounded-xl">
-                <source src="assets/videos/error_handler.mp4" type="video/mp4">
+                class="w-full h-full object-contain rounded-xl" data-video-src="assets/videos/error_handler.mp4">
+                <source data-src="assets/videos/error_handler.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>
@@ -892,8 +890,8 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="modal-close" onclick="closeModal('analyticsModal')">&times;</span>
             <video controls loop aria-label="Full screen analytics video"
-                class="w-full h-full object-contain rounded-xl">
-                <source src="assets/videos/analytics.mp4" type="video/mp4">
+                class="w-full h-full object-contain rounded-xl" data-video-src="assets/videos/analytics.mp4">
+                <source data-src="assets/videos/analytics.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>

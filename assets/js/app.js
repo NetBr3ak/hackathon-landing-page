@@ -1,12 +1,30 @@
+// Video Configuration - Single source of truth
+const VIDEO_CONFIG = {
+	basePath: 'assets/videos/',
+	files: {
+		hero: 'hero-video.mp4',
+		analytics: 'analytics.mp4',
+		errorHandler: 'error_handler.mp4'
+	},
+	getPath: function (key) {
+		return this.basePath + this.files[key];
+	}
+};
+
 // Modal Functions
 function openModal(modalId) {
 	const modal = document.getElementById(modalId);
 	modal.classList.add('active');
 	document.body.style.overflow = 'hidden';
 
-	// Auto-play video when modal opens
+	// Lazy load and auto-play video when modal opens
 	const video = modal.querySelector('video');
 	if (video) {
+		const source = video.querySelector('source');
+		if (source && source.dataset.src && !source.src) {
+			source.src = source.dataset.src;
+			video.load();
+		}
 		video.play();
 	}
 }
@@ -95,27 +113,34 @@ document.addEventListener('mousemove', e => {
 // Hero Video Rotation System
 const heroVideo = document.getElementById('heroVideo');
 const videoSources = [
-	'assets/videos/hero-video.mp4',
-	'assets/videos/analytics.mp4',
-	'assets/videos/error_handler.mp4'
+	VIDEO_CONFIG.getPath('hero'),
+	VIDEO_CONFIG.getPath('analytics'),
+	VIDEO_CONFIG.getPath('errorHandler')
 ];
 let currentVideoIndex = 0;
 let rotationTimeout = null;
+const preloadedVideos = new Set([videoSources[0]]); // Track preloaded videos
 
-// Preload next video for smooth transitions
+// Preload next video for smooth transitions (once per video)
 function preloadNextVideo() {
 	const nextIndex = (currentVideoIndex + 1) % videoSources.length;
-	const link = document.createElement('link');
-	link.rel = 'prefetch';
-	link.as = 'video';
-	link.href = videoSources[nextIndex];
-	document.head.appendChild(link);
+	const nextSrc = videoSources[nextIndex];
+
+	if (!preloadedVideos.has(nextSrc)) {
+		const link = document.createElement('link');
+		link.rel = 'prefetch';
+		link.as = 'video';
+		link.href = nextSrc;
+		document.head.appendChild(link);
+		preloadedVideos.add(nextSrc);
+	}
 }
 
 function scheduleNextRotation() {
 	const currentVideo = videoSources[currentVideoIndex];
+	const isAnalytics = currentVideo === VIDEO_CONFIG.getPath('analytics');
 
-	if (currentVideo.includes('analytics.mp4')) {
+	if (isAnalytics) {
 		// For analytics, wait for video to end naturally
 		// Event listener will handle rotation
 		return;
@@ -131,7 +156,7 @@ function scheduleNextRotation() {
 function rotateVideo() {
 	currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
 	const nextVideoSrc = videoSources[currentVideoIndex];
-	const isAnalytics = nextVideoSrc.includes('analytics.mp4');
+	const isAnalytics = nextVideoSrc === VIDEO_CONFIG.getPath('analytics');
 
 	// Fade out
 	heroVideo.style.opacity = '0';
@@ -168,7 +193,7 @@ function rotateVideo() {
 // Handle video end event for analytics.mp4
 function handleVideoEnd() {
 	const currentVideo = videoSources[currentVideoIndex];
-	if (currentVideo.includes('analytics.mp4')) {
+	if (currentVideo === VIDEO_CONFIG.getPath('analytics')) {
 		// Analytics finished playing, rotate to error_handler
 		setTimeout(() => {
 			rotateVideo();
