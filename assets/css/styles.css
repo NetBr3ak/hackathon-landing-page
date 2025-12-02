@@ -1,192 +1,204 @@
 :root {
-	--cursor-x: 50%;
-	--cursor-y: 50%;
+--cursor-x: 50%;
+--cursor-y: 50%;
 }
 
 * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 body {
-	font-family: 'Inter', sans-serif;
-	background: #020408;
-	color: #E2E8F0;
-	overflow-x: hidden;
+font-family: 'Inter', sans-serif;
+font-size: 16px;
+line-height: 1.6;
+background: #020408;
+color: #E2E8F0;
+overflow-x: hidden;
 }
 
 ::selection {
-	background: rgba(255, 255, 255, 0.2);
-	color: #FFFFFF;
+background: rgba(255, 255, 255, 0.2);
+color: #FFFFFF;
+}
+
+/* Typography improvements for readability */
+h1, h2, h3, h4, h5, h6 {
+line-height: 1.2;
+letter-spacing: -0.02em;
+}
+
+p {
+line-height: 1.7;
 }
 
 /* Advanced Grid Background */
 .grid-bg {
-	background-size: 40px 40px;
-	background-image:
-		linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-		linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-	mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
-	-webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+background-size: 40px 40px;
+background-image:
+linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+-webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
 }
 
 /* Spotlight Effect */
 .spotlight-card {
-	position: relative;
-	overflow: hidden;
-	background: rgba(5, 5, 5, 0.6);
-	backdrop-filter: blur(10px);
+position: relative;
+overflow: hidden;
+background: rgba(5, 5, 5, 0.6);
+backdrop-filter: blur(10px);
 }
 
 .spotlight-card::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
-			rgba(255, 255, 255, 0.04),
-			transparent 50%);
-	z-index: 1;
-	opacity: 0;
-	transition: opacity 0.2s ease;
-	pointer-events: none;
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+rgba(255, 255, 255, 0.04),
+transparent 50%);
+z-index: 1;
+opacity: 0;
+transition: opacity 0.2s ease;
+pointer-events: none;
 }
 
 .spotlight-card:hover::before {
-	opacity: 1;
+opacity: 1;
 }
 
 .spotlight-card::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
-			rgba(255, 255, 255, 0.08),
-			transparent 50%);
-	z-index: 3;
-	opacity: 0;
-	transition: opacity 0.2s ease;
-	pointer-events: none;
-	border-radius: inherit;
-	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	mask-composite: exclude;
-	-webkit-mask-composite: xor;
-	padding: 1px;
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+rgba(255, 255, 255, 0.08),
+transparent 50%);
+z-index: 3;
+opacity: 0;
+transition: opacity 0.2s ease;
+pointer-events: none;
+border-radius: inherit;
+mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+mask-composite: exclude;
+-webkit-mask-composite: xor;
+padding: 1px;
 }
 
 .spotlight-card:hover::after {
-	opacity: 1;
+opacity: 1;
 }
 
 /* Minimalist Scrollbar */
 ::-webkit-scrollbar {
-	width: 6px;
+width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-	background: #020408;
+background: #020408;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #1E293B;
-	border-radius: 3px;
+background: #1E293B;
+border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #666666;
+background: #666666;
 }
 
 /* Fade-in animations - Optimized for speed */
 .fade-in-up {
-	opacity: 0;
-	transform: translateY(10px);
-	transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+opacity: 0;
+transform: translateY(10px);
+transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-in-up.visible {
-	opacity: 1;
-	transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 
 .screenshot-container {
-	transition: border-color 0.15s ease, box-shadow 0.15s ease;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-	cursor: pointer;
+transition: border-color 0.15s ease, box-shadow 0.15s ease;
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+cursor: pointer;
 }
 
 .screenshot-container:hover {
-	border-color: rgba(255, 255, 255, 0.3);
-	box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+border-color: rgba(255, 255, 255, 0.3);
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 /* Modal styles */
 .modal {
-	display: none;
-	position: fixed;
-	z-index: 9999;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(2, 4, 8, 0.95);
-	backdrop-filter: blur(10px);
+display: none;
+position: fixed;
+z-index: 9999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(2, 4, 8, 0.95);
+backdrop-filter: blur(10px);
 }
 
 .modal.active {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	animation: modalFadeIn 0.15s ease-out;
+display: flex;
+align-items: center;
+justify-content: center;
+animation: modalFadeIn 0.15s ease-out;
 }
 
 @keyframes modalFadeIn {
-	from {
-		opacity: 0;
-		transform: scale(0.98);
-	}
+from {
+opacity: 0;
+transform: scale(0.98);
+}
 
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
+to {
+opacity: 1;
+transform: scale(1);
+}
 }
 
 .modal-content {
-	max-width: 90%;
-	max-height: 90%;
-	position: relative;
-	border: 1px solid #1E293B;
-	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-	border-radius: 4px;
-	overflow: hidden;
+max-width: 90%;
+max-height: 90%;
+position: relative;
+border: 1px solid #1E293B;
+box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+border-radius: 4px;
+overflow: hidden;
 }
 
 .modal-content img,
 .modal-content video {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+width: 100%;
+height: 100%;
+object-fit: contain;
 }
 
 .modal-close {
-	position: absolute;
-	top: -40px;
-	right: 0;
-	color: white;
-	font-size: 24px;
-	cursor: pointer;
-	opacity: 0.7;
-	transition: opacity 0.2s;
+position: absolute;
+top: -40px;
+right: 0;
+color: white;
+font-size: 24px;
+cursor: pointer;
+opacity: 0.7;
+transition: opacity 0.2s;
 }
 
 .modal-close:hover {
-	opacity: 1;
-	color: #FFFFFF;
+opacity: 1;
+color: #FFFFFF;
 }
