@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForgeGrid: Inteligentny System Monitoringu Produkcji</title>
     <meta name="description"
-        content="System monitoringu produkcji reagujący na awarie w 3 sekundy. 93% redukcja strat finansowych, automatyczny przydział zadań, monitoring czasu rzeczywistego 4 maszyn. Zwrot z inwestycji $4M rocznie.">
+        content="ForgeGrid - przemysłowy system inteligencji produkcyjnej w czasie rzeczywistym. Algorytm ForgeFlow™ MCT-S reaguje w <200ms na awarie, redukując straty o 93%. Monitoring 8 maszyn CNC/Assembly/Test, 12 typów zadań, $33,600 oszczędności na incydent. ROI $4M/rok. Hackathon dla Małopolski 2025.">
     <link rel="canonical" href="https://netbr3ak.github.io/hackathon-landing-page/" />
 
     <!-- Language Alternates for SEO -->
@@ -29,7 +29,8 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ForgeGrid: Inteligentny System Monitoringu Produkcji">
-    <meta property="og:description" content="Awaria maszyny? Nowy plan w 3 sekundy. Redukcja strat o 93%.">
+    <meta property="og:description"
+        content="Awaria maszyny? ForgeFlow™ MCT-S generuje nowy harmonogram w <200ms. 93% redukcja strat, $33,600 oszczędności na incydent, monitoring 8 maszyn produkcyjnych w czasie rzeczywistym.">
     <meta property="og:url" content="https://netbr3ak.github.io/hackathon-landing-page/">
     <meta property="og:image" content="https://netbr3ak.github.io/hackathon-landing-page/assets/images/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -215,9 +216,11 @@
                             <span class="text-gray-500">w czasie rzeczywistym</span>
                         </h2>
                         <p class="text-lg text-gray-300 leading-relaxed font-light">
-                            Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii.
-                            Metryki na żywo: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji
-                            ręcznej.
+                            Pełna kontrola nad flotą 8 maszyn przemysłowych: 5× CNC (Haas VF-2, DMG MORI, Mazak, Okuma,
+                            Haas VF-4), 2× Assembly (Kuka Robot, Fanuc Robot), 1× Test (EOL Station). Śledzenie 12 typów
+                            operacji: frezowanie, wiercenie, gwintowanie, wytaczanie, planowanie, fazowanie, montaż,
+                            spawanie, okablowanie, testowanie, kalibracja, pakowanie. Metryki na żywo: temperatura,
+                            ciśnienie, RPM, wibracje. Przepustowość: 500+ zadań/godzinę.
                         </p>
                         <ul class="space-y-8 pt-8 border-t border-white/5">
                             <li class="flex items-start gap-6 group">
@@ -226,12 +229,13 @@
                                 </div>
                                 <div>
                                     <div class="font-bold text-white font-mono uppercase tracking-wider text-sm mb-2">
-                                        Algorytm Makespan</div>
+                                        ForgeFlow™ MCT-S</div>
                                     <div class="text-gray-400 text-sm leading-relaxed">
-                                        Optymalizacja harmonogramu w
-                                        czasie &lt;200ms po wykryciu anomalii.
+                                        Autorski algorytm Minimum Completion Time with Setup Awareness. Bazuje na
+                                        Johnson's Rule, LPT heurystyce i work stealing. Latencja <200ms, rebalansowanie
+                                            <500ms. ~15% zadań redystrybuowanych dynamicznie, 40% redukcja czasu
+                                            przezbrajania. </div>
                                     </div>
-                                </div>
                             </li>
                             <li class="flex items-start gap-6 group">
                                 <div
@@ -239,10 +243,11 @@
                                 </div>
                                 <div>
                                     <div class="font-bold text-white font-mono uppercase tracking-wider text-sm mb-2">
-                                        Automatyczny Przydział</div>
+                                        Inteligentny Scoring</div>
                                     <div class="text-gray-400 text-sm leading-relaxed">
-                                        Algorytm przydziela zadania operatorom z uwzględnieniem priorytetów i
-                                        obciążenia.</div>
+                                        4-fazowy pipeline: sortowanie (priorytet → ograniczenia → LPT), scoring maszyn
+                                        (ETA + setup penalty + transport - preference bonus), optymalna alokacja, work
+                                        stealing. System priorytetów: Critical (3×), Rush (2×), Normal (1×).</div>
                                 </div>
                             </li>
                             <li class="flex items-start gap-6 group">
@@ -313,8 +318,10 @@
                             <span class="text-forge-muted">$72k na godzinę</span>
                         </h2>
                         <p class="text-lg text-gray-300 leading-relaxed font-light">
-                            ELPLC: 600 jednostek/godz po $120. $72k przychodu/godz na szali.
-                            Planowanie ręczne: 30 min. ForgeGrid: 2 min. Auto redystrybucja. 93% redukcja strat.
+                            Dane walidacyjne partnera ELPLC: przepustowość 600 jednostek/godz, wartość jednostki $120,
+                            przychód godzinowy $72,000. Przy awarii maszyny: planowanie ręczne zajmuje 30 min (strata
+                            $36,000), ForgeGrid reaguje w 2 min (strata $2,400). Automatyczna ewakuacja zadań z
+                            uszkodzonej maszyny, natychmiastowa redystrybucja przez ForgeFlow™.
                         </p>
                         <div class="grid sm:grid-cols-2 gap-6 pt-4">
                             <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
@@ -333,10 +340,9 @@
                         <div class="p-6 bg-forge-card border border-forge-border rounded-sm mt-4">
                             <div class="text-2xl font-bold text-white mb-1 font-mono">$33,600
                                 OSZCZĘDNOŚCI</div>
-                            <div class="text-sm text-forge-muted">na każdej awarii. Zwrot z inwestycji $4M/rok
-                                przy 10
-                                incydentach/miesiąc
-                                (dane rzeczywiste ELPLC)</div>
+                            <div class="text-sm text-forge-muted">na każdej awarii (28 min × $72k/h). Przy 10
+                                incydentach/miesiąc = $336,000 miesięcznie. Roczny ROI: $4,032,000. Dane zwalidowane
+                                przez partnera przemysłowego ELPLC.</div>
                         </div>
                     </div>
                 </div>
@@ -514,7 +520,9 @@
                             Algorytm Makespan
                         </h3>
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            Matematyczna optymalizacja kolejkowania zadań. Redukcja czasu przestoju.
+                            Hybrid MCT-S: Johnson's Rule + LPT (Longest Processing Time) + bin packing + work stealing.
+                            Formuła: Score = (ETA × priorityWeight) + setupPenalty + transportTime - preferenceBonus.
+                            ~50KB footprint na 100 zadań.
                         </p>
                     </div>
 
