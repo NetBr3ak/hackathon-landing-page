@@ -202,8 +202,7 @@
 
 			this.preloadNext();
 			elements.heroVideo.addEventListener('ended', this.handleEnd.bind(this));
-			elements.heroVideo.addEventListener('timeupdate', this.handleTimeUpdate.bind(this), { passive: true });
-
+			
 			// Lazy load other videos
 			this.initLazyLoading();
 		},
@@ -242,51 +241,7 @@
 			}
 		},
 
-		/**
-		 * Fade helper — changes opacity using CSS transition and resolves when done.
-		 */
-		fadeTo: function (targetOpacity, durationOverride) {
-			if (!elements.heroVideo) return Promise.resolve();
 
-			const duration = typeof durationOverride === 'number' ? durationOverride : CONFIG.video.fadeDuration;
-			const el = elements.heroVideo;
-
-			return new Promise(resolve => {
-				// 1. Ensure transition property is set explicitly
-				el.style.transition = `opacity ${duration}ms ease-in-out`;
-				
-				// 2. Use double requestAnimationFrame to ensure the browser registers the transition start state
-				// This is more reliable than void el.offsetHeight in some browsers
-				requestAnimationFrame(() => {
-					requestAnimationFrame(() => {
-						// 3. Set the target opacity
-						el.style.opacity = String(targetOpacity);
-					});
-				});
-
-				// 4. Wait for the duration (plus a tiny buffer) using setTimeout
-				// This is more reliable than transitionend which can be missed if the tab is backgrounded
-				setTimeout(() => {
-					resolve();
-				}, duration + 100);
-			});
-		},
-
-		handleTimeUpdate: function () {
-			if (!elements.heroVideo || state.isFading) return;
-
-			const duration = elements.heroVideo.duration || 0;
-			const current = elements.heroVideo.currentTime || 0;
-			const remaining = duration - current;
-
-			// Trigger rotation shortly before end to allow for cross-fade effect.
-			// We use a buffer slightly larger than the fade duration to ensure the fade-out
-			// completes before the video actually ends.
-			// fadeDuration (0.8s) + buffer (0.4s) = 1.2s before end
-			if (duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.4) {
-				this.rotate();
-			}
-		},
 
 		rotate: function () {
 			if (!elements.heroVideo || state.isFading) return;
@@ -301,10 +256,7 @@
 
 			const doSwap = async () => {
 				try {
-					// 1. Fade out to black/transparent
-					await this.fadeTo(0);
-
-					// 2. Swap source
+					// 1. Swap source
 					const source = elements.heroVideo.querySelector('source');
 					if (source) {
 						source.src = nextSrc;
@@ -317,17 +269,14 @@
 					elements.heroVideo.removeAttribute('loop');
 					elements.heroVideo.load();
 
-					// 3. Wait for play to actually start
+					// 2. Wait for play to actually start
 					try {
 						await elements.heroVideo.play();
 					} catch (err) {
 						console.warn('Video rotation failed:', err);
 					}
 
-					// 4. Fade back in to original opacity
-					await this.fadeTo(state.heroTargetOpacity || 0.5);
-
-					// 5. Update state
+					// 3. Update state
 					state.currentVideoIndex = nextIndex;
 					this.preloadNext();
 				} catch (e) {
