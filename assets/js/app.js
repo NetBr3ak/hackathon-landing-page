@@ -255,17 +255,20 @@
 				// 1. Ensure transition property is set explicitly
 				el.style.transition = `opacity ${duration}ms ease-in-out`;
 				
-				// 2. Force reflow to ensure the browser registers the transition start state
-				void el.offsetHeight;
-
-				// 3. Set the target opacity
-				el.style.opacity = String(targetOpacity);
+				// 2. Use double requestAnimationFrame to ensure the browser registers the transition start state
+				// This is more reliable than void el.offsetHeight in some browsers
+				requestAnimationFrame(() => {
+					requestAnimationFrame(() => {
+						// 3. Set the target opacity
+						el.style.opacity = String(targetOpacity);
+					});
+				});
 
 				// 4. Wait for the duration (plus a tiny buffer) using setTimeout
 				// This is more reliable than transitionend which can be missed if the tab is backgrounded
 				setTimeout(() => {
 					resolve();
-				}, duration + 50);
+				}, duration + 100);
 			});
 		},
 
