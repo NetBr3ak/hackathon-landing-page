@@ -37,9 +37,9 @@
 | M4   | EOL Station | Test     | testing, calibration, packaging                          |
 
 **🔗 Links:**
-- **Landing Page:** [https://netbr3ak.github.io/hackathon-landing-page/](https://netbr3ak.github.io/hackathon-landing-page/)
-- **Live Demo:** [https://netbr3ak.github.io/internal-machine-monitor/](https://netbr3ak.github.io/internal-machine-monitor/)
-- **Main Repository:** [https://github.com/NetBr3ak/internal-machine-monitor](https://github.com/NetBr3ak/internal-machine-monitor)
+- **Landing Page:** [https://netbr3ak.github.io/forge-page/](https://netbr3ak.github.io/forge-page/)
+- **Live Demo:** [https://netbr3ak.github.io/forge-grid/](https://netbr3ak.github.io/forge-grid/)
+- **Main Repository:** [https://github.com/NetBr3ak/forge-grid](https://github.com/NetBr3ak/forge-grid)
 
 ---
 
