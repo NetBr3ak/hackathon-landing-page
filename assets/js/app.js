@@ -266,20 +266,27 @@
 					cleanup();
 				}
 
+				// Force reflow to ensure transition applies
+				void el.offsetWidth;
+
 				// Ensure transition duration uses our configured time so JS wait matches CSS
 				el.style.transition = `opacity ${duration}ms ease-in-out`;
 				el.addEventListener('transitionend', onEnd);
-				el.style.opacity = String(targetOpacity);
+				
+				// Set opacity in next frame to ensure transition triggers
+				requestAnimationFrame(() => {
+					el.style.opacity = String(targetOpacity);
+				});
 
 				// Fallback in case 'transitionend' doesn't fire
 				const timeout = setTimeout(() => {
 					if (!finished) cleanup();
-				}, duration + 80);
+				}, duration + 100);
 			});
 		},
 
 		handleTimeUpdate: function () {
-			if (!elements.heroVideo || state.isReducedMotion || state.isFading) return;
+			if (!elements.heroVideo || state.isFading) return;
 
 			const duration = elements.heroVideo.duration || 0;
 			const current = elements.heroVideo.currentTime || 0;
@@ -287,7 +294,7 @@
 
 			// Trigger rotation shortly before end to allow for cross-fade effect
 			// We use a slightly longer buffer than fadeDuration to ensure smoothness
-			if (duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.1) {
+			if (duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.2) {
 				this.rotate();
 			}
 		},
@@ -305,7 +312,9 @@
 
 			const doSwap = async () => {
 				try {
-					if (!state.isReducedMotion) await this.fadeTo(0);
+					// Always fade out, ignoring reduced motion preference for this specific hero effect
+					// as it is a core design requirement requested by the user.
+					await this.fadeTo(0);
 
 					const source = elements.heroVideo.querySelector('source');
 					if (!source) return;
@@ -322,8 +331,7 @@
 					}
 
 					// Keep the same target visible opacity used by the site styles
-					if (!state.isReducedMotion) await this.fadeTo(state.heroTargetOpacity || 0.5);
-					else elements.heroVideo.style.opacity = String(state.heroTargetOpacity || 0.5);
+					await this.fadeTo(state.heroTargetOpacity || 0.5);
 
 					// update index now that swap succeeded
 					state.currentVideoIndex = nextIndex;
