@@ -249,39 +249,23 @@
 			if (!elements.heroVideo) return Promise.resolve();
 
 			const duration = typeof durationOverride === 'number' ? durationOverride : CONFIG.video.fadeDuration;
+			const el = elements.heroVideo;
 
 			return new Promise(resolve => {
-				const el = elements.heroVideo;
-				let finished = false;
-
-				function cleanup() {
-					el.removeEventListener('transitionend', onEnd);
-					clearTimeout(timeout);
-					finished = true;
-					resolve();
-				}
-
-				function onEnd(e) {
-					if (e && e.propertyName !== 'opacity') return;
-					cleanup();
-				}
-
-				// Force reflow to ensure transition applies
-				void el.offsetWidth;
-
-				// Ensure transition duration uses our configured time so JS wait matches CSS
+				// 1. Ensure transition property is set explicitly
 				el.style.transition = `opacity ${duration}ms ease-in-out`;
-				el.addEventListener('transitionend', onEnd);
 				
-				// Set opacity in next frame to ensure transition triggers
-				requestAnimationFrame(() => {
-					el.style.opacity = String(targetOpacity);
-				});
+				// 2. Force reflow to ensure the browser registers the transition start state
+				void el.offsetHeight;
 
-				// Fallback in case 'transitionend' doesn't fire
-				const timeout = setTimeout(() => {
-					if (!finished) cleanup();
-				}, duration + 100);
+				// 3. Set the target opacity
+				el.style.opacity = String(targetOpacity);
+
+				// 4. Wait for the duration (plus a tiny buffer) using setTimeout
+				// This is more reliable than transitionend which can be missed if the tab is backgrounded
+				setTimeout(() => {
+					resolve();
+				}, duration + 50);
 			});
 		},
 
@@ -292,9 +276,11 @@
 			const current = elements.heroVideo.currentTime || 0;
 			const remaining = duration - current;
 
-			// Trigger rotation shortly before end to allow for cross-fade effect
-			// We use a slightly longer buffer than fadeDuration to ensure smoothness
-			if (duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.2) {
+			// Trigger rotation shortly before end to allow for cross-fade effect.
+			// We use a buffer slightly larger than the fade duration to ensure the fade-out
+			// completes before the video actually ends.
+			// fadeDuration (0.8s) + buffer (0.4s) = 1.2s before end
+			if (duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.4) {
 				this.rotate();
 			}
 		},
@@ -312,37 +298,44 @@
 
 			const doSwap = async () => {
 				try {
-					// Always fade out, ignoring reduced motion preference for this specific hero effect
-					// as it is a core design requirement requested by the user.
+					// 1. Fade out to black/transparent
 					await this.fadeTo(0);
 
+					// 2. Swap source
 					const source = elements.heroVideo.querySelector('source');
-					if (!source) return;
+					if (source) {
+						source.src = nextSrc;
+						// Update the video element src as well if it was set directly
+						if (elements.heroVideo.src) elements.heroVideo.src = nextSrc;
+					} else {
+						elements.heroVideo.src = nextSrc;
+					}
 
-					source.src = nextSrc;
-					// Never loop, always play through to trigger rotation
 					elements.heroVideo.removeAttribute('loop');
-
 					elements.heroVideo.load();
+
+					// 3. Wait for play to actually start
 					try {
 						await elements.heroVideo.play();
 					} catch (err) {
 						console.warn('Video rotation failed:', err);
 					}
 
-					// Keep the same target visible opacity used by the site styles
+					// 4. Fade back in to original opacity
 					await this.fadeTo(state.heroTargetOpacity || 0.5);
 
-					// update index now that swap succeeded
+					// 5. Update state
 					state.currentVideoIndex = nextIndex;
 					this.preloadNext();
+				} catch (e) {
+					console.error('Rotation error:', e);
 				} finally {
 					state.isFading = false;
 				}
 			};
 
-			// Trigger the sequence slightly after scheduling to allow any pending events to settle
-			setTimeout(doSwap, 10);
+			// Execute immediately
+			doSwap();
 		},
 
 		handleEnd: function () {
