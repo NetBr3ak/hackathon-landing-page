@@ -28,15 +28,27 @@ jobs:
       - name: Prepare deployment directory
         run: |
           mkdir -p _site
-          # Copy only necessary files for deployment
-          cp -r assets _site/
-          cp index.html _site/
-          cp en.html _site/
-          cp 404.html _site/
-          cp robots.txt _site/
-          cp sitemap.xml _site/
-          cp site.webmanifest _site/
-          cp .nojekyll _site/
+          # Copy all files except git, github, and dev files
+          rsync -av --exclude='.git' \
+                    --exclude='.github' \
+                    --exclude='.gitignore' \
+                    --exclude='.gitattributes' \
+                    --exclude='README.md' \
+                    --exclude='CODE_OF_CONDUCT.md' \
+                    --exclude='CONTRIBUTING.md' \
+                    --exclude='SECURITY.md' \
+                    --exclude='LICENSE' \
+                    --exclude='_site' \
+                    . _site/
+          # Verify essential files exist
+          for file in index.html 404.html; do
+            if [ ! -f "_site/$file" ]; then
+              echo "Error: Required file $file is missing"
+              exit 1
+            fi
+          done
+          echo "Deployment directory prepared successfully"
+          ls -la _site/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
