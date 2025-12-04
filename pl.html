@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForgeGrid: Inteligentny System Monitoringu Produkcji</title>
     <meta name="description"
-        content="System monitoringu produkcji reagujący na awarie w 3 sekundy. 93% redukcja strat finansowych, automatyczny przydział zadań, monitoring czasu rzeczywistego 4 maszyn. Zwrot z inwestycji $4M rocznie.">
+        content="ForgeGrid - przemysłowy system inteligencji produkcyjnej w czasie rzeczywistym. Algorytm ForgeFlow™ MCT-S reaguje w <200ms na awarie, redukując straty o 93%. Monitoring 8 maszyn CNC/Assembly/Test, 12 typów zadań, $33,600 oszczędności na incydent. ROI $4M/rok. Hackathon dla Małopolski 2025.">
+    <link rel="canonical" href="https://netbr3ak.github.io/forge-page/" />
 
     <!-- Language Alternates for SEO -->
-    <link rel="alternate" hreflang="pl" href="https://netbr3ak.github.io/hackathon-landing-page/" />
-    <link rel="alternate" hreflang="en" href="https://netbr3ak.github.io/hackathon-landing-page/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://netbr3ak.github.io/hackathon-landing-page/" />
+    <link rel="alternate" hreflang="pl" href="https://netbr3ak.github.io/forge-page/pl.html" />
+    <link rel="alternate" hreflang="en" href="https://netbr3ak.github.io/forge-page/" />
+    <link rel="alternate" hreflang="x-default" href="https://netbr3ak.github.io/forge-page/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#050810">
@@ -22,14 +29,15 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ForgeGrid: Inteligentny System Monitoringu Produkcji">
-    <meta property="og:description" content="Awaria maszyny? Nowy plan w 3 sekundy. Redukcja strat o 93%.">
-    <meta property="og:url" content="https://netbr3ak.github.io/hackathon-landing-page/">
+    <meta property="og:description"
+        content="Awaria maszyny? ForgeFlow™ MCT-S generuje nowy harmonogram w <200ms. 93% redukcja strat, $33,600 oszczędności na incydent, monitoring 8 maszyn produkcyjnych w czasie rzeczywistym.">
+    <meta property="og:url" content="https://netbr3ak.github.io/forge-page/">
+    <meta property="og:image" content="https://netbr3ak.github.io/forge-page/assets/images/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://netbr3ak.github.io/forge-page/assets/images/og-image.jpg">
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="hero-video.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="error_handler.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="analytics.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/videos/hero-video.mp4" as="video" type="video/mp4">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,6 +56,12 @@
 </head>
 
 <body class="bg-forge-black text-forge-text antialiased selection:bg-white selection:text-black">
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-black px-4 py-2 z-[100] rounded-sm font-mono font-bold uppercase tracking-wider">
+        Przejdź do treści
+    </a>
 
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation"
@@ -75,7 +89,7 @@
                         class="text-forge-muted hover:text-white transition-colors duration-150 text-xs font-medium font-sans uppercase tracking-widest">Zespół</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="en.html"
+                    <a href="index.html"
                         class="px-3 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-mono uppercase tracking-widest transition-all duration-150 flex items-center gap-2"
                         aria-label="Switch to English version">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,8 +98,7 @@
                         </svg>
                         <span>EN</span>
                     </a>
-                    <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="https://netbr3ak.github.io/forge-grid/" target="_blank" rel="noopener noreferrer"
                         class="px-4 sm:px-6 py-2 border border-forge-border hover:bg-white hover:text-black text-white rounded-sm text-xs font-bold font-sans uppercase tracking-widest transition-all duration-150 min-h-[40px] flex items-center"
                         aria-label="Open live demo in new tab">
                         DEMO_LIVE
@@ -96,7 +109,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <main>
+    <main id="main-content">
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
 
             <div class="absolute inset-0 w-full h-full overflow-hidden">
@@ -118,7 +131,7 @@
                     <div
                         class="inline-flex items-center gap-3 px-4 py-1.5 rounded-sm bg-white/5 border border-white/10 backdrop-blur-md mb-8">
                         <div class="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
-                        <span class="text-[10px] font-mono text-gray-400 tracking-[0.2em] uppercase">Status_Systemu:
+                        <span class="text-[11px] font-mono text-gray-400 tracking-[0.15em] uppercase">SYSTEM_STATUS:
                             Operacyjny // v2.4.0</span>
                     </div>
 
@@ -135,16 +148,15 @@
                         class="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-4 font-light tracking-wide">
                         Przemysłowy system operacyjny nowej generacji.
                         <br class="hidden md:block" />
-                        <span class="text-white">Reakcja: &lt;3000ms.</span> Eliminacja błędów poznawczych.
+                        <span class="text-white">Reakcja: &lt;200ms.</span> Eliminacja błędów poznawczych.
                     </p>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12">
-                        <a href="https://netbr3ak.github.io/internal-machine-monitor/" target="_blank"
-                            rel="noopener noreferrer"
+                        <a href="https://netbr3ak.github.io/forge-grid/" target="_blank" rel="noopener noreferrer"
                             class="group relative px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150 w-full sm:w-auto overflow-hidden border border-white">
                             <span class="relative z-10 flex items-center gap-3">
-                                [ INICJUJ_DEMO ]
+                                [ INITIATE_DEMO ]
                             </span>
                         </a>
                     </div>
@@ -154,23 +166,23 @@
                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-white/10 pt-px mt-24 max-w-6xl mx-auto border border-white/10">
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">93%</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Redukcja Strat
+                            <div class="text-[11px] text-gray-400 uppercase tracking-[0.15em] font-sans">Redukcja Strat
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
-                            <div class="text-4xl font-light text-white font-mono mb-2">3000<span
+                            <div class="text-4xl font-light text-white font-mono mb-2">200<span
                                     class="text-lg text-gray-500">ms</span></div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Czas Reakcji
+                            <div class="text-[11px] text-gray-400 uppercase tracking-[0.15em] font-sans">Czas Reakcji
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
-                            <div class="text-4xl font-light text-white font-mono mb-2">ŻYWO</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Monitoring
+                            <div class="text-4xl font-light text-white font-mono mb-2">LIVE</div>
+                            <div class="text-[11px] text-gray-400 uppercase tracking-[0.15em] font-sans">Monitoring
                             </div>
                         </div>
                         <div class="bg-forge-black p-8 group hover:bg-white/5 transition-colors duration-200">
                             <div class="text-4xl font-light text-white font-mono mb-2">0</div>
-                            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-sans">Interwencji
+                            <div class="text-[11px] text-gray-400 uppercase tracking-[0.15em] font-sans">Interwencji
                             </div>
                         </div>
                     </div>
@@ -194,17 +206,19 @@
                     <div class="space-y-8 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-white/10 rounded-sm">
                             <span
-                                class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">INTELIGENTNE_PLANOWANIE</span>
+                                class="text-xs text-gray-400 font-mono tracking-[0.15em] uppercase">INTELLIGENT_PLANNING</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tighter text-white">
                             Kontrola
                             <br />
                             <span class="text-gray-500">w czasie rzeczywistym</span>
                         </h2>
-                        <p class="text-lg text-gray-400 leading-relaxed font-light">
-                            Monitoring 4 maszyn. Śledzenie 12 typów zadań. Natychmiastowa detekcja awarii.
-                            Metryki na żywo: obciążenie maszyn, kolejki zadań, przepustowość hali. Zero interwencji
-                            ręcznej.
+                        <p class="text-lg text-gray-300 leading-relaxed font-light">
+                            Pełna kontrola nad flotą 8 maszyn przemysłowych: 5× CNC (Haas VF-2, DMG MORI, Mazak, Okuma,
+                            Haas VF-4), 2× Assembly (Kuka Robot, Fanuc Robot), 1× Test (EOL Station). Śledzenie 12 typów
+                            operacji: frezowanie, wiercenie, gwintowanie, wytaczanie, planowanie, fazowanie, montaż,
+                            spawanie, okablowanie, testowanie, kalibracja, pakowanie. Metryki na żywo: temperatura,
+                            ciśnienie, RPM, wibracje. Przepustowość: 500+ zadań/godzinę.
                         </p>
                         <ul class="space-y-8 pt-8 border-t border-white/5">
                             <li class="flex items-start gap-6 group">
@@ -212,12 +226,26 @@
                                     class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Algorytm Makespan</div>
-                                    <div class="text-gray-500 text-sm leading-relaxed">
-                                        Optymalizacja harmonogramu w
-                                        czasie &lt;3000ms po wykryciu anomalii.
+                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-sm mb-2">
+                                        ForgeFlow™ MCT-S</div>
+                                    <div class="text-gray-400 text-sm leading-relaxed">
+                                        Autorski algorytm Minimum Completion Time with Setup Awareness. Bazuje na
+                                        Johnson's Rule, LPT heurystyce i work stealing. Latencja <200ms, rebalansowanie
+                                            <500ms. ~15% zadań redystrybuowanych dynamicznie, 40% redukcja czasu
+                                            przezbrajania. </div>
                                     </div>
+                            </li>
+                            <li class="flex items-start gap-6 group">
+                                <div
+                                    class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
+                                </div>
+                                <div>
+                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-sm mb-2">
+                                        Inteligentny Scoring</div>
+                                    <div class="text-gray-400 text-sm leading-relaxed">
+                                        4-fazowy pipeline: sortowanie (priorytet → ograniczenia → LPT), scoring maszyn
+                                        (ETA + setup penalty + transport - preference bonus), optymalna alokacja, work
+                                        stealing. System priorytetów: Critical (3×), Rush (2×), Normal (1×).</div>
                                 </div>
                             </li>
                             <li class="flex items-start gap-6 group">
@@ -225,21 +253,9 @@
                                     class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
-                                        Automatyczny Przydział</div>
-                                    <div class="text-gray-500 text-sm leading-relaxed">
-                                        Algorytm przydziela zadania operatorom z uwzględnieniem priorytetów i
-                                        obciążenia.</div>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-6 group">
-                                <div
-                                    class="mt-1.5 w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:shadow-[0_0_10px_white] transition-shadow">
-                                </div>
-                                <div>
-                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-xs mb-2">
+                                    <div class="font-bold text-white font-mono uppercase tracking-wider text-sm mb-2">
                                         Monitoring Parametrów</div>
-                                    <div class="text-gray-500 text-sm leading-relaxed">
+                                    <div class="text-gray-400 text-sm leading-relaxed">
                                         Śledzenie na żywo: temperatura, ciśnienie, RPM, wibracje. Predykcja awarii przed
                                         wystąpieniem.</div>
                                 </div>
@@ -259,8 +275,8 @@
                             </video>
                         </div>
                         <div
-                            class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1.5 border border-white/10 rounded-sm text-[10px] text-gray-300 pointer-events-none font-mono uppercase tracking-widest">
-                            [ + ] POWIĘKSZ
+                            class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1.5 border border-white/10 rounded-sm text-[11px] text-gray-300 pointer-events-none font-mono uppercase tracking-wide">
+                            [ + ] ZOOM_IN
                         </div>
                     </div>
                 </div>
@@ -285,23 +301,25 @@
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM_IN
                         </div>
                     </div>
 
                     <div class="space-y-6 order-1 lg:order-2 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
                             <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
-                                RZECZYWISTY_WPŁYW</span>
+                                REAL_IMPACT</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
                             Koszt przestoju
                             <br />
                             <span class="text-forge-muted">$72k na godzinę</span>
                         </h2>
-                        <p class="text-xl text-forge-muted leading-relaxed font-light">
-                            ELPLC: 600 jednostek/godz @ $120. $72k przychodu/godz na szali.
-                            Planowanie ręczne: 30 min. ForgeGrid: 2 min. Auto redystrybucja. 93% redukcja strat.
+                        <p class="text-lg text-gray-300 leading-relaxed font-light">
+                            Dane walidacyjne partnera ELPLC: przepustowość 600 jednostek/godz, wartość jednostki $120,
+                            przychód godzinowy $72,000. Przy awarii maszyny: planowanie ręczne zajmuje 30 min (strata
+                            $36,000), ForgeGrid reaguje w 2 min (strata $2,400). Automatyczna ewakuacja zadań z
+                            uszkodzonej maszyny, natychmiastowa redystrybucja przez ForgeFlow™.
                         </p>
                         <div class="grid sm:grid-cols-2 gap-6 pt-4">
                             <div class="p-6 bg-forge-card border border-forge-border rounded-sm">
@@ -320,10 +338,9 @@
                         <div class="p-6 bg-forge-card border border-forge-border rounded-sm mt-4">
                             <div class="text-2xl font-bold text-white mb-1 font-mono">$33,600
                                 OSZCZĘDNOŚCI</div>
-                            <div class="text-sm text-forge-muted">na każdej awarii. Zwrot z inwestycji $4M/rok
-                                przy 10
-                                incydentach/miesiąc
-                                (dane rzeczywiste ELPLC)</div>
+                            <div class="text-sm text-forge-muted">na każdej awarii (28 min × $72k/h). Przy 10
+                                incydentach/miesiąc = $336,000 miesięcznie. Roczny ROI: $4,032,000. Dane zwalidowane
+                                przez partnera przemysłowego ELPLC.</div>
                         </div>
                     </div>
                 </div>
@@ -336,14 +353,14 @@
                     <div class="space-y-6 lg:col-span-2">
                         <div class="inline-block px-3 py-1 border border-forge-border rounded-sm">
                             <span class="text-xs text-forge-muted font-bold font-sans tracking-widest uppercase">■
-                                MODUŁ_ANALITYCZNY</span>
+                                ANALYTICS_MODULE</span>
                         </div>
                         <h2 class="text-4xl md:text-5xl font-bold leading-tight font-sans tracking-tight">
                             Dashboard
                             <br />
                             <span class="text-forge-muted">analityczny</span>
                         </h2>
-                        <p class="text-xl text-forge-muted leading-relaxed font-light">
+                        <p class="text-lg text-gray-300 leading-relaxed font-light">
                             Raportowanie z filtrem czasowym. Monitoring skali, analiza przepustowości,
                             trendy awaryjności na interaktywnych wykresach.
                         </p>
@@ -360,7 +377,8 @@
                                 <div>
                                     <div class="font-bold text-white font-sans text-sm uppercase tracking-wide">3
                                         Interaktywne Wykresy</div>
-                                    <div class="text-sm text-forge-muted">Trend Obciążenia Hali, Przepustowość Zadań,
+                                    <div class="text-sm text-gray-300 leading-relaxed">Trend Obciążenia Hali,
+                                        Przepustowość Zadań,
                                         Wykorzystanie Maszyn. Wszystko aktualizowane na żywo</div>
                                 </div>
                             </div>
@@ -412,7 +430,7 @@
                         </div>
                         <div
                             class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-3 py-1 border border-white/10 rounded-sm text-xs text-gray-300 pointer-events-none font-mono uppercase tracking-wider">
-                            [ + ] POWIĘKSZ
+                            [ + ] ZOOM_IN
                         </div>
                     </div>
                 </div>
@@ -425,7 +443,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-24">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
                         <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">MOŻLIWOŚCI_SYSTEMU</span>
+                            class="text-xs text-gray-400 font-mono tracking-[0.15em] uppercase">SYSTEM_CAPABILITIES</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
                         Architektura
@@ -440,10 +458,6 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
                     <!-- Capability Cards -->
                     <div class="spotlight-card p-12 bg-forge-black group hover:bg-white/5 transition-colors">
-                        <div class="tech-corner tl"></div>
-                        <div class="tech-corner tr"></div>
-                        <div class="tech-corner bl"></div>
-                        <div class="tech-corner br"></div>
                         <div class="mb-6 text-white group-hover:text-gray-300 transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -452,17 +466,13 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
-                            Latencja &lt;3000ms</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Latencja &lt;200ms</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
                             Natychmiastowa rekonfiguracja planu produkcji. Zero opóźnień decyzyjnych.
                         </p>
                     </div>
 
                     <div class="spotlight-card p-12 bg-forge-black group hover:bg-white/5 transition-colors">
-                        <div class="tech-corner tl"></div>
-                        <div class="tech-corner tr"></div>
-                        <div class="tech-corner bl"></div>
-                        <div class="tech-corner br"></div>
                         <div class="mb-6 text-white group-hover:text-gray-300 transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path
@@ -474,16 +484,12 @@
                         </div>
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
                             Optymalizacja Zwrotu</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
+                        <p class="text-gray-400 text-sm leading-relaxed">
                             Minimalizacja strat finansowych. Symulacja scenariuszy awaryjnych.
                         </p>
                     </div>
 
                     <div class="spotlight-card p-12 bg-forge-black group hover:bg-white/5 transition-colors">
-                        <div class="tech-corner tl"></div>
-                        <div class="tech-corner tr"></div>
-                        <div class="tech-corner bl"></div>
-                        <div class="tech-corner br"></div>
                         <div class="mb-6 text-white group-hover:text-gray-300 transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -495,16 +501,12 @@
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
                             Telemetria na Żywo
                         </h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
+                        <p class="text-gray-400 text-sm leading-relaxed">
                             Agregacja danych z czujników IoT. Wizualizacja obciążenia w czasie rzeczywistym.
                         </p>
                     </div>
 
                     <div class="spotlight-card p-12 bg-forge-black group hover:bg-white/5 transition-colors">
-                        <div class="tech-corner tl"></div>
-                        <div class="tech-corner tr"></div>
-                        <div class="tech-corner bl"></div>
-                        <div class="tech-corner br"></div>
                         <div class="mb-6 text-white group-hover:text-gray-300 transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -515,16 +517,14 @@
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
                             Algorytm Makespan
                         </h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
-                            Matematyczna optymalizacja kolejkowania zadań. Redukcja czasu przestoju.
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Hybrid MCT-S: Johnson's Rule + LPT (Longest Processing Time) + bin packing + work stealing.
+                            Formuła: Score = (ETA × priorityWeight) + setupPenalty + transportTime - preferenceBonus.
+                            ~50KB footprint na 100 zadań.
                         </p>
                     </div>
 
                     <div class="spotlight-card p-12 bg-forge-black group hover:bg-white/5 transition-colors">
-                        <div class="tech-corner tl"></div>
-                        <div class="tech-corner tr"></div>
-                        <div class="tech-corner bl"></div>
-                        <div class="tech-corner br"></div>
                         <div class="mb-6 text-white group-hover:text-gray-300 transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path
@@ -534,16 +534,12 @@
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
                             Architektura Rozproszona
                         </h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
+                        <p class="text-gray-400 text-sm leading-relaxed">
                             Edge computing. Cloud-native. Mikrousługi dla maksymalnej skalowalności.
                         </p>
                     </div>
 
                     <div class="spotlight-card p-12 bg-forge-black group hover:bg-white/5 transition-colors">
-                        <div class="tech-corner tl"></div>
-                        <div class="tech-corner tr"></div>
-                        <div class="tech-corner bl"></div>
-                        <div class="tech-corner br"></div>
                         <div class="mb-6 text-white group-hover:text-gray-300 transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -554,7 +550,7 @@
                         <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wider">
                             Warstwa Bezpieczeństwa
                         </h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
+                        <p class="text-gray-400 text-sm leading-relaxed">
                             Szyfrowanie end-to-end. Kontrola dostępu oparta na rolach. Dziennik audytu każdej operacji.
                         </p>
                     </div>
@@ -567,8 +563,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">GŁÓWNY_ZESPÓŁ</span>
+                        <span class="text-[11px] text-gray-400 font-mono tracking-[0.15em] uppercase">CORE_TEAM</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
                         Zespół
@@ -595,9 +590,9 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Szymon Jędryczko
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Inżynier Machine Learning</p>
+                                <p class="text-sm text-gray-400 mb-6 font-mono">Inżynier Machine Learning</p>
                                 <span
-                                    class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
+                                    class="inline-flex items-center gap-2 text-[11px] text-white group-hover:text-gray-300 uppercase tracking-[0.15em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
                                 </span>
                             </div>
@@ -618,9 +613,9 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Agata Syc
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Dyrektor Operacyjny</p>
+                                <p class="text-sm text-gray-400 mb-6 font-mono">Dyrektor Operacyjny</p>
                                 <span
-                                    class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
+                                    class="inline-flex items-center gap-2 text-[11px] text-white group-hover:text-gray-300 uppercase tracking-[0.15em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
                                 </span>
                             </div>
@@ -642,9 +637,9 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Dominik Kamiński
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Programista</p>
+                                <p class="text-sm text-gray-400 mb-6 font-mono">Programista</p>
                                 <span
-                                    class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
+                                    class="inline-flex items-center gap-2 text-[11px] text-white group-hover:text-gray-300 uppercase tracking-[0.15em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
                                 </span>
                             </div>
@@ -665,9 +660,9 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Franciszek Głąb
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Inżynier Bezpieczeństwa</p>
+                                <p class="text-sm text-gray-400 mb-6 font-mono">Inżynier Bezpieczeństwa</p>
                                 <span
-                                    class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
+                                    class="inline-flex items-center gap-2 text-[11px] text-white group-hover:text-gray-300 uppercase tracking-[0.15em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
                                 </span>
                             </div>
@@ -688,9 +683,9 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Rafał Tomaszewski
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Inżynier Jakości</p>
+                                <p class="text-sm text-gray-400 mb-6 font-mono">Inżynier Jakości</p>
                                 <span
-                                    class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
+                                    class="inline-flex items-center gap-2 text-[11px] text-white group-hover:text-gray-300 uppercase tracking-[0.15em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
                                 </span>
                             </div>
@@ -712,9 +707,9 @@
                                 <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">
                                     Mateusz Pawlik
                                 </h3>
-                                <p class="text-xs text-gray-500 mb-6 font-mono">Wsparcie Techniczne</p>
+                                <p class="text-sm text-gray-400 mb-6 font-mono">Wsparcie Techniczne</p>
                                 <span
-                                    class="inline-flex items-center gap-2 text-[10px] text-white group-hover:text-gray-300 uppercase tracking-[0.2em] font-mono border border-white/10 px-3 py-1 rounded-sm">
+                                    class="inline-flex items-center gap-2 text-[11px] text-white group-hover:text-gray-300 uppercase tracking-[0.15em] font-mono border border-white/10 px-3 py-1 rounded-sm">
                                     LINKEDIN
                                 </span>
                             </div>
@@ -729,8 +724,7 @@
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <div class="inline-block px-3 py-1 border border-white/10 rounded-sm mb-8">
-                        <span
-                            class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase">SKONTAKTUJ_SIĘ</span>
+                        <span class="text-xs text-gray-400 font-mono tracking-[0.15em] uppercase">GET_IN_TOUCH</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans tracking-tighter text-white">
                         Inicjuj
@@ -824,10 +818,10 @@
                     <!-- Submit Button -->
                     <button type="submit"
                         class="w-full py-4 bg-white text-black border border-white hover:bg-gray-200 rounded-sm font-bold text-sm font-mono uppercase tracking-widest transition-colors duration-150">
-                        [ WYŚLIJ_FEEDBACK ]
+                        [ SEND_FEEDBACK ]
                     </button>
 
-                    <p class="text-center text-[10px] text-gray-500 font-mono uppercase tracking-wider">
+                    <p class="text-center text-[11px] text-gray-500 font-mono uppercase tracking-wider">
                         Formularz jest całkowicie anonimowy. Nie zbieramy danych osobowych.
                     </p>
                 </form>
@@ -855,31 +849,30 @@
 
                 <!-- Navigation Links -->
                 <div class="flex flex-wrap items-center justify-center gap-8">
-                    <a href="https://github.com/NetBr3ak/internal-machine-monitor" target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]"
+                    <a href="https://github.com/NetBr3ak/forge-grid" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[11px] font-bold font-mono uppercase tracking-[0.15em]"
                         aria-label="Zobacz kod źródłowy na GitHub">
                         GitHub
                     </a>
                     <a href="#platform"
-                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
+                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[11px] font-bold font-mono uppercase tracking-[0.15em]">
                         Platforma
                     </a>
                     <a href="#contact"
-                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[10px] font-bold font-mono uppercase tracking-[0.2em]">
+                        class="text-gray-500 hover:text-white transition-colors duration-150 text-[11px] font-bold font-mono uppercase tracking-[0.15em]">
                         Kontakt
                     </a>
                 </div>
 
                 <!-- Copyright & Credits -->
                 <div class="text-center space-y-2">
-                    <div class="text-[10px] text-gray-600 font-mono uppercase tracking-[0.2em]">
+                    <div class="text-[11px] text-gray-500 font-mono uppercase tracking-[0.15em]">
                         © 2025 ForgeGrid Systems
                     </div>
-                    <div class="text-[9px] text-gray-700 font-mono tracking-wider">
+                    <div class="text-[11px] text-gray-600 font-mono tracking-wide">
                         Autonomiczna Inteligencja dla Operacji Przemysłowych
                     </div>
-                    <div class="text-[9px] text-gray-700 font-mono tracking-wider">
+                    <div class="text-[11px] text-gray-600 font-mono tracking-wide">
                         Strona zaprojektowana i wykonana przez Zespół ForgeGrid
                     </div>
                 </div>
@@ -888,237 +881,48 @@
     </footer>
 
     <!-- Media Modal (Video/Image) -->
-    <div id="dashboardModal" class="modal" onclick="closeModal('dashboardModal')">
+    <div id="dashboardModal" class="modal" onclick="closeModal('dashboardModal')" role="dialog" aria-modal="true"
+        aria-label="Prezentacja platformy">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="modal-close" onclick="closeModal('dashboardModal')">&times;</span>
-            <video controls loop aria-label="Full screen platform video"
-                class="w-full h-full object-contain rounded-xl">
-                <source src="hero-video.mp4" type="video/mp4">
+            <button type="button" class="modal-close bg-transparent border-none focus:outline-none"
+                onclick="closeModal('dashboardModal')" aria-label="Zamknij">&times;</button>
+            <video controls loop aria-label="Full screen platform video" class="w-full h-full object-contain rounded-xl"
+                data-video-src="assets/videos/hero-video.mp4">
+                <source data-src="assets/videos/hero-video.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>
     </div>
 
     <!-- Error Handler Modal -->
-    <div id="errorModal" class="modal" onclick="closeModal('errorModal')">
+    <div id="errorModal" class="modal" onclick="closeModal('errorModal')" role="dialog" aria-modal="true"
+        aria-label="Prezentacja obsługi błędów">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="modal-close" onclick="closeModal('errorModal')">&times;</span>
+            <button type="button" class="modal-close bg-transparent border-none focus:outline-none"
+                onclick="closeModal('errorModal')" aria-label="Zamknij">&times;</button>
             <video controls loop aria-label="Full screen error handler video"
-                class="w-full h-full object-contain rounded-xl">
-                <source src="error_handler.mp4" type="video/mp4">
+                class="w-full h-full object-contain rounded-xl" data-video-src="assets/videos/error_handler.mp4">
+                <source data-src="assets/videos/error_handler.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>
     </div>
 
     <!-- Analytics Modal -->
-    <div id="analyticsModal" class="modal" onclick="closeModal('analyticsModal')">
+    <div id="analyticsModal" class="modal" onclick="closeModal('analyticsModal')" role="dialog" aria-modal="true"
+        aria-label="Prezentacja analityki">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="modal-close" onclick="closeModal('analyticsModal')">&times;</span>
+            <button type="button" class="modal-close bg-transparent border-none focus:outline-none"
+                onclick="closeModal('analyticsModal')" aria-label="Zamknij">&times;</button>
             <video controls loop aria-label="Full screen analytics video"
-                class="w-full h-full object-contain rounded-xl">
-                <source src="analytics.mp4" type="video/mp4">
+                class="w-full h-full object-contain rounded-xl" data-video-src="assets/videos/analytics.mp4">
+                <source data-src="assets/videos/analytics.mp4" type="video/mp4">
                 Twoja przeglądarka nie obsługuje odtwarzania wideo.
             </video>
         </div>
     </div>
 
     <script src="assets/js/app.js"></script>
-</body>
-
-</html>
-modal.classList.add('active');
-document.body.style.overflow = 'hidden';
-
-// Auto-play video when modal opens
-const video = modal.querySelector('video');
-if (video) {
-video.play();
-}
-}
-
-function closeModal(modalId) {
-const modal = document.getElementById(modalId);
-modal.classList.remove('active');
-document.body.style.overflow = 'auto';
-
-// Pause video when modal closes
-const video = modal.querySelector('video');
-if (video) {
-video.pause();
-}
-}
-
-// Close modal with ESC key
-document.addEventListener('keydown', function (event) {
-if (event.key === 'Escape') {
-const activeModal = document.querySelector('.modal.active');
-if (activeModal) {
-activeModal.classList.remove('active');
-document.body.style.overflow = 'auto';
-
-// Pause video when closing with ESC
-const video = activeModal.querySelector('video');
-if (video) {
-video.pause();
-}
-}
-}
-});
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
-}, observerOptions);
-
-// Observe all sections for animations
-document.addEventListener('DOMContentLoaded', () => {
-// Show page after fonts and critical content loaded
-document.body.classList.add('loaded');
-
-const animatedElements = document.querySelectorAll('section > div');
-animatedElements.forEach(el => {
-el.classList.add('fade-in-up');
-observer.observe(el);
-});
-
-// Lazy load videos on viewport enter
-const videos = document.querySelectorAll('video[loading="lazy"]');
-const videoObserver = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const video = entry.target;
-video.play().catch(() => { });
-videoObserver.unobserve(video);
-}
-});
-});
-videos.forEach(video => videoObserver.observe(video));
-});
-
-// Spotlight Effect
-document.addEventListener('mousemove', e => {
-const cards = document.getElementsByClassName('spotlight-card');
-for (const card of cards) {
-const rect = card.getBoundingClientRect();
-const x = e.clientX - rect.left;
-const y = e.clientY - rect.top;
-
-card.style.setProperty('--mouse-x', `${x}px`);
-card.style.setProperty('--mouse-y', `${y}px`);
-}
-});
-
-// Hero Video Rotation System
-const heroVideo = document.getElementById('heroVideo');
-const videoSources = ['hero-video.mp4', 'analytics.mp4', 'error_handler.mp4'];
-let currentVideoIndex = 0;
-let rotationTimeout = null;
-
-// Preload next video for smooth transitions
-function preloadNextVideo() {
-const nextIndex = (currentVideoIndex + 1) % videoSources.length;
-const link = document.createElement('link');
-link.rel = 'prefetch';
-link.as = 'video';
-link.href = videoSources[nextIndex];
-document.head.appendChild(link);
-}
-
-function scheduleNextRotation() {
-const currentVideo = videoSources[currentVideoIndex];
-
-if (currentVideo === 'analytics.mp4') {
-// For analytics, wait for video to end naturally
-// Event listener will handle rotation
-return;
-} else {
-// For hero-video and error_handler, rotate after 10 seconds
-if (rotationTimeout) clearTimeout(rotationTimeout);
-rotationTimeout = setTimeout(() => {
-rotateVideo();
-}, 10000);
-}
-}
-
-function rotateVideo() {
-currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-const nextVideoSrc = videoSources[currentVideoIndex];
-const isAnalytics = nextVideoSrc === 'analytics.mp4';
-
-// Fade out
-heroVideo.style.opacity = '0';
-
-setTimeout(() => {
-// Change source
-const source = heroVideo.querySelector('source');
-source.src = nextVideoSrc;
-
-// For analytics.mp4, disable loop to play once completely
-if (isAnalytics) {
-heroVideo.loop = false;
-heroVideo.removeAttribute('loop');
-} else {
-heroVideo.loop = true;
-heroVideo.setAttribute('loop', '');
-}
-
-heroVideo.load();
-
-// Play and fade in
-heroVideo.play().then(() => {
-heroVideo.style.opacity = '0.5';
-preloadNextVideo();
-scheduleNextRotation();
-}).catch(err => {
-console.log('Video playback error:', err);
-heroVideo.style.opacity = '0.5';
-scheduleNextRotation();
-});
-}, 800);
-}
-
-// Handle video end event for analytics.mp4
-function handleVideoEnd() {
-const currentVideo = videoSources[currentVideoIndex];
-if (currentVideo === 'analytics.mp4') {
-// Analytics finished playing, rotate to error_handler
-setTimeout(() => {
-rotateVideo();
-}, 100);
-}
-}
-
-// Initialize video rotation system
-if (heroVideo) {
-preloadNextVideo();
-heroVideo.addEventListener('ended', handleVideoEnd);
-scheduleNextRotation();
-
-// Optimize video quality based on connection
-if ('connection' in navigator) {
-const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-if (connection && connection.effectiveType) {
-// For slow connections, reduce video loading priority
-if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-heroVideo.preload = 'metadata';
-}
-}
-}
-}
-
-
-</script>
-
 </body>
 
 </html>

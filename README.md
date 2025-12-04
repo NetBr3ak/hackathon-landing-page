@@ -126,8 +126,8 @@
 │   │   └── tailwind-config.js # Design system configuration (Colors, Fonts)
 │   ├── images/               # Optimized raster assets & QR codes
 │   └── videos/               # Compressed video assets
-├── index.html                # Polish entry point (PL)
-├── en.html                   # English entry point (EN)
+├── index.html                # English entry point (EN) - Default
+├── pl.html                   # Polish entry point (PL)
 ├── 404.html                  # Custom error page
 ├── robots.txt                # Crawler directives
 ├── sitemap.xml               # SEO sitemap

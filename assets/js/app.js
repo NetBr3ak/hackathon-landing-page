@@ -197,12 +197,12 @@
 				}
 			}
 
+			// Ensure we don't loop the first video so it can end and rotate
+			elements.heroVideo.removeAttribute('loop');
+
 			this.preloadNext();
 			elements.heroVideo.addEventListener('ended', this.handleEnd.bind(this));
-			// For non-looping videos (analytics) start fading shortly before end so the
-			// end of the clip feels like a graceful fade-out, then rotate to the next.
 			elements.heroVideo.addEventListener('timeupdate', this.handleTimeUpdate.bind(this), { passive: true });
-			this.scheduleRotation();
 
 			// Lazy load other videos
 			this.initLazyLoading();
@@ -285,26 +285,11 @@
 			const current = elements.heroVideo.currentTime || 0;
 			const remaining = duration - current;
 
-			// If we're within fadeDuration of the end and the currently playing clip is non-looping,
-			// trigger a rotation (which will include the fade-out/fade-in flow).
-			const keys = Object.keys(CONFIG.video.files);
-			const currentKey = keys[state.currentVideoIndex];
-			const isAnalytics = currentKey === 'analytics';
-
-			if (isAnalytics && duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.05) {
+			// Trigger rotation shortly before end to allow for cross-fade effect
+			// We use a slightly longer buffer than fadeDuration to ensure smoothness
+			if (duration > 0 && remaining <= (CONFIG.video.fadeDuration / 1000) + 0.1) {
 				this.rotate();
 			}
-		},
-
-		scheduleRotation: function () {
-			const keys = Object.keys(CONFIG.video.files);
-			const currentKey = keys[state.currentVideoIndex];
-			const isAnalytics = CONFIG.video.files[currentKey] === CONFIG.video.files.analytics;
-
-			if (isAnalytics) return; // Wait for 'ended' event
-
-			if (state.rotationTimeout) clearTimeout(state.rotationTimeout);
-			state.rotationTimeout = setTimeout(() => this.rotate(), CONFIG.video.rotationInterval);
 		},
 
 		rotate: function () {
@@ -314,7 +299,6 @@
 			const nextIndex = (state.currentVideoIndex + 1) % keys.length;
 			const nextKey = keys[nextIndex];
 			const nextSrc = getVideoPath(nextKey);
-			const isAnalytics = nextKey === 'analytics';
 
 			// Mark busy so additional rotate/ended/timeupdate events don't double-run
 			state.isFading = true;
@@ -327,11 +311,8 @@
 					if (!source) return;
 
 					source.src = nextSrc;
-					if (isAnalytics) {
-						elements.heroVideo.removeAttribute('loop');
-					} else {
-						elements.heroVideo.setAttribute('loop', '');
-					}
+					// Never loop, always play through to trigger rotation
+					elements.heroVideo.removeAttribute('loop');
 
 					elements.heroVideo.load();
 					try {
@@ -347,7 +328,6 @@
 					// update index now that swap succeeded
 					state.currentVideoIndex = nextIndex;
 					this.preloadNext();
-					this.scheduleRotation();
 				} finally {
 					state.isFading = false;
 				}
@@ -358,10 +338,9 @@
 		},
 
 		handleEnd: function () {
-			const keys = Object.keys(CONFIG.video.files);
-			const currentKey = keys[state.currentVideoIndex];
-			if (currentKey === 'analytics') {
-				setTimeout(() => this.rotate(), 100);
+			// Fallback if timeupdate didn't catch it (e.g. user tabbed away)
+			if (!state.isFading) {
+				this.rotate();
 			}
 		}
 	};
