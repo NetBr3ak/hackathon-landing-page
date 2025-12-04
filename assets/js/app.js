@@ -249,9 +249,21 @@
 			const nextSrc = getVideoPath(nextKey);
 			const isAnalytics = nextKey === 'analytics';
 
-			elements.heroVideo.style.opacity = '0';
+			// Fade out animation
+			let fadeOutStart = null;
+			const startOpacity = parseFloat(elements.heroVideo.style.opacity) || 0.5;
+			function fadeOutStep(ts) {
+				if (!fadeOutStart) fadeOutStart = ts;
+				const progress = Math.min((ts - fadeOutStart) / CONFIG.video.fadeDuration, 1);
+				elements.heroVideo.style.opacity = String(startOpacity * (1 - progress));
+				if (progress < 1) {
+					requestAnimationFrame(fadeOutStep);
+				} else {
+					changeVideo();
+				}
+			}
 
-			setTimeout(() => {
+			function changeVideo() {
 				const source = elements.heroVideo.querySelector('source');
 				if (!source) return;
 
@@ -264,18 +276,29 @@
 				}
 
 				elements.heroVideo.load();
-				elements.heroVideo.play()
-					.then(() => {
-						elements.heroVideo.style.opacity = '0.5';
-						this.preloadNext();
-						this.scheduleRotation();
-					})
-					.catch(err => {
-						console.warn('Video rotation failed:', err);
-						elements.heroVideo.style.opacity = '0.5';
-						this.scheduleRotation(); // Try next rotation anyway
-					});
-			}, CONFIG.video.fadeDuration);
+				elements.heroVideo.oncanplay = function () {
+					fadeIn();
+					VideoManager.preloadNext();
+					VideoManager.scheduleRotation();
+				};
+				elements.heroVideo.play().catch(() => { });
+			}
+
+			// Fade in animation
+			function fadeIn() {
+				let fadeInStart = null;
+				function fadeInStep(ts) {
+					if (!fadeInStart) fadeInStart = ts;
+					const progress = Math.min((ts - fadeInStart) / CONFIG.video.fadeDuration, 1);
+					elements.heroVideo.style.opacity = String(0.5 * progress);
+					if (progress < 1) {
+						requestAnimationFrame(fadeInStep);
+					}
+				}
+				requestAnimationFrame(fadeInStep);
+			}
+
+			requestAnimationFrame(fadeOutStep);
 		},
 
 		handleEnd: function () {
