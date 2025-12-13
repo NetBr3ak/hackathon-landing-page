@@ -27,8 +27,9 @@
 		// Redirect /en/ and /en to the main English page
 		(function() {
 			const path = window.location.pathname;
-			if (path === '/forge-page/en' || path === '/forge-page/en/') {
-				window.location.replace('/forge-page/');
+			const basePath = '/forge-page/';
+			if (path === basePath + 'en' || path === basePath + 'en/') {
+				window.location.replace(basePath);
 			}
 		})();
 	</script>
